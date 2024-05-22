@@ -1,0 +1,67 @@
+name: chat_2
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  http: ^1.2.1
+  equatable: ^2.0.5
+  internet_connection_checker: ^1.0.0+1
+  shared_preferences: ^2.2.3
+  get_it: ^7.7.0
+  dartz: ^0.10.1
+  flutter_bloc: ^8.1.5
+  image_picker: ^1.0.8
+  dropdown_button2: ^2.3.9
+  flutter_svg: ^2.0.10+1
+  flutter_screenutil: ^5.9.0
+  flutter_localization: ^0.2.0
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  # mockito: ^5.4.4
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.13.1"
+  mockito: ^5.4.4
+  mocktail: ^1.0.3
+  # build_runner: ^2.4.10
+
+
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "lib/assets/png/chat-icon-app.png"
+
+  flutter_lints: ^3.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - lib/assets/Svg/icons/
+    - lib/assets/Svg/background/
+    - lib/assets/Svg/tab_bar_icons/
+    - lib/assets/png/
+    - lib/generate/app_localizations/lang/en.json
+    - lib/generate/app_localizations/lang/ar.json
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: lib/assets/font/Poppins/Poppins-Medium.ttf
+        - asset: lib/assets/font/Poppins/Poppins-Black.ttf
+  
