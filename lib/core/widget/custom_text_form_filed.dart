@@ -28,6 +28,8 @@ class CustomTextFormFiled extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 10.h, left: 10.w, right: 10.w),
       child: TextFormField(
+          //!
+          // onEditingComplete:() =>  ,
           textInputAction: TextInputAction.next,
           cursorColor: AppColor.kPrimaryColor,
           obscureText: showPassword,
