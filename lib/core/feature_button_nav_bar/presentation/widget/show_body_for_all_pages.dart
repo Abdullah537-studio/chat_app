@@ -1,5 +1,4 @@
 import 'package:chat_2/core/enum/tab_bar_state.dart';
-import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/features/chat_partner/presentation/pages/chat_bubble_with_partner_page.dart';
 import 'package:chat_2/features/chat_partner/presentation/pages/chat_partner_page.dart';
 import 'package:chat_2/features/search_partner/presentation/pages/find_a_partner_page.dart';
