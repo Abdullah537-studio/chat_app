@@ -14,6 +14,7 @@ class CustomTextFormFiled extends StatelessWidget {
     this.onPressedIcon,
     required this.keyboardTybe,
     required this.showPassword,
+    this.onEdithingComplete,
   });
   final String? Function(String?)? validate;
   final Function(String?)? onChange;
@@ -22,6 +23,7 @@ class CustomTextFormFiled extends StatelessWidget {
   Function()? onPressedIcon;
   final TextInputType? keyboardTybe;
   final bool showPassword;
+  Function()? onEdithingComplete;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +31,9 @@ class CustomTextFormFiled extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 10.h, left: 10.w, right: 10.w),
       child: TextFormField(
           //!
-          // onEditingComplete:() =>  ,
-          textInputAction: TextInputAction.next,
+
+          onEditingComplete: onEdithingComplete,
+          textInputAction: TextInputAction.done,
           cursorColor: AppColor.kPrimaryColor,
           obscureText: showPassword,
           obscuringCharacter: "⋆",

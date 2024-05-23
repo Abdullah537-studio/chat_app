@@ -17,6 +17,7 @@ String pinceliconImagePicker = "lib/assets/Svg/icons/pencil-square_svg.svg";
 String calenderIcondate = "lib/assets/Svg/icons/calendar-date-fill.svg";
 String imageAvatar = "lib/assets/Svg/icons/image.svg";
 String arrowDown = "lib/assets/Svg/icons/arrow-down-b.svg";
+String checkTrue = "lib/assets/Svg/icons/check.svg";
 //?---------------------
 //! icons tab bar
 String searchIcon = "lib/assets/Svg/tab_bar_icons/search.svg";

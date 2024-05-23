@@ -42,7 +42,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => di.sl<LoginCubit>(),
-            child: const LoginPage(),
+            child: LoginPage(),
           ),
         );
 

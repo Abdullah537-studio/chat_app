@@ -2,18 +2,15 @@
 
 import 'package:chat_2/core/enum/tab_bar_state.dart';
 import 'package:chat_2/core/feature_button_nav_bar/presentation/bootom_navigation_tab_bar_cubit/bootom_tab_bar_cubit.dart';
-import 'package:chat_2/home/home_body.dart';
+import 'package:chat_2/core/feature_button_nav_bar/presentation/widget/show_app_bar_for_all_pages.dart';
+import 'package:chat_2/core/feature_button_nav_bar/presentation/widget/show_body_tab_bar_pages.dart';
 import 'package:chat_2/core/feature_button_nav_bar/presentation/widget/custom_navigation_bar_theme_data.dart';
 import 'package:chat_2/core/feature_button_nav_bar/presentation/widget/custom_navigation_destination.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
-import 'package:chat_2/core/widget/custom_appbar.dart';
-import 'package:chat_2/features/chat_partner/presentation/pages/chat_bubble_with_partner_page.dart';
-import 'package:chat_2/features/chat_partner/presentation/pages/chat_partner_page.dart';
 import 'package:chat_2/features/search_partner/data/models/requiest/search_partner_requiest_model.dart';
-import 'package:chat_2/features/search_partner/presentation/pages/find_a_partner_page.dart';
-import 'package:chat_2/features/search_partner/presentation/pages/suggestions_partner_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,41 +23,11 @@ class BootomNabigationAllPages extends StatelessWidget {
   final GlobalKey<FormState> formState = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    final appBarStringsScreen = <String>[
-      translating(context, AppKeyTranslateManger.home),
-      translating(context, AppKeyTranslateManger.findpartner),
-      translating(context, AppKeyTranslateManger.message),
-    ];
     return BlocBuilder<BootomTabBarCubit, BootomTabBarState>(
       builder: (context, state) => Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
 //!----------------------appBar
-        appBar: bodyTabBardestination == TabBarStatus.suggetionPartner
-            ? buildAppBar(
-                context,
-                translating(context, AppKeyTranslateManger.suggset),
-                true,
-                () {
-                  bodyTabBardestination = TabBarStatus.search;
-                  context.read<BootomTabBarCubit>().getIndexTabBar();
-                },
-              )
-            : bodyTabBardestination == TabBarStatus.chatBubble
-                ? buildAppBar(
-                    context,
-                    ChatBubblePartnerPage.userName,
-                    true,
-                    () {
-                      bodyTabBardestination = TabBarStatus.chatInfo;
-                      context.read<BootomTabBarCubit>().getIndexTabBar();
-                    },
-                  )
-                : buildAppBar(
-                    context,
-                    appBarStringsScreen[state.index ?? 0],
-                    false,
-                    () {},
-                  ),
+        appBar: showAppBarForAllPages(context, state.index ?? 0),
 //!------------------bootm navigation bar
         bottomNavigationBar: CustomNavigationBarThemeData(
           child: NavigationBar(
@@ -136,16 +103,8 @@ class BootomNabigationAllPages extends StatelessWidget {
             ],
           ),
         ),
-//!----------------------------body
-        body: bodyTabBardestination == TabBarStatus.search
-            ? FindAPartnerPage()
-            : bodyTabBardestination == TabBarStatus.chatInfo
-                ? const ChatPage()
-                : bodyTabBardestination == TabBarStatus.chatBubble
-                    ? const ChatBubblePartnerPage()
-                    : bodyTabBardestination == TabBarStatus.suggetionPartner
-                        ? SuggestionPartner()
-                        : const HomePage(),
+//!----------------------------show body as enum shown
+        body: ShowBodyTabBarPages(),
       ),
     );
   }
