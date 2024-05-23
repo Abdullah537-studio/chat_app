@@ -1,5 +1,6 @@
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
+import 'package:chat_2/generate/theme/custom_outline_input_border_box_send_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,16 +34,8 @@ class CustomBoxSendMessage extends StatelessWidget {
               onPressed: onPressedIconSendMessage),
           contentPadding: EdgeInsets.only(left: 20.w),
           //? -------border
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(100.r),
-            borderSide:
-                BorderSide(width: 1.w, color: Theme.of(context).hintColor),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(100.r),
-            borderSide:
-                BorderSide(width: 1.w, color: Theme.of(context).hintColor),
-          ),
+          focusedBorder: outlineInputBorderBoxChat(Theme.of(context).hintColor),
+          enabledBorder: outlineInputBorderBoxChat(Theme.of(context).hintColor),
         ),
       ),
     );

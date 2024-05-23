@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 InputDecorationTheme? custominputDecorationTheme = InputDecorationTheme(
-    hintStyle: TextStyle(color: AppColor.kColorGrey, fontSize: 20.sp),
-    errorBorder: outlineInputBorder(Colors.red),
-    enabledBorder: outlineInputBorder(AppColor.kColorBlack),
-    focusedBorder: outlineInputBorder(AppColor.kPrimaryColor),
-    suffixIconColor: AppColor.iconColorGrey,
-    focusedErrorBorder:
-        outlineInputBorder(const Color.fromARGB(255, 94, 17, 11)),
-    contentPadding:
-        EdgeInsets.only(top: 25.h, bottom: 25.h, right: 20.w, left: 20.w));
+  hintStyle: TextStyle(color: AppColor.kColorGrey, fontSize: 20.sp),
+  errorBorder: outlineInputBorder(AppColor.kErroreBorderColor),
+  enabledBorder: outlineInputBorder(AppColor.kColorBlack),
+  focusedBorder: outlineInputBorder(AppColor.kPrimaryColor),
+  focusedErrorBorder: outlineInputBorder(AppColor.kErroreFoucaseBorderColor),
+  suffixIconColor: AppColor.iconColorGrey,
+  contentPadding: EdgeInsets.only(
+    top: 25.h,
+    bottom: 25.h,
+    right: 20.w,
+    left: 20.w,
+  ),
+);
