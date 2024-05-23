@@ -4,19 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBoxSendMessage extends StatelessWidget {
-  const CustomBoxSendMessage(
-      {super.key,
-      // required this.controller,
-      this.onChangeTextFormField,
-      this.onPressedIconSendMessage});
-  // final TextEditingController controller;
+  const CustomBoxSendMessage({
+    super.key,
+    this.onChangeTextFormField,
+    this.onPressedIconSendMessage,
+  });
   final Function(String)? onChangeTextFormField;
   final Function()? onPressedIconSendMessage;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: EdgeInsets.only(top: 10.h),
       padding: EdgeInsets.symmetric(horizontal: 5.w),
       width: double.infinity,
       child: TextField(
@@ -26,6 +24,8 @@ class CustomBoxSendMessage extends StatelessWidget {
         cursorColor: AppColor.kPrimaryColor,
         cursorHeight: 30.h,
         decoration: InputDecoration(
+          focusColor: AppColor.kColorWhite,
+
           hintText: translating(context, AppKeyTranslateManger.write_a_message),
           hintStyle: Theme.of(context).textTheme.labelMedium,
           suffixIcon: IconButton(
@@ -35,11 +35,13 @@ class CustomBoxSendMessage extends StatelessWidget {
           //? -------border
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(100.r),
-            borderSide: BorderSide(width: 1.w, color: Colors.blueGrey),
+            borderSide:
+                BorderSide(width: 1.w, color: Theme.of(context).hintColor),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(100.r),
-            borderSide: BorderSide(width: 1.w, color: Colors.blueGrey),
+            borderSide:
+                BorderSide(width: 1.w, color: Theme.of(context).hintColor),
           ),
         ),
       ),

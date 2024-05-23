@@ -5,7 +5,6 @@ import 'package:chat_2/core/widget/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-//!---------------AppBar all pages { Back , Change Theme }
 AppBar buildAppBar(
   BuildContext context,
   String text,

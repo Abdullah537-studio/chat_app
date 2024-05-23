@@ -20,7 +20,9 @@ String arrowDown = "lib/assets/Svg/icons/arrow-down-b.svg";
 String checkTrue = "lib/assets/Svg/icons/check.svg";
 //?---------------------
 //! icons tab bar
-String searchIcon = "lib/assets/Svg/tab_bar_icons/search.svg";
+String searchIconEnable = "lib/assets/Svg/icons/search_kprimary_color.svg";
+String searchIconDisalbe = "lib/assets/Svg/icons/search_black_color.svg";
+String searchIcon = "lib/assets/Svg/icons/search_black_color.svg";
 String chatIcon = "lib/assets/Svg/tab_bar_icons/drop_chat.svg";
 String homeIcon = "lib/assets/Svg/tab_bar_icons/home.svg";
 //?---------------------

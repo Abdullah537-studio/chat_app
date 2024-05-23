@@ -75,7 +75,6 @@ class ChatBubblePartnerPage extends StatelessWidget {
                   ),
                   //?------------------------------Box Send Message ------------------------------
                   CustomBoxSendMessage(
-                    // controller: controller,
                     onChangeTextFormField: (val) {
                       chatBubbleRequiest.message = val;
                     },
@@ -85,7 +84,6 @@ class ChatBubblePartnerPage extends StatelessWidget {
                           .chatBubble(chatBubbleRequiest);
 
                       context.read<ChatDialogCubit>().getChatDialog();
-                      // controller.clear();
                     },
                   ),
                 ],

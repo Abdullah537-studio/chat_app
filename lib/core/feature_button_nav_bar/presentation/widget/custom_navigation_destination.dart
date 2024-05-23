@@ -3,6 +3,7 @@
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomNavigationDestination extends StatelessWidget {
   const CustomNavigationDestination(
@@ -11,15 +12,20 @@ class CustomNavigationDestination extends StatelessWidget {
       required this.childDisable,
       required this.childenable});
   final String text;
-  final Widget childDisable;
-  final Widget childenable;
+  final String childDisable;
+  final String childenable;
   @override
   Widget build(BuildContext context) {
     return NavigationDestination(
       icon: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          childDisable,
+          SvgPicture.asset(
+            childDisable,
+            width: 40.w,
+            height: 40.h,
+            color: AppColor.kColorBlack,
+          ),
           Text(
             text,
             style: TextStyle(
@@ -32,7 +38,12 @@ class CustomNavigationDestination extends StatelessWidget {
       selectedIcon: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          childenable,
+          SvgPicture.asset(
+            childenable,
+            width: 40.w,
+            height: 40.h,
+            color: AppColor.kPrimaryColor,
+          ),
           Text(
             text,
             style: TextStyle(
