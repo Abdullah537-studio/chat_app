@@ -58,12 +58,15 @@ class ChatBubblePartnerPage extends StatelessWidget {
                   Expanded(
                     child: ListView.builder(
                       itemBuilder: (context, index) {
-                        return state.chatDialog!.dialogs[index].who == userId
-                            ? CustomChatBubleUser(
-                                text: state.chatDialog!.dialogs[index].message)
-                            : CustomChatBublePartner(
-                                text: state.chatDialog!.dialogs[index].message,
-                              );
+                        if (state.chatDialog!.dialogs[index].who == userId) {
+                          return CustomChatBubleUser(
+                            text: state.chatDialog!.dialogs[index].message,
+                          );
+                        } else {
+                          return CustomChatBublePartner(
+                            text: state.chatDialog!.dialogs[index].message,
+                          );
+                        }
                       },
                       itemCount: state.chatDialog!.dialogs.length,
                     ),
