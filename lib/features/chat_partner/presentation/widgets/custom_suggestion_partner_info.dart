@@ -55,12 +55,14 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
                         color: AppColor.kColorTransparent),
                     child: child),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    CustomTextWidget.textBlackColorBigThanMedium(name, context),
                     Padding(
-                        padding: EdgeInsets.only(top: 8.h, bottom: 25.h),
-                        child: CustomTextWidget.textBodyMedium(name, context)),
-                    CustomTextWidget.textBodyMedium("Age: $age", context),
+                      padding: EdgeInsets.symmetric(vertical: 10.h),
+                      child:
+                          CustomTextWidget.textBodyMedium("Age: $age", context),
+                    ),
                     CustomTextWidget.textBodyMedium(
                         "Country name: $cityName", context),
                   ],

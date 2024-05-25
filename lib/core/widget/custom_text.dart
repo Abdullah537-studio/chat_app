@@ -1,5 +1,6 @@
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //? body medium text black always
 class CustomTextWidget {
@@ -44,8 +45,18 @@ class CustomTextWidget {
       text,
       style: Theme.of(context)
           .textTheme
-          .labelSmall!
+          .bodyMedium!
           .copyWith(color: AppColor.kPrimaryColor),
+    );
+  }
+
+  static Widget textBlackColorBigThanMedium(String text, BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+          fontSize: 22.sp,
+          color: AppColor.kColorBlack,
+          fontWeight: FontWeight.w500),
     );
   }
 }

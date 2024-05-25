@@ -2,6 +2,7 @@
 
 import 'package:chat_2/core/enum/tab_bar_state.dart';
 import 'package:chat_2/core/feature_button_nav_bar/presentation/bootom_navigation_tab_bar_cubit/bootom_tab_bar_cubit.dart';
+import 'package:chat_2/core/feature_button_nav_bar/presentation/widget/custom_navigation)destination_search_icon.dart';
 import 'package:chat_2/core/feature_button_nav_bar/presentation/widget/show_app_bar_for_all_pages.dart';
 import 'package:chat_2/core/feature_button_nav_bar/presentation/widget/show_body_for_all_pages.dart';
 import 'package:chat_2/core/feature_button_nav_bar/presentation/widget/custom_navigation_bar_theme_data.dart';
@@ -49,7 +50,7 @@ class BootomNabigationAllPages extends StatelessWidget {
                 text: translating(context, AppKeyTranslateManger.home),
               ),
               //?---------Search
-              CustomNavigationDestination(
+              CustomNavigationSearchIconDestination(
                 childDisable: searchIconDisalbe,
                 childenable: searchIconEnable,
                 text: "",

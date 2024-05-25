@@ -15,18 +15,16 @@ class CustomBoxSendMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5.w),
-      width: double.infinity,
+    return Padding(
+      padding: EdgeInsets.only(top: 10.h),
       child: TextField(
         onEditingComplete: onPressedIconSendMessage,
         onChanged: onChangeTextFormField,
         style: Theme.of(context).textTheme.bodyMedium,
         cursorColor: AppColor.kPrimaryColor,
-        cursorHeight: 30.h,
+        cursorHeight: 25.h,
         decoration: InputDecoration(
-          focusColor: AppColor.kColorWhite,
-
+          focusColor: AppColor.kColorBlack,
           hintText: translating(context, AppKeyTranslateManger.write_a_message),
           hintStyle: Theme.of(context).textTheme.labelMedium,
           suffixIcon: IconButton(
@@ -34,8 +32,8 @@ class CustomBoxSendMessage extends StatelessWidget {
               onPressed: onPressedIconSendMessage),
           contentPadding: EdgeInsets.only(left: 20.w),
           //? -------border
-          focusedBorder: outlineInputBorderBoxChat(Theme.of(context).hintColor),
-          enabledBorder: outlineInputBorderBoxChat(Theme.of(context).hintColor),
+          focusedBorder: outlineInputBorderBoxChat(AppColor.kPrimaryColor),
+          enabledBorder: outlineInputBorderBoxChat(AppColor.kColorBlack),
         ),
       ),
     );

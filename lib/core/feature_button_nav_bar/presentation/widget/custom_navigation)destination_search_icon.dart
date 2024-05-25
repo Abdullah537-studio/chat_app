@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CustomNavigationDestination extends StatelessWidget {
-  const CustomNavigationDestination(
+class CustomNavigationSearchIconDestination extends StatelessWidget {
+  const CustomNavigationSearchIconDestination(
       {super.key,
       required this.text,
       required this.childDisable,
@@ -22,9 +22,8 @@ class CustomNavigationDestination extends StatelessWidget {
         children: [
           SvgPicture.asset(
             childDisable,
-            width: 40.w,
-            height: 40.h,
-            color: AppColor.kColorIconDisable,
+            width: 75.w,
+            height: 75.h,
           ),
           Text(
             text,
@@ -40,9 +39,8 @@ class CustomNavigationDestination extends StatelessWidget {
         children: [
           SvgPicture.asset(
             childenable,
-            width: 40.w,
-            height: 40.h,
-            color: AppColor.kPrimaryColor,
+            width: 75.w,
+            height: 75.h,
           ),
           Text(
             text,

@@ -12,6 +12,7 @@ class AppColor {
   static Color kColorTransparent = Colors.transparent;
   static Color kColorGrey = Colors.grey;
   static Color kColorDarkMode = Color.fromARGB(255, 134, 25, 17);
+  static Color kColorIconDisable = Color(0xff2E2E2E);
   static Color? iconColorGrey = MaterialStateColor.resolveWith(
     (states) {
       if (states.contains(MaterialState.error)) {

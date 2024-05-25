@@ -18,35 +18,32 @@ class CustomFormDate extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 16.h),
-      child: SizedBox(
-        height: 75.h,
-        child: GestureDetector(
-          onTap: () {
-            //! this method get date  in core
-            selectDate(context, controller);
-          },
-          child: TextFormField(
-            validator: validationAll.validateGenerall,
-            style: Theme.of(context).textTheme.bodyMedium,
-            controller: controller,
-            enabled: false,
-            decoration: InputDecoration(
-              disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12.r),
-                  borderSide: BorderSide(width: 2.w)),
-              contentPadding:
-                  EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
-              isDense: true,
-              hintText:
-                  translating(context, AppKeyTranslateManger.date_form_search),
-              hintStyle: Theme.of(context).textTheme.labelMedium,
-              suffixIcon: Tab(
-                child: SvgPicture.asset(
-                  calenderIcondate,
-                  color: AppColor.iconColorGrey,
-                  height: 25.h,
-                  width: 25.w,
-                ),
+      child: GestureDetector(
+        onTap: () {
+          //! this method get date  in core
+          selectDate(context, controller);
+        },
+        child: TextFormField(
+          validator: validationAll.validateGenerall,
+          style: Theme.of(context).textTheme.bodyMedium,
+          controller: controller,
+          enabled: false,
+          decoration: InputDecoration(
+            disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.r),
+                borderSide: BorderSide(width: 2.w)),
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
+            isDense: true,
+            hintText:
+                translating(context, AppKeyTranslateManger.date_form_search),
+            hintStyle: Theme.of(context).textTheme.labelMedium,
+            suffixIcon: Tab(
+              child: SvgPicture.asset(
+                calenderIcondate,
+                color: AppColor.kColorBlack,
+                height: 25.h,
+                width: 25.w,
               ),
             ),
           ),

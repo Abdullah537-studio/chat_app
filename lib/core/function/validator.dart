@@ -13,6 +13,19 @@ class validationAll {
     return null;
   }
 
+//? ------------------- validate generall
+
+  static String? validateAgeNumber(String? val) {
+    if (val!.isEmpty) {
+      return "this field is reqiured";
+    } else if (val.contains(",") || val.contains(".")) {
+      return "age not currect";
+    } else if (int.parse(val) < 9 && int.parse(val) > 100) {
+      return "age must be between 9 and 100 year";
+    }
+    return null;
+  }
+
 //? ------------------- dropdown
 
   static String? validateDropdown(String? val) {

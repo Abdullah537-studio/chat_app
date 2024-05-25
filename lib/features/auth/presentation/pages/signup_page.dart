@@ -20,6 +20,7 @@ import 'package:chat_2/features/search_partner/presentation/widgets/custom_gende
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 class SignUpPage extends StatelessWidget {
   static String? passwordToValidate;
@@ -27,7 +28,7 @@ class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> formState = GlobalKey();
+    final GlobalKey<FormState> formStateSignUp = GlobalKey();
     SigninRequest signinEntite = SigninRequest();
     return Container(
       decoration: BoxDecoration(
@@ -38,168 +39,160 @@ class SignUpPage extends StatelessWidget {
           fit: BoxFit.fill,
         ),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: ListView(
-          padding: EdgeInsets.symmetric(horizontal: 46.w, vertical: 30.h),
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: CustomTextWidget.textBodyMedium(
-                  translating(context, AppKeyTranslateManger.singup), context),
-            ),
-            Form(
-                key: formState,
-                child: Column(
-                  children: [
-                    //?------- image avatar --------------------------------------------------------
-                    CustomImage(
-                      imageFunction: (image) {
-                        debugPrint(image);
-                        signinEntite.avatar = image;
-                      },
-                    ),
-                    //?-------- name && age --------------------------------------------------------
-                    CustomTextFormFiled(
-                      hintText:
-                          translating(context, AppKeyTranslateManger.name),
-                      keyboardTybe: TextInputType.name,
-                      showPassword: false,
-                      validate: validationAll.validateGenerall,
-                      onChange: (value) {
-                        signinEntite.name = value;
-                      },
-                    ),
-                    CustomTextFormFiled(
-                      showPassword: false,
-                      hintText: translating(context, AppKeyTranslateManger.age),
-                      keyboardTybe: TextInputType.number,
-                      validate: validationAll.validateGenerall,
-                      onChange: (value) {
-                        value = value!.isEmpty ? "0" : value;
-                        int age = int.parse(value);
-                        signinEntite.age = age;
-                      },
-                    ),
-                    //?---------dropDownButton: Gender ---------------------------------------------
-                    CustomGenderDropDown(
-                      genderFunction: (gender) => signinEntite.gender = gender,
-                    ),
-                    //?------------dropDownButton: country && city----------------------------------
-                    CustomCountryGet(
-                      onCountrySelected: (selectedCountry) {
-                        signinEntite.countryId = selectedCountry;
-                      },
-                      onCitySelected: (selectedCity) {
-                        signinEntite.cityId = selectedCity;
-                      },
-                    ),
-                    //?-----------phone && email----------------------------------------------------
-                    CustomTextFormFiled(
-                      hintText:
-                          translating(context, AppKeyTranslateManger.phone),
-                      keyboardTybe: TextInputType.phone,
-                      showPassword: false,
-                      validate: validationAll.validatePhoneNumber,
-                      onChange: (value) {
-                        signinEntite.phoneNumber = value;
-                      },
-                    ),
-                    CustomTextFormFiled(
-                      hintText:
-                          translating(context, AppKeyTranslateManger.email),
-                      keyboardTybe: TextInputType.emailAddress,
-                      showPassword: false,
-                      validate: validationAll.validateEmail,
-                      icon: Icon(
-                        Icons.email,
-                        size: 35.r,
-                      ),
-                      onChange: (value) {
-                        signinEntite.emailAddress = value;
-                      },
-                    ),
-                    //?---------- password && reenter password -------------------------------------
-                    CustomTextFormFiled(
-                      hintText:
-                          translating(context, AppKeyTranslateManger.password),
-                      keyboardTybe: TextInputType.visiblePassword,
-                      showPassword: true,
-                      icon: Icon(
-                        Icons.vpn_key,
-                        size: 35.r,
-                      ),
-                      validate: validationAll.validatePassword,
-                      onChange: (value) {
-                        signinEntite.password = value!;
-                        passwordToValidate = value;
-                      },
-                    ),
-                    CustomTextFormFiled(
-                      hintText: translating(
-                          context, AppKeyTranslateManger.reenterPassword),
-                      keyboardTybe: TextInputType.visiblePassword,
-                      showPassword: true,
-                      validate: validationAll.validateReenterPassword,
-                      icon: Icon(
-                        Icons.vpn_key,
-                        size: 35.r,
-                      ),
-                      onChange: (value) {},
-                    ),
-                    //?-----------------accept system ----------------------------------------------
-                    AcceptTheTermsAndServices(),
-                    //?----------------button signup------------------------------------------------
-                    BlocConsumer<SignUpCubit, SignUpState>(
-                      listener: (context, state) {
-                        if (state.status == CubitStatus.faild) {
-                          showSnackBar(
-                            context,
-                            translating(
-                                context, AppKeyTranslateManger.errorInfo),
-                          );
-                        }
-                        if (state.status == CubitStatus.done) {
-                          showDialog(
-                              context: context,
-                              builder: (_) => const LoginToContainue());
-                        }
-                      },
-                      builder: (context, state) {
-                        if (state.status == CubitStatus.loading) {
-                          return const loadingIndicator();
-                        } else {
-                          return CustomButto(
-                            backgroundColor: AppColor.kPrimaryColor,
-                            borderColor: AppColor.kColorWhite,
-                            onPressed: () {
-                              validationAll.passwordValidate =
-                                  signinEntite.password;
-                              if (formState.currentState!.validate()) {
-                                context
-                                    .read<SignUpCubit>()
-                                    .signin(signinEntity: signinEntite);
-                              }
-                            },
-                            text: translating(
-                                context, AppKeyTranslateManger.singup),
-                          );
+      child: Form(
+        key: formStateSignUp,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: ListView(
+            padding: EdgeInsets.symmetric(horizontal: 46.w, vertical: 30.h),
+            children: [
+              Align(
+                alignment: Alignment.center,
+                child: CustomTextWidget.textTitleMedium(
+                    translating(context, AppKeyTranslateManger.singup),
+                    context),
+              ),
+              CustomImage(
+                imageFunction: (image) {
+                  debugPrint(image);
+                  signinEntite.avatar = image;
+                },
+              ),
+              //?-------- name && age --------------------------------------------------------
+              CustomTextFormFiled(
+                hintText: translating(context, AppKeyTranslateManger.name),
+                keyboardTybe: TextInputType.name,
+                showPassword: false,
+                validate: validationAll.validateGenerall,
+                onChange: (value) {
+                  signinEntite.name = value;
+                },
+              ),
+              CustomTextFormFiled(
+                showPassword: false,
+                hintText: translating(context, AppKeyTranslateManger.age),
+                keyboardTybe: TextInputType.number,
+                validate: validationAll.validateAgeNumber,
+                onChange: (value) {
+                  value = value!.isEmpty ? "0" : value;
+                  if (value is NumberFormat) {
+                    int age = int.parse(value);
+                    signinEntite.age = age;
+                  }
+                },
+              ),
+              //?---------dropDownButton: Gender ---------------------------------------------
+              CustomGenderDropDown(
+                genderFunction: (gender) => signinEntite.gender = gender,
+              ),
+              //?------------dropDownButton: country && city----------------------------------
+              CustomCountryGet(
+                onCountrySelected: (selectedCountry) {
+                  signinEntite.countryId = selectedCountry;
+                },
+                onCitySelected: (selectedCity) {
+                  signinEntite.cityId = selectedCity;
+                },
+              ),
+              //?-----------phone && email----------------------------------------------------
+              CustomTextFormFiled(
+                hintText: translating(context, AppKeyTranslateManger.phone),
+                keyboardTybe: TextInputType.phone,
+                showPassword: false,
+                validate: validationAll.validatePhoneNumber,
+                onChange: (value) {
+                  signinEntite.phoneNumber = value;
+                },
+              ),
+              CustomTextFormFiled(
+                hintText: translating(context, AppKeyTranslateManger.email),
+                keyboardTybe: TextInputType.emailAddress,
+                showPassword: false,
+                validate: validationAll.validateEmail,
+                icon: Icon(
+                  Icons.email,
+                  size: 35.r,
+                ),
+                onChange: (value) {
+                  signinEntite.emailAddress = value;
+                },
+              ),
+              //?---------- password && reenter password -------------------------------------
+              CustomTextFormFiled(
+                hintText: translating(context, AppKeyTranslateManger.password),
+                keyboardTybe: TextInputType.visiblePassword,
+                showPassword: true,
+                icon: Icon(
+                  Icons.vpn_key,
+                  size: 35.r,
+                ),
+                validate: validationAll.validatePassword,
+                onChange: (value) {
+                  signinEntite.password = value!;
+                  passwordToValidate = value;
+                },
+              ),
+              CustomTextFormFiled(
+                hintText:
+                    translating(context, AppKeyTranslateManger.reenterPassword),
+                keyboardTybe: TextInputType.visiblePassword,
+                showPassword: true,
+                validate: validationAll.validateReenterPassword,
+                icon: Icon(
+                  Icons.vpn_key,
+                  size: 35.r,
+                ),
+                onChange: (value) {},
+              ),
+              //?-----------------accept system ----------------------------------------------
+              AcceptTheTermsAndServices(),
+              //?----------------button signup------------------------------------------------
+              BlocConsumer<SignUpCubit, SignUpState>(
+                listener: (context, state) {
+                  if (state.status == CubitStatus.faild) {
+                    showSnackBar(
+                      context,
+                      translating(context, AppKeyTranslateManger.errorInfo),
+                    );
+                  }
+                  if (state.status == CubitStatus.done) {
+                    showDialog(
+                        context: context,
+                        builder: (_) => const LoginToContainue());
+                  }
+                },
+                builder: (context, state) {
+                  if (state.status == CubitStatus.loading) {
+                    return const loadingIndicator();
+                  } else {
+                    return CustomButto(
+                      backgroundColor: AppColor.kPrimaryColor,
+                      borderColor: AppColor.kColorWhite,
+                      onPressed: () {
+                        validationAll.passwordValidate = signinEntite.password;
+                        if (formStateSignUp.currentState!.validate()) {
+                          context
+                              .read<SignUpCubit>()
+                              .signin(signinEntity: signinEntite);
                         }
                       },
-                    ),
-                  ],
-                ))
-          ],
+                      text: translating(context, AppKeyTranslateManger.singup),
+                    );
+                  }
+                },
+              )
+            ],
+          ),
+          //?------------------------- if have account already
+          bottomNavigationBar: CustomHaveOrNoteHaveAccount(
+              text: translating(
+                  context, AppKeyTranslateManger.already_have_account),
+              textButton: translating(context, AppKeyTranslateManger.login),
+              onpressed: () {
+                Navigator.of(context).pushReplacementNamed(
+                    RouteNamedScreens.loginScreenNameRoute);
+              }),
         ),
-//?------------------------- if have account already
-        bottomNavigationBar: CustomHaveOrNoteHaveAccount(
-            text: translating(
-                context, AppKeyTranslateManger.already_have_account),
-            textButton: translating(context, AppKeyTranslateManger.login),
-            onpressed: () {
-              Navigator.of(context)
-                  .pushReplacementNamed(RouteNamedScreens.loginScreenNameRoute);
-            }),
       ),
     );
   }

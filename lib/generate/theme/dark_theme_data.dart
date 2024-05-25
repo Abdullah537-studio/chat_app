@@ -25,9 +25,10 @@ ThemeData darkTheme = ThemeData(
             TextStyle(fontSize: 16.sp, color: AppColor.kColorWhite)),
         backgroundColor: MaterialStatePropertyAll(AppColor.kPrimaryColor),
       ),
-    ), //! drop down
-    dropdownMenuTheme:
-        DropdownMenuThemeData(inputDecorationTheme: custominputDecorationTheme),
+    ),
+    //! drop down menu
+    // dropdownMenuTheme: DropdownMenuThemeData(
+    //     inputDecorationTheme: custominputDecorationDropDownTheme),
     fontFamily: 'Poppins',
     appBarTheme: AppBarTheme(
       backgroundColor: AppColor.kPrimaryColor,

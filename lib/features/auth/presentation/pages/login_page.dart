@@ -20,14 +20,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  GlobalKey<FormState>? formStateLogin = GlobalKey();
+  bool rememberMe = false;
+  LoginRequest loginEntite = LoginRequest();
+  @override
   Widget build(BuildContext context) {
-    final GlobalKey<FormState> formState = GlobalKey();
-    bool rememberMe = false;
-    LoginRequest loginEntite = LoginRequest();
 //!---------container for background image --------
     return Container(
       decoration: BoxDecoration(
@@ -39,7 +44,7 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-//?-------------ask to login if you do register last time ----------------------
+        //!-------------ask to login if you do register last time ------------
         bottomNavigationBar: CustomHaveOrNoteHaveAccount(
           text: translating(context, AppKeyTranslateManger.not_have_an_account),
           textButton: translating(context, AppKeyTranslateManger.singup),
@@ -51,8 +56,9 @@ class LoginPage extends StatelessWidget {
           },
         ),
         backgroundColor: Colors.transparent,
+        //!------------- body ------------------------------------------------
         body: Form(
-          key: formState,
+          key: formStateLogin,
           child: Padding(
             padding: EdgeInsets.only(left: 48.w, right: 48.w, top: 30.h),
             child: SingleChildScrollView(
@@ -61,7 +67,7 @@ class LoginPage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 75.h),
-                    child: CustomTextWidget.textBodyMedium(
+                    child: CustomTextWidget.textTitleMedium(
                       translating(context, AppKeyTranslateManger.login),
                       context,
                     ),
@@ -122,6 +128,7 @@ class LoginPage extends StatelessWidget {
                       }
                     },
                     builder: (context, state) {
+                      print(loginEntite.email);
                       if (state.status == CubitStatus.loading) {
                         return const loadingIndicator();
                       }
@@ -130,7 +137,7 @@ class LoginPage extends StatelessWidget {
                         borderColor: AppColor.kColorWhite,
                         text: translating(context, AppKeyTranslateManger.login),
                         onPressed: () {
-                          if (formState.currentState!.validate()) {
+                          if (formStateLogin!.currentState!.validate()) {
                             context
                                 .read<LoginCubit>()
                                 .login(loginEntity: loginEntite);

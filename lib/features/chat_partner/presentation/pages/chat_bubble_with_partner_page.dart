@@ -51,12 +51,7 @@ class ChatBubblePartnerPage extends StatelessWidget {
               return context.read<ChatDialogCubit>().getChatDialog();
             },
             child: Padding(
-              padding: EdgeInsets.only(
-                right: 28.w,
-                left: 28.w,
-                bottom: 10.h,
-                top: 28.h,
-              ),
+              padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 20.h),
               child: Column(
                 children: [
                   //? ----------------------------- All messages ---------------------------------
