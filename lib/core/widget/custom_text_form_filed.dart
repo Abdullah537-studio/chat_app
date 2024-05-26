@@ -29,7 +29,7 @@ class CustomTextFormFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 10.h, left: 10.w, right: 10.w),
+      padding: EdgeInsets.only(bottom: 10.h, left: 30.w, right: 30.w),
       child: TextFormField(
         decoration: InputDecoration(
           hintStyle: Theme.of(context).textTheme.labelMedium,

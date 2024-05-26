@@ -3,7 +3,7 @@ import 'package:chat_2/core/feature_button_nav_bar/presentation/bootom_navigatio
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:chat_2/core/widget/custom_buttons_icon.dart';
-import 'package:chat_2/core/widget/custom_text.dart';
+import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -57,14 +57,27 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CustomTextWidget.textBlackColorBigThanMedium(name, context),
+                    MainTextWidget(
+                      text: name,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: AppColor.kColorBlack),
+                      isCenter: false,
+                    ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 10.h),
-                      child:
-                          CustomTextWidget.textBodyMedium("Age: $age", context),
+                      child: MainTextWidget(
+                        text: "Age: $age",
+                        style: Theme.of(context).textTheme.bodyMedium!,
+                        isCenter: false,
+                      ),
                     ),
-                    CustomTextWidget.textBodyMedium(
-                        "Country name: $cityName", context),
+                    MainTextWidget(
+                      text: "Country Name: $cityName",
+                      style: Theme.of(context).textTheme.bodyMedium!,
+                      isCenter: false,
+                    ),
                   ],
                 ),
               ],

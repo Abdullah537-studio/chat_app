@@ -1,4 +1,4 @@
-import 'package:chat_2/core/widget/custom_text.dart';
+import 'package:chat_2/core/widget/main_text_widget.dart';
 
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:flutter/material.dart';
@@ -13,13 +13,15 @@ class CustomPartnerNoMessageYet extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomTextWidget.textBodyLarge(
-              translating(context, AppKeyTranslateManger.noMessageTop),
-              context,
+            MainTextWidget(
+              text: AppKeyTranslateManger.noMessageTop,
+              style: Theme.of(context).textTheme.bodyLarge!,
+              isCenter: false,
             ),
-            CustomTextWidget.textBodyLarge(
-              translating(context, AppKeyTranslateManger.noMessagebottom),
-              context,
+            MainTextWidget(
+              text: AppKeyTranslateManger.noMessagebottom,
+              style: Theme.of(context).textTheme.bodyLarge!,
+              isCenter: false,
             ),
           ],
         ),

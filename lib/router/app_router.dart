@@ -5,6 +5,7 @@ import 'package:chat_2/core/feature_button_nav_bar/presentation/pages/bootm_tab_
 import 'package:chat_2/features/auth/presentation/cubit/auth_cubit/login_cubit.dart';
 import 'package:chat_2/features/auth/presentation/cubit/image_cubit/image_partner_cubit.dart';
 import 'package:chat_2/features/auth/presentation/cubit/sign_up/sign_up_cubit.dart';
+import 'package:chat_2/features/auth/presentation/pages/ask_login_or_signup.dart';
 import 'package:chat_2/features/auth/presentation/pages/login_page.dart';
 import 'package:chat_2/features/auth/presentation/pages/signup_page.dart';
 import 'package:chat_2/features/chat_partner/presentation/cubits/chat_dialog_cubit/chat_dialog_cubit.dart';
@@ -14,7 +15,6 @@ import 'package:chat_2/features/chat_partner/presentation/pages/chat_bubble_with
 import 'package:chat_2/features/ragone/presentation/cubit/city_cubit.dart';
 import 'package:chat_2/features/ragone/presentation/cubit/country_cubit.dart';
 import 'package:chat_2/features/intro/pages/intro1_splash_view.dart';
-import 'package:chat_2/features/auth/presentation/pages/ask_login_or_signin.dart';
 import 'package:chat_2/features/search_partner/presentation/cubit/search_partner_cubit.dart';
 import 'package:chat_2/home/setting_page.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class AppRouter {
 //?-----choose ?? login or singin ----------------------------------------------
       case RouteNamedScreens.loginorSignScreenNameRoute:
         return MaterialPageRoute(
-          builder: (_) => const LoginOrSignUpPage(),
+          builder: (_) => const LoginOrSignupPage(),
         );
 
 //?-------------Login Screen ---------------------------------------------------

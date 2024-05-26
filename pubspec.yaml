@@ -3,7 +3,6 @@ description: "A new Flutter project."
 
 publish_to: 'none'
 
-
 version: 1.0.0+1
 
 environment:
@@ -29,7 +28,7 @@ dependencies:
     sdk: flutter
   intl: any
   # mockito: ^5.4.4
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -37,8 +36,6 @@ dev_dependencies:
   mockito: ^5.4.4
   mocktail: ^1.0.3
   # build_runner: ^2.4.10
-
-
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -64,4 +61,5 @@ flutter:
       fonts:
         - asset: lib/assets/font/Poppins/Poppins-Medium.ttf
         - asset: lib/assets/font/Poppins/Poppins-Black.ttf
-  
+flutter_intl:
+  enabled: true

@@ -2,7 +2,7 @@
 import 'package:chat_2/core/function/validator.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
-import 'package:chat_2/core/widget/custom_text.dart';
+import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/generate/theme/custom_outline_input_border.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class _CustomDropdownButtonFormFieldState
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 10.h, left: 10.w, right: 10.w),
+      padding: EdgeInsets.only(bottom: 10.h, left: 30.w, right: 30.w),
       child: DropdownButtonHideUnderline(
         child: DropdownButtonFormField2<String>(
           onMenuStateChange: (isOpen) {
@@ -84,7 +84,11 @@ class _CustomDropdownButtonFormFieldState
               ),
               maxHeight: 200.h,
               offset: Offset(0.w, -5.h)),
-          hint: CustomTextWidget.textLabelMedium(widget.label, context),
+          hint: MainTextWidget(
+            text: widget.label,
+            style: Theme.of(context).textTheme.labelMedium!,
+            isCenter: false,
+          ),
           items: widget.items,
           value: selectedValue,
           onChanged: widget.onChanged,

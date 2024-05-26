@@ -1,5 +1,4 @@
 import 'package:chat_2/core/strings/color_manager.dart';
-import 'package:chat_2/core/strings/image_png.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/generate/theme/custom_outline_input_border_box_send_message.dart';
 import 'package:flutter/material.dart';

@@ -8,6 +8,7 @@ import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
@@ -68,8 +69,8 @@ class _CustomImageState extends State<CustomImage> {
             flex: 1,
             child: Padding(
               padding: EdgeInsets.only(right: 35.w),
-              child: IconButton(
-                onPressed: () async {
+              child: GestureDetector(
+                onTap: () async {
                   final ImagePicker imagePicker = ImagePicker();
                   var pickedImage =
                       await imagePicker.pickImage(source: ImageSource.gallery);
@@ -100,9 +101,7 @@ class _CustomImageState extends State<CustomImage> {
                     );
                   }
                 },
-                icon: Tab(
-                  icon: SvgPicture.asset(pinceliconImagePicker),
-                ),
+                child: SvgPicture.asset(pinceliconImagePicker),
               ),
             ),
           ),

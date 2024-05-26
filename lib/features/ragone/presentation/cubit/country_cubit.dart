@@ -19,6 +19,9 @@ class CountryCubit extends Cubit<CountryState> {
     var countryData = await countryUseCase();
     countryData.fold((failure) {
       try {
+        if (isClosed) {
+          return;
+        }
         emit(state.copyWith(
             status: CubitStatus.faild,
             message: failure.response!.body,

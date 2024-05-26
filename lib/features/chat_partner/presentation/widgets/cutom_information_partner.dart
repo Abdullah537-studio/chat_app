@@ -1,4 +1,4 @@
-import 'package:chat_2/core/widget/custom_text.dart';
+import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,10 +19,22 @@ class CustomInformationPartner extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Padding(
-            padding: EdgeInsets.only(top: 8.h, bottom: 25.h),
-            child: CustomTextWidget.textBodySmall(name, context)),
-        CustomTextWidget.textBodySmall("Age: $age", context),
-        CustomTextWidget.textBodySmall("Country name: $cityName", context),
+          padding: EdgeInsets.only(top: 8.h, bottom: 25.h),
+          child: MainTextWidget(
+              text: name,
+              style: Theme.of(context).textTheme.bodySmall!,
+              isCenter: false),
+        ),
+        MainTextWidget(
+          text: "Age: $age",
+          style: Theme.of(context).textTheme.bodySmall!,
+          isCenter: false,
+        ),
+        MainTextWidget(
+          text: "Country name: $cityName",
+          style: Theme.of(context).textTheme.bodySmall!,
+          isCenter: false,
+        )
       ],
     );
   }

@@ -1,7 +1,7 @@
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/strings/route_named_screens_string.dart';
-import 'package:chat_2/core/widget/custom_text.dart';
+import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,9 +15,10 @@ AppBar buildAppBar(
     actions: [
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w),
-        child: CustomTextWidget.textTitleSmall(
-          translating(context, AppKeyTranslateManger.setting_mes),
-          context,
+        child: MainTextWidget(
+          text: AppKeyTranslateManger.setting_mes,
+          style: Theme.of(context).textTheme.titleSmall!,
+          isCenter: true,
         ),
       ),
       Container(
@@ -52,7 +53,10 @@ AppBar buildAppBar(
       ),
     ),
     backgroundColor: AppColor.kPrimaryColor,
-    title: CustomTextWidget.textTitleMedium(text, context),
-    centerTitle: true,
+    title: MainTextWidget(
+      text: text,
+      style: Theme.of(context).textTheme.titleMedium!,
+      isCenter: true,
+    ),
   );
 }

@@ -3,7 +3,7 @@
 import 'package:chat_2/core/enum/cubit_enum.dart';
 import 'package:chat_2/core/function/convert_base64_to_image_partner_from_api.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
-import 'package:chat_2/core/widget/custom_text.dart';
+import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/features/auth/presentation/cubit/image_cubit/image_partner_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,16 +58,28 @@ class CustomPartnerInfoMessiging extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CustomTextWidget.textBodyMedium(userName, context),
+                MainTextWidget(
+                  text: userName,
+                  style: Theme.of(context).textTheme.bodyMedium!,
+                  isCenter: false,
+                ),
                 Padding(
-                    padding: EdgeInsets.only(bottom: 2.h),
-                    child:
-                        CustomTextWidget.textBodyMedium(lastMessage, context)),
+                  padding: EdgeInsets.only(bottom: 2.h),
+                  child: MainTextWidget(
+                    text: lastMessage,
+                    style: Theme.of(context).textTheme.bodyMedium!,
+                    isCenter: false,
+                  ),
+                ),
               ],
             ),
-            CustomTextWidget.textBodySmall(
-              datelastMessage.toString().substring(0, 10).replaceAll("-", "/"),
-              context,
+            MainTextWidget(
+              text: datelastMessage
+                  .toString()
+                  .substring(0, 10)
+                  .replaceAll("-", "/"),
+              style: Theme.of(context).textTheme.bodySmall!,
+              isCenter: false,
             ),
           ],
         ),
