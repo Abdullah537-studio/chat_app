@@ -15,9 +15,8 @@ class CustomBoxSendMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColor.kSecondaryColor,
-      padding: EdgeInsets.only(top: 10.h),
+    return Padding(
+      padding: EdgeInsets.only(top: 15.h),
       child: TextField(
         onEditingComplete: onPressedIconSendMessage,
         onChanged: onChangeTextFormField,

@@ -56,9 +56,12 @@ class AppKeyTranslateManger {
   static String passwod_not_word_currect = "passwod_not_currect";
   static String passwod_not_length_currect = "passwod_not_currect";
   static String reenter_password_not_currrect = "reenter_password_not_currrect";
+  static String phone_number_not_currect = "phone_number_not_currect";
   static String min_age_not_currect = "min_age_not_currect";
   static String max_age_not_currect = "max_age_not_currect";
-  static String phone_number_not_currect = "phone_number_not_currect";
+  static String validate_only_number = "validate_only_number";
+  static String age_under_12_above_100_not_currect =
+      "age_under_12_above_100_not_currect";
 //!----------setting
   static String change_languange_setting = "change_languange_setting";
   static String change_theme_setting = "change_theme_setting";

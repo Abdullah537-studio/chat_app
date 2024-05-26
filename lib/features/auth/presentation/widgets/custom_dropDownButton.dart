@@ -52,10 +52,7 @@ class _CustomDropdownButtonFormFieldState
           },
           decoration: InputDecoration(
             contentPadding: EdgeInsets.only(
-              top: 25.h,
-              bottom: 25.h,
-              right: 20.w,
-            ),
+                top: 25.h, bottom: 25.h, right: 20.w, left: 5.w),
             hintStyle: Theme.of(context).textTheme.labelMedium,
             hintText: widget.label,
             focusedBorder: outlineInputBorder(AppColor.kPrimaryColor),
@@ -64,7 +61,7 @@ class _CustomDropdownButtonFormFieldState
                 outlineInputBorder(AppColor.kErroreFoucaseBorderColor),
             enabledBorder: outlineInputBorder(AppColor.kColorBlack),
           ),
-          validator: validationAll.validateDropdown,
+          validator: validationAll(context: context).validateDropdown,
           isExpanded: true,
           iconStyleData: IconStyleData(
             // iconSize: 33,

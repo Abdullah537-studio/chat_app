@@ -1,4 +1,9 @@
+import 'package:chat_2/core/strings/key_translate_manger.dart';
+import 'package:flutter/material.dart';
+
 class validationAll {
+  BuildContext context;
+  validationAll({required this.context});
 //!--------- variable to compare and give validate
   static int minAge = 0;
   static int maxAge = 0;
@@ -6,99 +11,159 @@ class validationAll {
 //!--------- function validate
 //? ------------------- validate generall
 
-  static String? validateGenerall(String? val) {
+  String? validateGenerall(String? val) {
     if (val!.isEmpty) {
-      return "this field is reqiured";
+      return translating(
+        context,
+        AppKeyTranslateManger.field_empty_validate,
+      );
     }
     return null;
   }
 
 //? ------------------- validate generall
 
-  static String? validateAgeNumber(String? val) {
+  String? validateAgeNumber(String? val) {
     if (val!.isEmpty) {
-      return "this field is reqiured";
+      return translating(
+        context,
+        AppKeyTranslateManger.field_empty_validate,
+      );
     } else if (val.contains(",") || val.contains(".")) {
-      return "age not currect";
+      return translating(
+        context,
+        AppKeyTranslateManger.validate_only_number,
+      );
     } else if (int.parse(val) < 9 && int.parse(val) > 100) {
-      return "age must be between 9 and 100 year";
+      return translating(
+        context,
+        AppKeyTranslateManger.age_under_12_above_100_not_currect,
+      );
     }
     return null;
   }
 
 //? ------------------- dropdown
 
-  static String? validateDropdown(String? val) {
+  String? validateDropdown(String? val) {
     if (val == null) {
-      return "this field is required";
+      return translating(
+        context,
+        AppKeyTranslateManger.field_empty_validate,
+      );
     }
     return null;
   }
 
 //? ------------------- email
 
-  static String? validateEmail(String? val) {
+  String? validateEmail(String? val) {
     if (val!.isEmpty) {
-      return "this field is reqiured";
+      return translating(
+        context,
+        AppKeyTranslateManger.field_empty_validate,
+      );
     } else if (!val.contains(".com")) {
-      return "your email is not correct !! , must have @ ___ .com";
+      return translating(
+        context,
+        AppKeyTranslateManger.email_not_currect,
+      );
     }
     return null;
   }
 
 //? ------------------- password
-  static String? validatePassword(String? val) {
+  String? validatePassword(String? val) {
     if (val!.isEmpty) {
-      return "this field is reqiured";
+      return translating(
+        context,
+        AppKeyTranslateManger.field_empty_validate,
+      );
     } else if (!(val.contains(RegExp(r'[A-Z]')) &&
         val.contains(RegExp(r'[a-z]')))) {
-      return "The password should contain both uppercase and lowercase letters.";
+      return translating(
+        context,
+        AppKeyTranslateManger.passwod_not_word_currect,
+      );
     } else if ((val.length < 8)) {
-      return "password should be above 8 word.";
+      return translating(
+        context,
+        AppKeyTranslateManger.passwod_not_length_currect,
+      );
     }
     return null;
   }
 
 //? ------------------- reenter password
-  static String? validateReenterPassword(String? val) {
+  String? validateReenterPassword(String? val) {
     if (val!.isEmpty) {
-      return "this field is reqiured";
+      return translating(
+        context,
+        AppKeyTranslateManger.field_empty_validate,
+      );
     } else if (val != passwordValidate) {
-      return "must reenter same password !!";
+      return translating(
+        context,
+        AppKeyTranslateManger.reenter_password_not_currrect,
+      );
     }
     return null;
   }
 
 //? ------------------- phone number
-  static String? validatePhoneNumber(String? val) {
+  String? validatePhoneNumber(String? val) {
     if (val!.isEmpty) {
-      return "this field is required";
+      return translating(
+        context,
+        AppKeyTranslateManger.field_empty_validate,
+      );
     } else if (val.startsWith("+963") == false) {
-      return "phone number must start +963";
+      return translating(
+        context,
+        AppKeyTranslateManger.phone_number_not_currect,
+      );
     }
     return null;
   }
 
 //? -------------------to do validate for age
 
-  static String? validateNumberMinAgeFindPartner(String? val) {
+  String? validateNumberMinAgeFindPartner(String? val) {
     if (val!.isEmpty) {
-      return "this field is required";
+      return translating(
+        context,
+        AppKeyTranslateManger.field_empty_validate,
+      );
     } else if (int.parse(val) < 12) {
-      return "age must be between 12:100";
+      return translating(
+        context,
+        AppKeyTranslateManger.age_under_12_above_100_not_currect,
+      );
     } else if (int.parse(val) >= maxAge) {
-      return "minAge lest than maxAge !!";
+      return translating(
+        context,
+        AppKeyTranslateManger.min_age_not_currect,
+      );
     }
     return null;
   }
 
-  static String? validateNumberMaxAgeFindPartner(String? val) {
+  String? validateNumberMaxAgeFindPartner(String? val) {
     if (val!.isEmpty) {
-      return "this field is reqiured";
+      return translating(
+        context,
+        AppKeyTranslateManger.field_empty_validate,
+      );
     } else if (int.parse(val) > 99) {
-      return "age must be above 12 and under 100 year ";
+      return translating(
+        context,
+        AppKeyTranslateManger.age_under_12_above_100_not_currect,
+      );
     } else if (int.parse(val) <= minAge) {
-      return "maxAge > minAge !!";
+      return translating(
+        context,
+        AppKeyTranslateManger.max_age_not_currect,
+      );
     }
     return null;
   }

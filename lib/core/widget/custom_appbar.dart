@@ -13,15 +13,8 @@ AppBar buildAppBar(
 ) {
   return AppBar(
     actions: [
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w),
-        child: MainTextWidget(
-          text: AppKeyTranslateManger.setting_mes,
-          style: Theme.of(context).textTheme.titleSmall!,
-          isCenter: true,
-        ),
-      ),
       Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         color: AppColor.kPrimaryColor,
         child: GestureDetector(
           onTap: () {

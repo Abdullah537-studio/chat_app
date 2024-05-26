@@ -4,7 +4,6 @@ import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomButtonIcon extends StatelessWidget {
   final Function()? onPressed;
@@ -22,7 +21,7 @@ class CustomButtonIcon extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 40.w),
       child: MaterialButton(
-        height: 30.h,
+        height: 60.h,
         minWidth: double.infinity,
         color: AppColor.kPrimaryColor,
         shape: RoundedRectangleBorder(
@@ -38,12 +37,10 @@ class CustomButtonIcon extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.w),
-              child: SvgPicture.asset(
-                height: 24.h,
-                width: 24.w,
-                image,
+              child: Icon(
+                size: 35,
+                Icons.search,
                 color: AppColor.kColorWhite,
-                fit: BoxFit.cover,
               ),
             ),
             MainTextWidget(

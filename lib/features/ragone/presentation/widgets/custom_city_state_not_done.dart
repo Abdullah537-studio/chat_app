@@ -14,11 +14,11 @@ class CustomCityStateIsNotDone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 10.h, left: 10.w, right: 10.w),
+      padding: EdgeInsets.only(bottom: 10.h, left: 30.w, right: 30.w),
       child: TextFormField(
         enabled: false,
         style: Theme.of(context).textTheme.bodyMedium,
-        validator: validationAll.validateGenerall,
+        validator: validationAll(context: context).validateGenerall,
         decoration: InputDecoration(
           disabledBorder: outlineInputBorder(AppColor.kColorBlack),
           hintText: text,

@@ -17,14 +17,14 @@ class CustomFormDate extends StatelessWidget {
     TextEditingController controller = TextEditingController();
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.h),
+      padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 40.w),
       child: GestureDetector(
         onTap: () {
           //! this method get date  in core
           selectDate(context, controller);
         },
         child: TextFormField(
-          validator: validationAll.validateGenerall,
+          validator: validationAll(context: context).validateGenerall,
           style: Theme.of(context).textTheme.bodyMedium,
           controller: controller,
           enabled: false,

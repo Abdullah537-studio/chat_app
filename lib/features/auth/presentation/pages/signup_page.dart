@@ -59,7 +59,7 @@ class SignUpPage extends StatelessWidget {
                   hintText: translating(context, AppKeyTranslateManger.name),
                   keyboardTybe: TextInputType.name,
                   showPassword: false,
-                  validate: validationAll.validateGenerall,
+                  validate: validationAll(context: context).validateGenerall,
                   onChange: (value) {
                     signinEntite.name = value;
                   },
@@ -68,7 +68,8 @@ class SignUpPage extends StatelessWidget {
                   showPassword: false,
                   hintText: translating(context, AppKeyTranslateManger.age),
                   keyboardTybe: TextInputType.number,
-                  validate: (va) => validationAll.validateGenerall(va),
+                  validate: (va) =>
+                      validationAll(context: context).validateGenerall(va),
                   onChange: (value) {
                     value = value!.isEmpty ? "0" : value;
                     if (value is NumberFormat) {
@@ -95,7 +96,7 @@ class SignUpPage extends StatelessWidget {
                   hintText: translating(context, AppKeyTranslateManger.phone),
                   keyboardTybe: TextInputType.phone,
                   showPassword: false,
-                  validate: validationAll.validatePhoneNumber,
+                  validate: validationAll(context: context).validatePhoneNumber,
                   onChange: (value) {
                     signinEntite.phoneNumber = value;
                   },
@@ -104,7 +105,7 @@ class SignUpPage extends StatelessWidget {
                   hintText: translating(context, AppKeyTranslateManger.email),
                   keyboardTybe: TextInputType.emailAddress,
                   showPassword: false,
-                  validate: validationAll.validateEmail,
+                  validate: validationAll(context: context).validateEmail,
                   icon: Icon(
                     Icons.email,
                     size: 35.r,
@@ -123,7 +124,7 @@ class SignUpPage extends StatelessWidget {
                     Icons.vpn_key,
                     size: 35.r,
                   ),
-                  validate: validationAll.validatePassword,
+                  validate: validationAll(context: context).validatePassword,
                   onChange: (value) {
                     signinEntite.password = value!;
                     passwordToValidate = value;
@@ -134,7 +135,8 @@ class SignUpPage extends StatelessWidget {
                       context, AppKeyTranslateManger.reenterPassword),
                   keyboardTybe: TextInputType.visiblePassword,
                   showPassword: true,
-                  validate: validationAll.validateReenterPassword,
+                  validate:
+                      validationAll(context: context).validateReenterPassword,
                   icon: Icon(
                     Icons.vpn_key,
                     size: 35.r,
@@ -180,6 +182,7 @@ class SignUpPage extends StatelessWidget {
                     }
                   },
                 ),
+//!-------------------ask user {if have account already : login}
                 CustomHaveOrNoteHaveAccount(
                   text: translating(
                       context, AppKeyTranslateManger.already_have_account),

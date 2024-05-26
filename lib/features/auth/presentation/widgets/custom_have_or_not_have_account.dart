@@ -17,7 +17,7 @@ class CustomHaveOrNoteHaveAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      height: 100,
+      height: 130,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [

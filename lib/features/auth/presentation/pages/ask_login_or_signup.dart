@@ -11,45 +11,47 @@ class LoginOrSignupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColor.kSecondaryColor,
-        image: DecorationImage(
-          image: AssetImage(AppImageStringPng.backgroundLoginOrSignIn),
-          fit: BoxFit.fill,
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          color: AppColor.kSecondaryColor,
+          image: DecorationImage(
+            image: AssetImage(AppImageStringPng.backgroundLoginOrSignIn),
+            fit: BoxFit.fill,
+          ),
         ),
-      ),
-      child: Align(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              translating(context, AppKeyTranslateManger.login_to_containue),
-              style: TextStyle(fontSize: 20.sp, color: AppColor.kColorBlack),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 12.h),
-              child: MainButton(
-                backgroundColor: AppColor.kColorWhite,
-                borderColor: AppColor.kPrimaryColor,
-                text: translating(context, AppKeyTranslateManger.login),
+        child: Align(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                translating(context, AppKeyTranslateManger.login_to_containue),
+                style: TextStyle(fontSize: 20.sp, color: AppColor.kColorBlack),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 12.h),
+                child: MainButton(
+                  backgroundColor: AppColor.kColorWhite,
+                  borderColor: AppColor.kPrimaryColor,
+                  text: translating(context, AppKeyTranslateManger.login),
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, RouteNamedScreens.loginScreenNameRoute);
+                  },
+                ),
+              ),
+              //? Main Button For
+              MainButton(
+                backgroundColor: AppColor.kPrimaryColor,
+                borderColor: AppColor.kSecondaryColor,
+                text: translating(context, AppKeyTranslateManger.singup),
                 onPressed: () {
                   Navigator.pushReplacementNamed(
-                      context, RouteNamedScreens.loginScreenNameRoute);
+                      context, RouteNamedScreens.signinScreenNameRoute);
                 },
               ),
-            ),
-            //? Main Button For
-            MainButton(
-              backgroundColor: AppColor.kPrimaryColor,
-              borderColor: AppColor.kSecondaryColor,
-              text: translating(context, AppKeyTranslateManger.singup),
-              onPressed: () {
-                Navigator.pushReplacementNamed(
-                    context, RouteNamedScreens.signinScreenNameRoute);
-              },
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

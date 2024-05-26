@@ -48,6 +48,7 @@
     "field_empty_validate":"هذا الحقل مطلوب",
     "phone_number_not_currect":"رقم الهاتف يجب أن يبدأ ب +963 ",
     "change_theme_setting":"غير الثيم",
-    "change_languange_setting":"غير اللغة"
-
+    "change_languange_setting":"غير اللغة",
+    "age_under_12_above_100_not_currect":"العمر يجب أن يكون بين ال 12 و ال 100 عام",
+    "validate_only_number":"يجب ادخال رقم فقط لا فواصل ولا نقاط "
 }

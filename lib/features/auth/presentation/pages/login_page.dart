@@ -6,12 +6,12 @@ import 'package:chat_2/core/strings/image_png.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/strings/route_named_screens_string.dart';
 import 'package:chat_2/core/widget/custom_button.dart';
-import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/core/widget/custom_text_form_filed.dart';
 import 'package:chat_2/core/widget/loading_indicator.dart';
 import 'package:chat_2/core/widget/show_snack_bar.dart';
 import 'package:chat_2/features/auth/domin/entites/auth_model/requiest/login_request_entity.dart';
 import 'package:chat_2/features/auth/presentation/cubit/auth_cubit/login_cubit.dart';
+import 'package:chat_2/features/auth/presentation/widgets/custom_have_or_not_have_account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,25 +23,27 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-GlobalKey<FormState> formKeyLogin = GlobalKey();
-
 class _LoginPageState extends State<LoginPage> {
-  bool rememberMe = false;
-
   final LoginRequest loginEntite = LoginRequest();
 
   @override
   Widget build(BuildContext context) {
+    bool rememberMe = false;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(AppImageStringPng.backgroundLogin),
-              fit: BoxFit.cover),
+            image: AssetImage(AppImageStringPng.backgroundLogin),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Form(
           key: formKeyLogin,
-          child: ListView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
                   padding: EdgeInsets.symmetric(vertical: 75.h),
@@ -54,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
               CustomTextFormFiled(
                 keyboardTybe: TextInputType.emailAddress,
                 showPassword: false,
-                validate: validationAll.validateEmail,
+                validate: validationAll(context: context).validateEmail,
                 icon: Icon(
                   Icons.email,
                   size: 35.r,
@@ -68,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
               CustomTextFormFiled(
                 keyboardTybe: TextInputType.visiblePassword,
                 showPassword: true,
-                validate: validationAll.validatePassword,
+                validate: validationAll(context: context).validatePassword,
                 icon: Icon(
                   Icons.vpn_key,
                   size: 35.r,
@@ -80,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               //?--------------------rememberMe-----------------------------------------------
               Padding(
-                padding: EdgeInsets.only(bottom: 20.h),
+                padding: EdgeInsets.only(right: 40.w, left: 40.w, bottom: 20.h),
                 child: StatefulBuilder(
                   builder: (BuildContext context, setState) {
                     return Row(
@@ -152,6 +154,16 @@ class _LoginPageState extends State<LoginPage> {
                   );
                 },
               ),
+              //!-------------- ask user {dont have account : signup}
+              CustomHaveOrNoteHaveAccount(
+                text: translating(
+                    context, AppKeyTranslateManger.not_have_an_account),
+                textButton: translating(context, AppKeyTranslateManger.singup),
+                onpressed: () {
+                  Navigator.of(context).pushReplacementNamed(
+                      RouteNamedScreens.signinScreenNameRoute);
+                },
+              ),
             ],
           ),
         ),
@@ -159,3 +171,5 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+GlobalKey<FormState> formKeyLogin = GlobalKey();
