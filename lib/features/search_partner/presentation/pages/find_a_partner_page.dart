@@ -19,9 +19,7 @@ import 'package:chat_2/features/search_partner/presentation/widgets/custom_form_
 import 'package:chat_2/features/ragone/presentation/widgets/custom_country_city_get.dart';
 import 'package:chat_2/features/search_partner/data/models/requiest/search_partner_requiest_model.dart';
 import 'package:chat_2/features/search_partner/presentation/cubit/search_partner_cubit.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

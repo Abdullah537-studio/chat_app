@@ -16,26 +16,30 @@ class CustomBoxSendMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 15.h),
-      child: TextField(
-        onEditingComplete: onPressedIconSendMessage,
-        onChanged: onChangeTextFormField,
-        style: Theme.of(context).textTheme.bodyMedium,
-        cursorColor: AppColor.kPrimaryColor,
-        cursorHeight: 25.h,
-        decoration: InputDecoration(
-          focusColor: AppColor.kColorBlack,
-          hintText: translating(context, AppKeyTranslateManger.write_a_message),
-          hintStyle: Theme.of(context).textTheme.labelMedium,
-          suffixIcon: IconButton(
-              icon: const Icon(Icons.send),
-              onPressed: onPressedIconSendMessage),
-          contentPadding: EdgeInsets.only(left: 20.w),
-          //? -------border
-          focusedBorder: outlineInputBorderBoxChat(AppColor.kPrimaryColor),
-          enabledBorder: outlineInputBorderBoxChat(AppColor.kColorBlack),
-        ),
-      ),
-    );
+        padding: EdgeInsets.only(top: 15.h),
+        child: Theme(
+//----------try it
+          data: Theme.of(context).copyWith(primaryColor: AppColor.kColorWhite),
+          child: TextField(
+            onEditingComplete: onPressedIconSendMessage,
+            onChanged: onChangeTextFormField,
+            style: Theme.of(context).textTheme.bodyMedium,
+            cursorColor: AppColor.kPrimaryColor,
+            cursorHeight: 25.h,
+            decoration: InputDecoration(
+              focusColor: AppColor.kColorBlack,
+              hintText:
+                  translating(context, AppKeyTranslateManger.write_a_message),
+              hintStyle: Theme.of(context).textTheme.labelMedium,
+              suffixIcon: IconButton(
+                  icon: const Icon(Icons.send),
+                  onPressed: onPressedIconSendMessage),
+              contentPadding: EdgeInsets.only(left: 20.w),
+              //? -------border
+              focusedBorder: outlineInputBorderBoxChat(AppColor.kPrimaryColor),
+              enabledBorder: outlineInputBorderBoxChat(AppColor.kColorBlack),
+            ),
+          ),
+        ));
   }
 }

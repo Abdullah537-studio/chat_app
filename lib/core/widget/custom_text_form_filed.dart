@@ -32,6 +32,8 @@ class CustomTextFormFiled extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 10.h, left: 40.w, right: 40.w),
       child: TextFormField(
         decoration: InputDecoration(
+          suffixIconColor: AppColor.iconColorGrey,
+          suffixIcon: icon,
           hintStyle: Theme.of(context).textTheme.labelMedium,
           hintText: hintText,
           focusedBorder: outlineInputBorder(AppColor.kPrimaryColor),
@@ -45,7 +47,10 @@ class CustomTextFormFiled extends StatelessWidget {
         cursorColor: AppColor.kPrimaryColor,
         obscureText: showPassword,
         obscuringCharacter: "⋆",
-        style: Theme.of(context).textTheme.bodyMedium,
+        style: Theme.of(context)
+            .textTheme
+            .bodyMedium!
+            .copyWith(color: AppColor.iconColorGrey),
         keyboardType: keyboardTybe,
         validator: validate,
         onChanged: onChange,
