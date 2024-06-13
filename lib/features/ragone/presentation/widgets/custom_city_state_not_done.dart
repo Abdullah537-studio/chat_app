@@ -14,7 +14,7 @@ class CustomCityStateIsNotDone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 10.h, left: 30.w, right: 30.w),
+      padding: EdgeInsets.only(bottom: 10.h),
       child: TextFormField(
         enabled: false,
         style: Theme.of(context).textTheme.bodyMedium,

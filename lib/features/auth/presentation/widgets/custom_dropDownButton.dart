@@ -36,7 +36,7 @@ class _CustomDropdownButtonFormFieldState
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 10.h, left: 30.w, right: 30.w),
+      padding: EdgeInsets.only(bottom: 10.h),
       child: DropdownButtonHideUnderline(
         child: DropdownButtonFormField2<String>(
           onMenuStateChange: (isOpen) {

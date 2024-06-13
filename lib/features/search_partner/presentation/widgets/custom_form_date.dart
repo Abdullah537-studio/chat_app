@@ -17,7 +17,7 @@ class CustomFormDate extends StatelessWidget {
     TextEditingController controller = TextEditingController();
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 40.w),
+      padding: EdgeInsets.symmetric(vertical: 16.h),
       child: GestureDetector(
         onTap: () {
           //! this method get date  in core

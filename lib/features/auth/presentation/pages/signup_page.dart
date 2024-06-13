@@ -6,7 +6,7 @@ import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/strings/route_named_screens_string.dart';
 import 'package:chat_2/core/widget/custom_button.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
-import 'package:chat_2/core/widget/custom_text_form_filed.dart';
+import 'package:chat_2/core/widget/main_text_form_filed.dart';
 import 'package:chat_2/core/widget/loading_indicator.dart';
 import 'package:chat_2/core/widget/show_snack_bar.dart';
 import 'package:chat_2/features/auth/domin/entites/auth_model/requiest/signup_request_entity.dart';
@@ -32,6 +32,7 @@ class SignUpPage extends StatelessWidget {
     SigninRequest signinEntite = SigninRequest();
     return Scaffold(
       body: Container(
+        padding: EdgeInsets.only(bottom: 10.h, left: 40.w, right: 40.w),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AppImageStringPng.backgroundSignIn),
@@ -55,7 +56,7 @@ class SignUpPage extends StatelessWidget {
                   },
                 ),
                 //?-------- name && age --------------------------------------------------------
-                CustomTextFormFiled(
+                MainTextFormField(
                   hintText: translating(context, AppKeyTranslateManger.name),
                   keyboardTybe: TextInputType.name,
                   showPassword: false,
@@ -64,7 +65,7 @@ class SignUpPage extends StatelessWidget {
                     signinEntite.name = value;
                   },
                 ),
-                CustomTextFormFiled(
+                MainTextFormField(
                   showPassword: false,
                   hintText: translating(context, AppKeyTranslateManger.age),
                   keyboardTybe: TextInputType.number,
@@ -92,7 +93,7 @@ class SignUpPage extends StatelessWidget {
                   },
                 ),
                 //?-----------phone && email----------------------------------------------------
-                CustomTextFormFiled(
+                MainTextFormField(
                   hintText: translating(context, AppKeyTranslateManger.phone),
                   keyboardTybe: TextInputType.phone,
                   showPassword: false,
@@ -101,7 +102,7 @@ class SignUpPage extends StatelessWidget {
                     signinEntite.phoneNumber = value;
                   },
                 ),
-                CustomTextFormFiled(
+                MainTextFormField(
                   hintText: translating(context, AppKeyTranslateManger.email),
                   keyboardTybe: TextInputType.emailAddress,
                   showPassword: false,
@@ -115,7 +116,7 @@ class SignUpPage extends StatelessWidget {
                   },
                 ),
                 //?---------- password && reenter password -------------------------------------
-                CustomTextFormFiled(
+                MainTextFormField(
                   hintText:
                       translating(context, AppKeyTranslateManger.password),
                   keyboardTybe: TextInputType.visiblePassword,
@@ -130,7 +131,7 @@ class SignUpPage extends StatelessWidget {
                     passwordToValidate = value;
                   },
                 ),
-                CustomTextFormFiled(
+                MainTextFormField(
                   hintText: translating(
                       context, AppKeyTranslateManger.reenterPassword),
                   keyboardTybe: TextInputType.visiblePassword,

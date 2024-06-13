@@ -5,8 +5,8 @@ import 'package:chat_2/generate/theme/custom_outline_input_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTextFormFiled extends StatelessWidget {
-  CustomTextFormFiled({
+class MainTextFormField extends StatelessWidget {
+  MainTextFormField({
     super.key,
     required this.validate,
     required this.onChange,
@@ -29,7 +29,7 @@ class CustomTextFormFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 10.h, left: 40.w, right: 40.w),
+      padding: EdgeInsets.only(bottom: 10.h),
       child: TextFormField(
         decoration: InputDecoration(
           suffixIconColor: AppColor.iconColorGrey,

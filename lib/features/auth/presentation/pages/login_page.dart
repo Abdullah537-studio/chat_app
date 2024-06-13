@@ -6,7 +6,7 @@ import 'package:chat_2/core/strings/image_png.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/strings/route_named_screens_string.dart';
 import 'package:chat_2/core/widget/custom_button.dart';
-import 'package:chat_2/core/widget/custom_text_form_filed.dart';
+import 'package:chat_2/core/widget/main_text_form_filed.dart';
 import 'package:chat_2/core/widget/loading_indicator.dart';
 import 'package:chat_2/core/widget/show_snack_bar.dart';
 import 'package:chat_2/features/auth/domin/entites/auth_model/requiest/login_request_entity.dart';
@@ -32,6 +32,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 40.h),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
@@ -53,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: Theme.of(context).textTheme.titleMedium,
                   )),
               //?--------------------------Email----------------------------------------------
-              CustomTextFormFiled(
+              MainTextFormField(
                 keyboardTybe: TextInputType.emailAddress,
                 showPassword: false,
                 validate: validationAll(context: context).validateEmail,
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
               //?--------------------------Passwrod-------------------------------------------
-              CustomTextFormFiled(
+              MainTextFormField(
                 keyboardTybe: TextInputType.visiblePassword,
                 showPassword: true,
                 validate: validationAll(context: context).validatePassword,

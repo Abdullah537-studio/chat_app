@@ -18,41 +18,38 @@ class CustomButtonIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 40.w),
-      child: MaterialButton(
-        height: 60.h,
-        minWidth: double.infinity,
-        color: AppColor.kPrimaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.r),
-          side: BorderSide(
-            color: AppColor.kPrimaryColor,
-            width: 2.w,
-          ),
+    return MaterialButton(
+      height: 60.h,
+      minWidth: double.infinity,
+      color: AppColor.kPrimaryColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.r),
+        side: BorderSide(
+          color: AppColor.kPrimaryColor,
+          width: 2.w,
         ),
-        onPressed: onPressed,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.w),
-              child: Icon(
-                size: 35,
-                Icons.search,
-                color: AppColor.kColorWhite,
-              ),
+      ),
+      onPressed: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15.w),
+            child: Icon(
+              size: 35,
+              Icons.search,
+              color: AppColor.kColorWhite,
             ),
-            MainTextWidget(
-              text: text,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium!
-                  .copyWith(color: AppColor.kColorWhite),
-              isCenter: false,
-            )
-          ],
-        ),
+          ),
+          MainTextWidget(
+            text: text,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(color: AppColor.kColorWhite),
+            isCenter: false,
+          )
+        ],
       ),
     );
   }

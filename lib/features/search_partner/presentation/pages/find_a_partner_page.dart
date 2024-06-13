@@ -39,7 +39,7 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
     return Form(
       key: formState,
       child: ListView(
-        padding: EdgeInsets.symmetric(vertical: 12.h),
+        padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 40.w),
         children: [
           CustomCountryGet(
             onCountrySelected: (country) {
@@ -57,17 +57,14 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
               },
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40.w),
-            child: Row(
-              children: [
-                MainTextWidget(
-                  text: translating(context, AppKeyTranslateManger.partnerAge),
-                  style: Theme.of(context).textTheme.bodyMedium!,
-                  isCenter: true,
-                ),
-              ],
-            ),
+          Row(
+            children: [
+              MainTextWidget(
+                text: translating(context, AppKeyTranslateManger.partnerAge),
+                style: Theme.of(context).textTheme.bodyMedium!,
+                isCenter: true,
+              ),
+            ],
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 14.h),
