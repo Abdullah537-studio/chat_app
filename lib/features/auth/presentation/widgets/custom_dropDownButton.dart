@@ -69,7 +69,6 @@ class _CustomDropdownButtonFormFieldState
               child: SvgPicture.asset(
                 arrowDown,
                 color: widget.colorIcon,
-                // colorBlendMode: BlendMode.dstIn,
               ),
             ),
           ),

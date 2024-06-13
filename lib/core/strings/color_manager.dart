@@ -21,9 +21,6 @@ class AppColor {
       if (states.contains(MaterialState.focused)) {
         return kPrimaryColor;
       }
-      if (states.contains(MaterialStateMouseCursor.clickable)) {
-        return kPrimaryColor;
-      }
       return AppColor.kColorBlack;
     },
   );

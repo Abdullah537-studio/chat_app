@@ -44,7 +44,7 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               children: [
                 MainTextWidget(
-                  text: AppKeyTranslateManger.singup,
+                  text: translating(context, AppKeyTranslateManger.singup),
                   style: Theme.of(context).textTheme.titleMedium!,
                   isCenter: false,
                 ),
