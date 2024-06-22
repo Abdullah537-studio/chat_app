@@ -55,8 +55,8 @@ flutter:
     - lib/assets/Svg/background/
     - lib/assets/Svg/tab_bar_icons/
     - lib/assets/png/
-    - lib/generate/app_localizations/l10n/en.json
-    - lib/generate/app_localizations/l10n/ar.json
+    - lib/generate/app_localizations/lang/en.json
+    - lib/generate/app_localizations/lang/ar.json
 
   fonts:
     - family: Poppins
