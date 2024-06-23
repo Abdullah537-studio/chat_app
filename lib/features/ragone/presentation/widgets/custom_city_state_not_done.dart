@@ -1,6 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:chat_2/core/function/validator.dart';
+import 'package:chat_2/core/function/main_functions/validator.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:chat_2/generate/theme/custom_outline_input_border.dart';

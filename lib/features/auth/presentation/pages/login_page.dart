@@ -1,5 +1,5 @@
 import 'package:chat_2/core/enum/cubit_enum.dart';
-import 'package:chat_2/core/function/validator.dart';
+import 'package:chat_2/core/function/main_functions/validator.dart';
 import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_png.dart';

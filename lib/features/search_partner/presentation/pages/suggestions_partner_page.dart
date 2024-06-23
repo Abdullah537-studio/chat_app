@@ -1,5 +1,5 @@
 import 'package:chat_2/core/enum/cubit_enum.dart';
-import 'package:chat_2/core/function/convert_base64_to_image_partner_from_api.dart';
+import 'package:chat_2/core/function/main_functions/convert_base64_to_image_partner_from_api.dart';
 import 'package:chat_2/features/auth/presentation/cubit/image_cubit/image_partner_cubit.dart';
 import 'package:chat_2/features/chat_partner/presentation/pages/chat_bubble_with_partner_page.dart';
 import 'package:chat_2/features/chat_partner/presentation/widgets/custom_suggestion_partner_info.dart';

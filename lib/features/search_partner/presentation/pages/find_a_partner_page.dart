@@ -1,7 +1,7 @@
 import 'package:chat_2/core/enum/tab_bar_state.dart';
 import 'package:chat_2/core/feature_button_nav_bar/presentation/bootom_navigation_tab_bar_cubit/bootom_tab_bar_cubit.dart';
 import 'package:chat_2/core/enum/cubit_enum.dart';
-import 'package:chat_2/core/function/validator.dart';
+import 'package:chat_2/core/function/main_functions/validator.dart';
 import 'package:chat_2/core/strings/error_strings.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/widget/loading_indicator.dart';

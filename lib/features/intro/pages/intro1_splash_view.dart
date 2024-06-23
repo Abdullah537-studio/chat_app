@@ -1,4 +1,4 @@
-import 'package:chat_2/core/function/sheck_remember_me_.dart';
+import 'package:chat_2/core/function/main_functions/sheck_remember_me_.dart';
 import 'package:chat_2/core/strings/image_png.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';

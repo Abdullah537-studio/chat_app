@@ -1,5 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api, file_names, must_be_immutable, deprecated_member_use
-import 'package:chat_2/core/function/validator.dart';
+import 'package:chat_2/core/function/main_functions/validator.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';

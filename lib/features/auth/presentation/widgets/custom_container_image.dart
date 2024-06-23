@@ -3,7 +3,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:chat_2/core/function/convert_base64_to_image_partner_from_api.dart';
+import 'package:chat_2/core/function/main_functions/convert_base64_to_image_partner_from_api.dart';
 import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
