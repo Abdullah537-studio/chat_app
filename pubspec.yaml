@@ -14,15 +14,15 @@ dependencies:
   cupertino_icons: ^1.0.8
   http: ^1.2.1
   equatable: ^2.0.5
-  internet_connection_checker: ^1.0.0+1
+  internet_connection_checker: ^1.0.0
   shared_preferences: ^2.2.3
   get_it: ^7.7.0
   dartz: ^0.10.1
-  flutter_bloc: ^8.1.5
-  image_picker: ^1.0.8
+  flutter_bloc: ^8.1.6
+  image_picker: ^1.1.2
   dropdown_button2: ^2.3.9
   flutter_svg: ^2.0.10+1
-  flutter_screenutil: ^5.9.0
+  flutter_screenutil: ^5.9.3
   flutter_localization: ^0.2.0
   flutter_localizations:
     sdk: flutter
@@ -36,8 +36,8 @@ dev_dependencies:
     sdk: flutter
   flutter_launcher_icons: "^0.13.1"
   mockito: ^5.4.4
-  mocktail: ^1.0.3
-  # build_runner: ^2.4.10
+  mocktail: ^1.0.4
+  build_runner: ^2.4.9
 
 flutter_launcher_icons:
   android: "launcher_icon"
