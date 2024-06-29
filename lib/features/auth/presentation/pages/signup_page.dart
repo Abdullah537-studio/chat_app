@@ -20,7 +20,6 @@ import 'package:chat_2/features/search_partner/presentation/widgets/custom_gende
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 
 class SignUpPage extends StatelessWidget {
   static String? passwordToValidate;
@@ -73,7 +72,7 @@ class SignUpPage extends StatelessWidget {
                       validationAll(context: context).validateGenerall(va),
                   onChange: (value) {
                     value = value!.isEmpty ? "0" : value;
-                    if (value is NumberFormat) {
+                    if (!value.contains(',') && !value.contains('.')) {
                       int age = int.parse(value);
                       signinEntite.age = age;
                     }
@@ -169,6 +168,7 @@ class SignUpPage extends StatelessWidget {
                         backgroundColor: AppColor.kPrimaryColor,
                         borderColor: AppColor.kColorWhite,
                         onPressed: () {
+                          print(signinEntite);
                           validationAll.passwordValidate =
                               signinEntite.password;
                           if (formState.currentState!.validate()) {

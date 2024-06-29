@@ -41,11 +41,6 @@ class CustomAge extends StatelessWidget {
               if (value != null && value.length > 1) {
                 int age = int.parse(value);
                 getAge!(age);
-
-                // _onAgeChanged(
-                //   age,
-                //   Form.of(context),
-                // );
               }
             },
           ),
