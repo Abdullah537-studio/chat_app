@@ -27,12 +27,14 @@ class LoginToContainue extends StatelessWidget {
               style: TextStyle(fontSize: 24),
             ),
             MainTextWidget(
-              text: AppKeyTranslateManger.please_login_to_continue_1_dialog,
+              text: translating(context,
+                  AppKeyTranslateManger.please_login_to_continue_1_dialog),
               style: Theme.of(context).textTheme.bodyMedium!,
               isCenter: true,
             ),
             MainTextWidget(
-              text: AppKeyTranslateManger.please_login_to_continue_2_dialog,
+              text: translating(context,
+                  AppKeyTranslateManger.please_login_to_continue_2_dialog),
               style: Theme.of(context).textTheme.bodyMedium!,
               isCenter: true,
             ),
