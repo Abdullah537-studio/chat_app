@@ -1,5 +1,5 @@
-import 'package:chat_2/core/function/firebase_functions/background_function.dart';
-import 'package:chat_2/core/function/firebase_functions/foreground_function.dart';
+import 'package:chat_2/core/function/firebase_notivication_functions/background_function.dart';
+import 'package:chat_2/core/function/firebase_notivication_functions/foreground_function.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 

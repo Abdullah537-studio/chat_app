@@ -1,4 +1,4 @@
-import 'package:chat_2/core/function/firebase_functions/do_function_in_main.dart';
+import 'package:chat_2/core/function/firebase_notivication_functions/do_function_in_main.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'app/my_app.dart';
