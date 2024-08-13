@@ -13,30 +13,34 @@ AppBar showAppBarForAllPages(BuildContext context, int index) {
     translating(context, AppKeyTranslateManger.message),
   ];
 
-  return bodyTabBardestination == TabBarStatus.suggetionPartner
-      ? buildAppBar(
-          context,
-          translating(context, AppKeyTranslateManger.suggset),
-          true,
-          () {
-            bodyTabBardestination = TabBarStatus.search;
-            context.read<BootomTabBarCubit>().getIndexTabBar();
-          },
-        )
-      : bodyTabBardestination == TabBarStatus.chatBubble
+  return
+      //! suggestion partner
+      bodyTabBardestination == TabBarStatus.suggetionPartner
           ? buildAppBar(
               context,
-              ChatBubblePartnerPage.userName,
+              translating(context, AppKeyTranslateManger.suggset),
               true,
               () {
-                bodyTabBardestination = TabBarStatus.chatInfo;
+                bodyTabBardestination = TabBarStatus.search;
                 context.read<BootomTabBarCubit>().getIndexTabBar();
               },
             )
-          : buildAppBar(
-              context,
-              appBarStringsScreen[index],
-              false,
-              () {},
-            );
+//! chatbubble
+          : bodyTabBardestination == TabBarStatus.chatBubble
+              ? buildAppBar(
+                  context,
+                  ChatBubblePartnerPage.userName,
+                  true,
+                  () {
+                    bodyTabBardestination = TabBarStatus.chatInfo;
+                    context.read<BootomTabBarCubit>().getIndexTabBar();
+                  },
+                )
+//! from index  get title appbar { list appBarStringsScreen }
+              : buildAppBar(
+                  context,
+                  appBarStringsScreen[index],
+                  false,
+                  () {},
+                );
 }
