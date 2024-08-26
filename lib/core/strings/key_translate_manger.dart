@@ -65,4 +65,5 @@ class AppKeyTranslateManger {
 //!----------setting
   static String change_languange_setting = "change_languange_setting";
   static String change_theme_setting = "change_theme_setting";
+  static String log_out = "log_out";
 }
