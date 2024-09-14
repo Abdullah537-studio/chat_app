@@ -14,9 +14,10 @@ showAlertDialogConfirmLogOut(BuildContext context) {
     child: Text("Continue"),
     onPressed: () {
       AppSharedPreferences.clear();
-      Navigator.pushReplacementNamed(
+      Navigator.pushNamedAndRemoveUntil(
         context,
         RouteNamedScreens.loginorSignScreenNameRoute,
+        (Route<dynamic> route) => false,
       );
     },
   );

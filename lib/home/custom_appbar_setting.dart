@@ -3,7 +3,6 @@ import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/widget/custom_show_dialog_confirm_logout.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 AppBar buildAppBarSetting(BuildContext context) {
