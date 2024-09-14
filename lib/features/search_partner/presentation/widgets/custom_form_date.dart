@@ -32,8 +32,7 @@ class CustomFormDate extends StatelessWidget {
             disabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
                 borderSide: BorderSide(width: 2.w)),
-            contentPadding:
-                EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
+            contentPadding: EdgeInsets.all(20),
             isDense: true,
             hintText:
                 translating(context, AppKeyTranslateManger.date_form_search),

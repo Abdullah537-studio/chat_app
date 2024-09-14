@@ -50,7 +50,8 @@
 "change_theme_setting":"Change Theme",
 "change_languange_setting":"Change language",
 "age_under_12_above_100_not_currect":"age must be above 12 and under 100 year ",
-"validate_only_number":"you must write only number here no . or ,  "
-,"log_out":"log out"
-
+"validate_only_number":"you must write only number here no . or ,  ",
+"log_out":"log out",
+"male_drop_down":"Male",
+"female_drop_down":"Female"
 }

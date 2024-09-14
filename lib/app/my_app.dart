@@ -46,6 +46,8 @@ class MyApp extends StatelessWidget {
               return BlocBuilder<LocalTranslateCubit, LocalTranslateState>(
                 builder: (context, state) {
                   if (state.status == CubitStatus.done) {
+                    AppSharedPreferences.cacheLanguageCode(
+                        languageCode: state.locale!.languageCode);
                     return MaterialApp(
                       debugShowCheckedModeBanner: false,
                       locale: state.locale,

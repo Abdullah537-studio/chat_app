@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColor {
   static Color kSecondaryColor = Color(0xffF2F2F2);
   static Color kPrimaryColor = Color(0xffFF6F00);
-  static Color kPrimaryDarkColor = Color(0xff2B2D42);
+  static Color kPrimaryDarkColor = Color.fromARGB(255, 68, 72, 112);
   static Color kSecondaryDarkColor = Colors.blueGrey;
   static Color kErroreBorderColor = Colors.red;
   static Color kErroreFoucaseBorderColor = Color.fromARGB(255, 94, 17, 11);

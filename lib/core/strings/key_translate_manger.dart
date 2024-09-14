@@ -6,6 +6,9 @@ translating(BuildContext context, String word) {
 }
 
 class AppKeyTranslateManger {
+  static String female = "female_drop_down";
+  static String male = "male_drop_down";
+
   static String welcome = "welcome_mes";
   static String home = "Home_mes";
   static String message = "Message_mes";

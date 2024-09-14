@@ -13,7 +13,9 @@ showAlertDialogConfirmLogOut(BuildContext context) {
   Widget continueButton = MaterialButton(
     child: Text("Continue"),
     onPressed: () {
+      final String languageCode = AppSharedPreferences.getLanguageCode();
       AppSharedPreferences.clear();
+      AppSharedPreferences.cacheLanguageCode(languageCode: languageCode);
       Navigator.pushNamedAndRemoveUntil(
         context,
         RouteNamedScreens.loginorSignScreenNameRoute,

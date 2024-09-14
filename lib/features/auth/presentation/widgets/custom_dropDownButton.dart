@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api, file_names, must_be_immutable, deprecated_member_use
 import 'package:chat_2/core/function/main_functions/validator.dart';
+import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
@@ -22,8 +23,6 @@ class CustomDropdownButtonFormField extends StatefulWidget {
     required this.label,
   });
 
-  // ...
-
   @override
   _CustomDropdownButtonFormFieldState createState() =>
       _CustomDropdownButtonFormFieldState();
@@ -40,8 +39,6 @@ class _CustomDropdownButtonFormFieldState
       child: DropdownButtonHideUnderline(
         child: DropdownButtonFormField2<String>(
           onMenuStateChange: (isOpen) {
-            print("isOpen");
-
             setState(() {
               if (isOpen == true) {
                 widget.colorIcon = AppColor.kPrimaryColor;
@@ -51,8 +48,10 @@ class _CustomDropdownButtonFormFieldState
             });
           },
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(
-                top: 25.h, bottom: 25.h, right: 20.w, left: 5.w),
+            contentPadding: AppSharedPreferences.getLanguageCode() == "ar"
+                ? EdgeInsets.symmetric(vertical: 25.h, horizontal: 20.w)
+                : EdgeInsets.only(
+                    top: 25.h, bottom: 25.h, right: 20.w, left: 5.w),
             hintStyle: Theme.of(context).textTheme.labelMedium,
             hintText: widget.label,
             focusedBorder: outlineInputBorder(AppColor.kPrimaryColor),
