@@ -44,7 +44,10 @@ class LoginPage extends StatelessWidget {
                   child: Text(
                     translating(context, AppKeyTranslateManger.login),
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium!
+                        .copyWith(color: AppColor.kColorBlack),
                   )),
               //?--------------------------Email----------------------------------------------
               MainTextFormField(

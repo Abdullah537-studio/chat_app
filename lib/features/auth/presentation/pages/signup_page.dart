@@ -45,7 +45,10 @@ class SignUpPage extends StatelessWidget {
               children: [
                 MainTextWidget(
                   text: translating(context, AppKeyTranslateManger.singup),
-                  style: Theme.of(context).textTheme.titleMedium!,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(color: AppColor.kColorBlack),
                   isCenter: false,
                 ),
                 CustomImage(

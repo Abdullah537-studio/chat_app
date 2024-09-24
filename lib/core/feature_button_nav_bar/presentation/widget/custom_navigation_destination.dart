@@ -1,10 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:chat_2/core/enum/tab_bar_state.dart';
-import 'package:chat_2/core/feature_button_nav_bar/presentation/bootom_navigation_tab_bar_cubit/bootom_tab_bar_cubit.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -45,10 +42,7 @@ class CustomNavigationDestination extends StatelessWidget {
         ),
       ),
       selectedIcon: GestureDetector(
-        onTap: () {
-          bodyTabBardestination = TabBarStatus.suggetionPartner;
-          context.read<BootomTabBarCubit>().getIndexTabBar();
-        },
+        onTap: ontap,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

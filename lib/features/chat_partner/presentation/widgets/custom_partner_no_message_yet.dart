@@ -14,12 +14,12 @@ class CustomPartnerNoMessageYet extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             MainTextWidget(
-              text: AppKeyTranslateManger.noMessageTop,
+              text: translating(context, AppKeyTranslateManger.noMessageTop),
               style: Theme.of(context).textTheme.bodyLarge!,
               isCenter: false,
             ),
             MainTextWidget(
-              text: AppKeyTranslateManger.noMessagebottom,
+              text: translating(context, AppKeyTranslateManger.noMessagebottom),
               style: Theme.of(context).textTheme.bodyLarge!,
               isCenter: false,
             ),
