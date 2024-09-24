@@ -24,7 +24,7 @@ void main() {
     phoneNumber: "096870313",
     gender: 0,
     name: "mosatkssa",
-    avatar: ImageBase64ToTestTdd(),
+    avatar: ImageBase64String(),
   );
   final signinResponse = SigninResponse(
     canLogin: true,

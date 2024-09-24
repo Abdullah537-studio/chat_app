@@ -69,4 +69,11 @@ class AppKeyTranslateManger {
   static String change_languange_setting = "change_languange_setting";
   static String change_theme_setting = "change_theme_setting";
   static String log_out = "log_out";
+//!----------confirm logout setting
+
+  static String confirm_logout_title = "confirm_logout_title";
+  static String confirm_logout_body = "confirm_logout_body";
+  static String confirm_logout_bottom_cancle = "confirm_logout_bottom_cancle";
+  static String confirm_logout_bottom_continue =
+      "confirm_logout_bottom_continue";
 }

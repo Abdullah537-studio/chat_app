@@ -53,5 +53,9 @@
 "validate_only_number":"you must write only number here no . or ,  ",
 "log_out":"log out",
 "male_drop_down":"Male",
-"female_drop_down":"Female"
+"female_drop_down":"Female",
+"confirm_logout_title":"Confirm Lougout",
+"confirm_logout_body":"Are you sure you want to logout from your account?",
+"confirm_logout_bottom_cancle":"Cancle",
+"confirm_logout_bottom_continue":"Continue"
 }

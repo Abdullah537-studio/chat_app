@@ -53,5 +53,9 @@
     "validate_only_number":"يجب ادخال رقم فقط لا فواصل ولا نقاط ",
     "log_out":"تسجيل الخروج",
     "male_drop_down":"ذكر",
-    "female_drop_down":"انثى"
+    "female_drop_down":"انثى",
+    "confirm_logout_title":"تأكيد تسجيل الخروج",
+    "confirm_logout_body":"هل أنت متأكد من تسجيل خروج من هذا الحساب",
+    "confirm_logout_bottom_cancle":"إلغاء",
+    "confirm_logout_bottom_continue":"استكمال"
 }

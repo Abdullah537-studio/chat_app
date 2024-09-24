@@ -3,8 +3,6 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:chat_2/core/function/main_functions/convert_base64_to_image_partner_from_api.dart';
-import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:flutter/material.dart';
@@ -92,13 +90,6 @@ class _CustomImageState extends State<CustomImage> {
                     //! to print image as base64
 
                     // printFullText(imageCut);
-
-                    //! for start image cutting can call it in image partner
-                    partImageCut = base64Image.substring(0, 4);
-                    // i can here take all image  put i will take part cutting to put it with api
-                    AppSharedPreferences.cachePartImageHaveCutting(
-                      imageCut: partImageCut,
-                    );
                   }
                 },
                 child: SvgPicture.asset(pinceliconImagePicker),
