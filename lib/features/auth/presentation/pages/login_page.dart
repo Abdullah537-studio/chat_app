@@ -16,14 +16,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
   final LoginRequest loginEntite = LoginRequest();
 
   @override
@@ -32,9 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 40.h),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        padding: EdgeInsets.symmetric(horizontal: 40.h, vertical: 50.h),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AppImageStringPng.backgroundLogin),

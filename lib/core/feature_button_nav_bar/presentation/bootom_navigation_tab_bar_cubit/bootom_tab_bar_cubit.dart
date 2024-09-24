@@ -8,14 +8,12 @@ part 'bootom_tab_bar_state.dart';
 class BootomTabBarCubit extends Cubit<BootomTabBarState> {
   BootomTabBarCubit() : super(BootomTabBarState.initial());
   String? textAppBar;
-  int? index;
   TabBarStatus? tabBarStatus;
 
   getIndexTabBar() async {
     emit(
       state.copyWith(
         status: CubitStatus.done,
-        index: index,
         textAppBar: textAppBar,
         tabBarStatus: tabBarStatus,
       ),

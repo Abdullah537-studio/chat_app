@@ -18,45 +18,49 @@ class BootomNabigationAllPages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int indexClick = 0;
     return BlocBuilder<BootomTabBarCubit, BootomTabBarState>(
       builder: (context, state) => Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
 //!----------------------appBar all pages {with out appBar setting}
-        appBar: showAppBarForAllPages(context, state.index ?? 0),
+        appBar: showAppBarForAllPages(context, indexClick),
 //!------------------bootm navigation bar
         bottomNavigationBar: CustomNavigationBarThemeData(
           child: NavigationBar(
-            selectedIndex: state.index ?? 0,
+            selectedIndex: indexClick,
             height: 120.h,
-            onDestinationSelected: (index) {
-              state.index = index;
-              if (state.index == 0) {
-                bodyTabBardestination = TabBarStatus.home;
-              } else if (state.index == 1) {
-                bodyTabBardestination = TabBarStatus.search;
-              } else if (state.index == 2) {
-                bodyTabBardestination = TabBarStatus.chatInfo;
-              }
-              state.tabBarStatus = bodyTabBardestination;
-
-              context.read<BootomTabBarCubit>().getIndexTabBar();
-            },
 //!----------------------icons navigation bootom
+
             destinations: [
               //?---------Home
               CustomNavigationDestination(
+                ontap: () {
+                  indexClick = 0;
+                  bodyTabBardestination = TabBarStatus.home;
+                  context.read<BootomTabBarCubit>().getIndexTabBar();
+                },
                 childDisable: homeIcon,
                 childenable: homeIcon,
                 text: translating(context, AppKeyTranslateManger.home),
               ),
               //?---------Search
               CustomNavigationSearchIconDestination(
+                ontap: () {
+                  indexClick = 1;
+                  bodyTabBardestination = TabBarStatus.search;
+                  context.read<BootomTabBarCubit>().getIndexTabBar();
+                },
                 childDisable: searchIconDisalbe,
                 childenable: searchIconEnable,
                 text: "",
               ),
               //?---------Chat
               CustomNavigationDestination(
+                ontap: () {
+                  indexClick = 2;
+                  bodyTabBardestination = TabBarStatus.chatInfo;
+                  context.read<BootomTabBarCubit>().getIndexTabBar();
+                },
                 childDisable: chatIcon,
                 childenable: chatIcon,
                 text: translating(context, AppKeyTranslateManger.message),

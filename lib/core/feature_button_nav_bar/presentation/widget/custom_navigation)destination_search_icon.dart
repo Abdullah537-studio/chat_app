@@ -6,33 +6,39 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomNavigationSearchIconDestination extends StatelessWidget {
-  const CustomNavigationSearchIconDestination(
-      {super.key,
-      required this.text,
-      required this.childDisable,
-      required this.childenable});
+  const CustomNavigationSearchIconDestination({
+    super.key,
+    required this.text,
+    required this.childDisable,
+    required this.childenable,
+    required this.ontap,
+  });
+  final Function()? ontap;
   final String text;
   final String childDisable;
   final String childenable;
   @override
   Widget build(BuildContext context) {
     return NavigationDestination(
-      icon: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          SvgPicture.asset(
-            childDisable,
-            width: 75.w,
-            height: 75.h,
-          ),
-          Text(
-            text,
-            style: TextStyle(
-              color: AppColor.kColorBlack,
-              fontSize: 20.sp,
+      icon: GestureDetector(
+        onTap: ontap,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            SvgPicture.asset(
+              childDisable,
+              width: 75.w,
+              height: 75.h,
             ),
-          )
-        ],
+            Text(
+              text,
+              style: TextStyle(
+                color: AppColor.kColorBlack,
+                fontSize: 20.sp,
+              ),
+            )
+          ],
+        ),
       ),
       selectedIcon: Column(
         mainAxisAlignment: MainAxisAlignment.end,

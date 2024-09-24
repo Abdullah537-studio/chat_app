@@ -25,7 +25,7 @@ AppBar showAppBarForAllPages(BuildContext context, int index) {
                 context.read<BootomTabBarCubit>().getIndexTabBar();
               },
             )
-//! chatbubble
+          //! chatbubble
           : bodyTabBardestination == TabBarStatus.chatBubble
               ? buildAppBar(
                   context,
