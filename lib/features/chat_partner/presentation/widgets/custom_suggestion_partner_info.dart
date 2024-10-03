@@ -95,8 +95,9 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
                 image: chatIcon,
                 text: "Send a message",
                 onPressed: () {
-                  bodyTabBardestination = TabBarStatus.chatBubble;
-                  context.read<BootomTabBarCubit>().getIndexTabBar();
+                  context
+                      .read<BootomTabBarCubit>()
+                      .getIndexTabBar(TabBarStatus.chatBubble);
                 },
               ),
             ),

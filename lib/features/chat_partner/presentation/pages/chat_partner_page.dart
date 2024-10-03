@@ -62,8 +62,10 @@ class ChatPage extends StatelessWidget {
                     ontap: () {
                       ChatBubblePartnerPage.partnerId = chat.last.contactId;
                       ChatBubblePartnerPage.userId = chat.last.accountId;
-                      bodyTabBardestination = TabBarStatus.chatBubble;
-                      context.read<BootomTabBarCubit>().getIndexTabBar();
+
+                      context
+                          .read<BootomTabBarCubit>()
+                          .getIndexTabBar(TabBarStatus.chatBubble);
                     },
                   );
                 },

@@ -4,12 +4,12 @@ import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-AppBar buildAppBar(
-  BuildContext context,
-  String text,
-  bool pob,
+AppBar buildAppBar({
+  required BuildContext context,
+  required String text,
+  required bool pob,
   Function()? onPressed,
-) {
+}) {
   return AppBar(
     actions: [
       Container(

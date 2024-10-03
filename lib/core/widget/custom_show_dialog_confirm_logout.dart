@@ -1,8 +1,10 @@
 import 'package:chat_2/core/enum/tab_bar_state.dart';
+import 'package:chat_2/core/feature_button_nav_bar/presentation/bootom_navigation_tab_bar_cubit/bootom_tab_bar_cubit.dart';
 import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/strings/route_named_screens_string.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 showAlertDialogConfirmLogOut(BuildContext context) {
   // set up the buttons
@@ -20,7 +22,9 @@ showAlertDialogConfirmLogOut(BuildContext context) {
           context, AppKeyTranslateManger.confirm_logout_bottom_continue),
     ),
     onPressed: () {
-      bodyTabBardestination = TabBarStatus.home;
+      BlocListener<BootomTabBarCubit, BootomTabBarState>(
+        listener: (context, state) => state.tabBarStatus = TabBarStatus.home,
+      );
       final String languageCode = AppSharedPreferences.getLanguageCode();
       AppSharedPreferences.clear();
       AppSharedPreferences.cacheLanguageCode(languageCode: languageCode);

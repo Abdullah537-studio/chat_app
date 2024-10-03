@@ -41,15 +41,16 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                  padding: EdgeInsets.symmetric(vertical: 75.h),
-                  child: Text(
-                    translating(context, AppKeyTranslateManger.login),
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(color: AppColor.kColorBlack),
-                  )),
+                padding: EdgeInsets.symmetric(vertical: 75.h),
+                child: Text(
+                  translating(context, AppKeyTranslateManger.login),
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(color: AppColor.kColorBlack),
+                ),
+              ),
               //?--------------------------Email----------------------------------------------
               MainTextFormField(
                 keyboardTybe: TextInputType.emailAddress,
@@ -91,7 +92,7 @@ class LoginPage extends StatelessWidget {
                           onChanged: (value) {
                             setState(
                               () {
-                                rememberMe = value!;
+                                rememberMe = value ?? false;
                               },
                             );
                           },

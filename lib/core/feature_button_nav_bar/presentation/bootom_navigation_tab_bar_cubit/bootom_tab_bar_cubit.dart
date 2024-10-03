@@ -7,16 +7,40 @@ part 'bootom_tab_bar_state.dart';
 
 class BootomTabBarCubit extends Cubit<BootomTabBarState> {
   BootomTabBarCubit() : super(BootomTabBarState.initial());
-  String? textAppBar;
-  TabBarStatus? tabBarStatus;
+  // String? textAppBar;
+  // TabBarStatus? tabBarStatus;
 
-  getIndexTabBar() async {
-    emit(
-      state.copyWith(
+  getIndexTabBar(TabBarStatus tabBarStatus) async {
+    if (tabBarStatus == TabBarStatus.chatBubble) {
+      emit(state.copyWith(
         status: CubitStatus.done,
-        textAppBar: textAppBar,
-        tabBarStatus: tabBarStatus,
-      ),
-    );
+        tabBarStatus: TabBarStatus.chatBubble,
+        index: 2,
+      ));
+    } else if (tabBarStatus == TabBarStatus.chatInfo) {
+      emit(state.copyWith(
+        status: CubitStatus.done,
+        tabBarStatus: TabBarStatus.chatInfo,
+        index: 2,
+      ));
+    } else if (tabBarStatus == TabBarStatus.search) {
+      emit(state.copyWith(
+        status: CubitStatus.done,
+        tabBarStatus: TabBarStatus.search,
+        index: 1,
+      ));
+    } else if (tabBarStatus == TabBarStatus.suggetionPartner) {
+      emit(state.copyWith(
+        status: CubitStatus.done,
+        tabBarStatus: TabBarStatus.suggetionPartner,
+        index: 1,
+      ));
+    } else {
+      emit(state.copyWith(
+        status: CubitStatus.done,
+        tabBarStatus: TabBarStatus.home,
+        index: 0,
+      ));
+    }
   }
 }

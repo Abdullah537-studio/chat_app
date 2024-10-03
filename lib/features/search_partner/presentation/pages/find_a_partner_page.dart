@@ -94,8 +94,10 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
                   // * to get image partner info : have part of image  cutting must get it from method
                   context.read<ImagePartnerCubit>().getImagePartner();
                   // * change enum to change body to suggestionPartner
-                  bodyTabBardestination = TabBarStatus.suggetionPartner;
-                  context.read<BootomTabBarCubit>().getIndexTabBar();
+
+                  context
+                      .read<BootomTabBarCubit>()
+                      .getIndexTabBar(TabBarStatus.suggetionPartner);
                 } else if (state.status == CubitStatus.faild) {
                   return showSnackBar(
                     context,
@@ -111,6 +113,7 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
                     image: searchIcon,
                     text: translating(context, AppKeyTranslateManger.search),
                     onPressed: () {
+                      print(partner);
                       if (formState.currentState!.validate()) {
                         context.read<SearchPartnerCubit>().getPartner(partner);
                       }

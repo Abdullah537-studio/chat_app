@@ -20,9 +20,7 @@ class ChatBubblePartnerPage extends StatelessWidget {
 
   const ChatBubblePartnerPage({
     super.key,
-    //  required this.data,
   });
-  // final Map<String, int> data;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +75,8 @@ class ChatBubblePartnerPage extends StatelessWidget {
                       chatBubbleRequiest.message = val;
                     },
                     onPressedIconSendMessage: () {
+                      chatBubbleRequiest.time = DateTime.now();
+
                       context
                           .read<ChatPartnerBubbleCubit>()
                           .chatBubble(chatBubbleRequiest);
