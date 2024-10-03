@@ -18,6 +18,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
+  final GlobalKey<FormState> formKeyLogin = GlobalKey();
 
   final LoginRequest loginEntite = LoginRequest();
 
@@ -168,5 +169,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
-GlobalKey<FormState> formKeyLogin = GlobalKey();
