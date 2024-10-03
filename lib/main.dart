@@ -4,11 +4,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app/my_app.dart';
 import 'core/shared/shared_pref.dart';
 import 'injection/injection_container.dart' as di;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
   doFunctionFirebaseNotification();
+  await ScreenUtil.ensureScreenSize();
   SharedPreferences.getInstance().then(
     (prefs) {
       AppSharedPreferences.init(prefs);

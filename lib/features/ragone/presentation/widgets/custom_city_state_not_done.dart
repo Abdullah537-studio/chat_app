@@ -24,8 +24,12 @@ class CustomCityStateIsNotDone extends StatelessWidget {
           hintText: text,
           alignLabelWithHint: false,
           hintStyle: Theme.of(context).textTheme.labelMedium,
-          contentPadding:
-              EdgeInsets.only(top: 25.h, bottom: 25.h, right: 35.w, left: 20.w),
+          contentPadding: EdgeInsetsDirectional.only(
+            start: 25.w,
+            top: 25.h,
+            bottom: 25.h,
+            end: 20.w,
+          ),
           suffixIcon: Tab(
             child: SvgPicture.asset(
               arrowDown,
