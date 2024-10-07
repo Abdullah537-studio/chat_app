@@ -1,0 +1,11 @@
+{
+    "name": "string",
+    "gender": 0,
+    "age": 0,
+    "cityId": 0,
+    "countryId": 0,
+    "phoneNumber": "string",
+    "emailAddress": "user@example.com",
+    "password": "string",
+    "avatar": "string"
+  }

@@ -14,7 +14,7 @@ void main() {
     mockAuthRepository = MockAuthRepository();
     loginUsecase = LoginUsecase(repository: mockAuthRepository);
   });
-  test('should login user and get token ', () async {
+  test('should get token from repository ', () async {
     final testResult = Result(
       accessToken: "sadflkjsldfjks22222",
       encryptedAccessToken: "asdfasdf",

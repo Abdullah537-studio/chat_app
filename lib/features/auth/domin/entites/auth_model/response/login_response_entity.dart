@@ -1,10 +1,12 @@
 import 'dart:convert';
 
+import 'package:equatable/equatable.dart';
+
 LoginResponse loginResponseFromJson(String str) =>
     LoginResponse.fromJson(json.decode(str));
 
-class LoginResponse {
-  LoginResponse({required this.result});
+class LoginResponse extends Equatable {
+  const LoginResponse({required this.result});
 
   final Result? result;
 
@@ -13,10 +15,13 @@ class LoginResponse {
       result: Result.fromJson(json["result"] ?? {}),
     );
   }
+
+  @override
+  List<Object?> get props => [result];
 }
 
-class Result {
-  Result({
+class Result extends Equatable {
+  const Result({
     required this.accessToken,
     required this.encryptedAccessToken,
     required this.expireInSeconds,
@@ -43,5 +48,13 @@ class Result {
             encryptedAccessToken: encryptedAccessToken,
             expireInSeconds: expireInSeconds,
             userId: userId)
+      ];
+
+  @override
+  List<Object?> get props => [
+        userId,
+        expireInSeconds,
+        encryptedAccessToken,
+        accessToken,
       ];
 }

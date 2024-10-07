@@ -42,7 +42,9 @@ class ChatBubblePartnerPage extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        if (state.status == CubitStatus.done) {
+        if (state.status == CubitStatus.loading) {
+          return const loadingIndicator();
+        } else {
           return RefreshIndicator(
             color: AppColor.kPrimaryColor,
             onRefresh: () {
@@ -66,7 +68,7 @@ class ChatBubblePartnerPage extends StatelessWidget {
                           );
                         }
                       },
-                      itemCount: state.chatDialog!.dialogs.length,
+                      itemCount: state.chatDialog?.dialogs.length ?? 0,
                     ),
                   ),
                   //?------------------------------Box Send Message ------------------------------
@@ -88,10 +90,6 @@ class ChatBubblePartnerPage extends StatelessWidget {
               ),
             ),
           );
-        } else if (state.status == CubitStatus.loading) {
-          return const loadingIndicator();
-        } else {
-          return const SizedBox();
         }
       },
     );
