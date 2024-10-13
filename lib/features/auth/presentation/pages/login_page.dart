@@ -8,6 +8,7 @@ import 'package:chat_2/core/strings/route_named_screens_string.dart';
 import 'package:chat_2/core/widget/custom_button.dart';
 import 'package:chat_2/core/widget/main_text_form_filed.dart';
 import 'package:chat_2/core/widget/loading_indicator.dart';
+import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/core/widget/show_snack_bar.dart';
 import 'package:chat_2/features/auth/domin/entites/auth_model/requiest/login_request_entity.dart';
 import 'package:chat_2/features/auth/presentation/cubit/auth_cubit/login_cubit.dart';
@@ -26,7 +27,6 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     bool rememberMe = false;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 40.h, vertical: 50.h),
         decoration: BoxDecoration(
@@ -37,133 +37,139 @@ class LoginPage extends StatelessWidget {
         ),
         child: Form(
           key: formKeyLogin,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 75.h),
-                child: Text(
-                  translating(context, AppKeyTranslateManger.login),
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: AppColor.kColorBlack),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 75.h),
+                  child: Text(
+                    translating(context, AppKeyTranslateManger.login),
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium!
+                        .copyWith(color: AppColor.kColorBlack),
+                  ),
                 ),
-              ),
-              //?--------------------------Email----------------------------------------------
-              MainTextFormField(
-                keyboardTybe: TextInputType.emailAddress,
-                showPassword: false,
-                validate: validationAll(context: context).validateEmail,
-                icon: Icon(
-                  Icons.email,
-                  size: 35.r,
+                //?--------------------------Email----------------------------------------------
+                MainTextFormField(
+                  keyboardTybe: TextInputType.emailAddress,
+                  showPassword: false,
+                  validate: validationAll(context: context).validateEmail,
+                  icon: Icon(
+                    Icons.email,
+                    size: 35.r,
+                  ),
+                  hintText: translating(context, AppKeyTranslateManger.email),
+                  onChange: (value) {
+                    loginEntite.email = value;
+                  },
                 ),
-                hintText: translating(context, AppKeyTranslateManger.email),
-                onChange: (value) {
-                  loginEntite.email = value;
-                },
-              ),
-              //?--------------------------Passwrod-------------------------------------------
-              MainTextFormField(
-                keyboardTybe: TextInputType.visiblePassword,
-                showPassword: true,
-                validate: validationAll(context: context).validatePassword,
-                icon: Icon(
-                  Icons.vpn_key,
-                  size: 35.r,
+                //?--------------------------Passwrod-------------------------------------------
+                MainTextFormField(
+                  keyboardTybe: TextInputType.visiblePassword,
+                  showPassword: true,
+                  validate: validationAll(context: context).validatePassword,
+                  icon: Icon(
+                    Icons.vpn_key,
+                    size: 35.r,
+                  ),
+                  hintText:
+                      translating(context, AppKeyTranslateManger.password),
+                  onChange: (value) {
+                    loginEntite.password = value;
+                  },
                 ),
-                hintText: translating(context, AppKeyTranslateManger.password),
-                onChange: (value) {
-                  loginEntite.password = value;
-                },
-              ),
-              //?--------------------rememberMe-----------------------------------------------
-              Padding(
-                padding: EdgeInsets.only(right: 40.w, left: 40.w, bottom: 20.h),
-                child: StatefulBuilder(
-                  builder: (BuildContext context, setState) {
-                    return Row(
-                      children: [
-                        Checkbox(
-                          activeColor: AppColor.kPrimaryColor,
-                          value: rememberMe,
-                          onChanged: (value) {
-                            setState(
-                              () {
-                                rememberMe = value ?? false;
-                              },
-                            );
-                          },
-                        ),
-                        Text(
-                          translating(
-                            context,
-                            AppKeyTranslateManger.rememberMe,
+                //?--------------------rememberMe-----------------------------------------------
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.h),
+                  child: StatefulBuilder(
+                    builder: (BuildContext context, setState) {
+                      return Row(
+                        children: [
+                          Checkbox(
+                            activeColor: AppColor.kPrimaryColor,
+                            value: rememberMe,
+                            onChanged: (value) {
+                              setState(
+                                () {
+                                  rememberMe = value ?? false;
+                                },
+                              );
+                            },
                           ),
-                          style:
-                              Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    color: rememberMe
-                                        ? AppColor.kPrimaryColor
-                                        : AppColor.kColorBlack,
-                                  ),
+                          MainTextWidget(
+                            text: translating(
+                              context,
+                              AppKeyTranslateManger.rememberMe,
+                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  color: rememberMe
+                                      ? AppColor.kPrimaryColor
+                                      : AppColor.kColorBlack,
+                                ),
+                            isCenter: false,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+                //?----------------------button login-------------------------------------------
+                BlocConsumer<LoginCubit, LoginState>(
+                  listener: (context, state) {
+                    if (state.status == CubitStatus.faild) {
+                      showSnackBarMain(
+                        context,
+                        translating(
+                          context,
+                          AppKeyTranslateManger.errorInfo,
                         ),
-                      ],
+                      );
+                    }
+                    if (state.status == CubitStatus.done) {
+                      AppSharedPreferences.cacheRememberMeValue(rememberMe);
+                      Navigator.pushReplacementNamed(
+                        context,
+                        RouteNamedScreens.boottomTabBarScreenNameRoute,
+                      );
+                    }
+                  },
+                  builder: (context, state) {
+                    if (state.status == CubitStatus.loading) {
+                      return const loadingIndicator();
+                    }
+                    return MainButton(
+                      backgroundColor: AppColor.kPrimaryColor,
+                      borderColor: AppColor.kColorWhite,
+                      text: translating(context, AppKeyTranslateManger.login),
+                      onPressed: () {
+                        if (formKeyLogin.currentState!.validate()) {
+                          context
+                              .read<LoginCubit>()
+                              .login(loginEntity: loginEntite);
+                        }
+                      },
                     );
                   },
                 ),
-              ),
-              //?----------------------button login-------------------------------------------
-              BlocConsumer<LoginCubit, LoginState>(
-                listener: (context, state) {
-                  if (state.status == CubitStatus.faild) {
-                    showSnackBar(
-                      context,
-                      translating(
-                        context,
-                        AppKeyTranslateManger.errorInfo,
-                      ),
-                    );
-                  }
-                  if (state.status == CubitStatus.done) {
-                    AppSharedPreferences.cacheRememberMeValue(rememberMe);
-                    Navigator.pushReplacementNamed(
-                      context,
-                      RouteNamedScreens.boottomTabBarScreenNameRoute,
-                    );
-                  }
-                },
-                builder: (context, state) {
-                  print(loginEntite.email);
-                  if (state.status == CubitStatus.loading) {
-                    return const loadingIndicator();
-                  }
-                  return MainButton(
-                    backgroundColor: AppColor.kPrimaryColor,
-                    borderColor: AppColor.kColorWhite,
-                    text: translating(context, AppKeyTranslateManger.login),
-                    onPressed: () {
-                      if (formKeyLogin.currentState!.validate()) {
-                        context
-                            .read<LoginCubit>()
-                            .login(loginEntity: loginEntite);
-                      }
-                    },
-                  );
-                },
-              ),
-              //!-------------- ask user {dont have account : signup}
-              CustomHaveOrNoteHaveAccount(
-                text: translating(
-                    context, AppKeyTranslateManger.not_have_an_account),
-                textButton: translating(context, AppKeyTranslateManger.singup),
-                onpressed: () {
-                  Navigator.of(context).pushReplacementNamed(
-                      RouteNamedScreens.signinScreenNameRoute);
-                },
-              ),
-            ],
+                //?-------------- ask user {dont have account : signup}
+                CustomHaveOrNoteHaveAccount(
+                  text: translating(
+                      context, AppKeyTranslateManger.not_have_an_account),
+                  textButton:
+                      translating(context, AppKeyTranslateManger.singup),
+                  onpressed: () {
+                    Navigator.of(context).pushReplacementNamed(
+                        RouteNamedScreens.signinScreenNameRoute);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

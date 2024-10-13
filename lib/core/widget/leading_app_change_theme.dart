@@ -24,7 +24,7 @@ class LeadingChangeTheme extends StatelessWidget {
             activeColor: AppColor.kColorWhite,
             value: state.themeStatus == ThemesStatus.light ? false : true,
             onChanged: (val) {
-              context.read<ChangeThemeCubit>()..toggleTheme();
+              context.read<ChangeThemeCubit>().toggleTheme();
             },
           ),
         );

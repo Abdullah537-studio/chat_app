@@ -13,12 +13,6 @@ class CustomAge extends StatelessWidget {
     required this.getAge,
     required this.validate,
   });
-
-  // void _onAgeChanged(int? age, FormState formState) {
-  //   getAge!(age);
-  //   formState.validate();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Row(

@@ -152,7 +152,7 @@ class SignUpPage extends StatelessWidget {
                 BlocConsumer<SignUpCubit, SignUpState>(
                   listener: (context, state) {
                     if (state.status == CubitStatus.faild) {
-                      showSnackBar(
+                      showSnackBarMain(
                         context,
                         translating(context, AppKeyTranslateManger.errorInfo),
                       );
@@ -160,7 +160,7 @@ class SignUpPage extends StatelessWidget {
                     if (state.status == CubitStatus.done) {
                       showDialog(
                           context: context,
-                          builder: (_) => const LoginToContainue());
+                          builder: (context) => const LoginToContainue());
                     }
                   },
                   builder: (context, state) {
@@ -171,10 +171,9 @@ class SignUpPage extends StatelessWidget {
                         backgroundColor: AppColor.kPrimaryColor,
                         borderColor: AppColor.kColorWhite,
                         onPressed: () {
-                          print(signinEntite);
                           validationAll.passwordValidate =
                               signinEntite.password;
-                          if (formState.currentState!.validate()) {
+                          if (formState.currentState?.validate() ?? false) {
                             context
                                 .read<SignUpCubit>()
                                 .signin(signinEntity: signinEntite);

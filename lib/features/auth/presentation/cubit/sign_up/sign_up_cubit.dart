@@ -3,7 +3,6 @@ import 'package:chat_2/core/enum/cubit_enum.dart';
 import 'package:chat_2/features/auth/domin/entites/auth_model/requiest/signup_request_entity.dart';
 import 'package:chat_2/features/auth/domin/usecases/signup_usecase.dart';
 import 'package:equatable/equatable.dart';
-
 part 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {

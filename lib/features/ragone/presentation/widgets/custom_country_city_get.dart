@@ -2,7 +2,7 @@
 
 import 'package:chat_2/core/enum/cubit_enum.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
-import 'package:chat_2/features/auth/presentation/widgets/custom_dropDownButton.dart';
+import 'package:chat_2/core/widget/main_dropDown_button.dart';
 import 'package:chat_2/features/ragone/presentation/cubit/city_cubit.dart';
 import 'package:chat_2/features/ragone/presentation/cubit/country_cubit.dart';
 import 'package:chat_2/features/ragone/presentation/widgets/custom_city_state_not_done.dart';

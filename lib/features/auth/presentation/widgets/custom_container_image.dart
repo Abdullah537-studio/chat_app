@@ -79,7 +79,7 @@ class _CustomImageState extends State<CustomImage> {
                       },
                     );
                     Uint8List imageBytes =
-                        await File(image!.path).readAsBytes();
+                        await File(image?.path ?? '').readAsBytes();
                     String base64Image = base64Encode(imageBytes);
                     if (base64Image.length >= 4) {
                       imageCut = base64Image.substring(4, base64Image.length);
@@ -87,9 +87,6 @@ class _CustomImageState extends State<CustomImage> {
                       imageCut = '';
                     }
                     widget.imageFunction!(imageCut);
-                    //! to print image as base64
-
-                    // printFullText(imageCut);
                   }
                 },
                 child: SvgPicture.asset(pinceliconImagePicker),

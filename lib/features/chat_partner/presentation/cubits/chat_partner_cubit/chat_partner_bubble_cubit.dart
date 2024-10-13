@@ -5,7 +5,6 @@ import 'package:chat_2/features/chat_partner/data/models/chat_bubble_model/chat_
 import 'package:chat_2/features/chat_partner/data/models/chat_bubble_model/chat_bubble_response.dart';
 import 'package:chat_2/features/chat_partner/domain/usecases/get_chat_bubble_usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 part 'chat_partner_bubble_state.dart';
 
 class ChatPartnerBubbleCubit extends Cubit<ChatPartnerBubbleState> {
@@ -29,10 +28,7 @@ class ChatPartnerBubbleCubit extends Cubit<ChatPartnerBubbleState> {
         ));
       }
     }, (data) {
-      emit(state.copyWith(
-        status: CubitStatus.done,
-        // chatBubbleResponse: data,
-      ));
+      emit(state.copyWith(status: CubitStatus.done));
     });
   }
 }

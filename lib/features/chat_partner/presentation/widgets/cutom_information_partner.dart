@@ -32,7 +32,7 @@ class CustomInformationPartner extends StatelessWidget {
         ),
         MainTextWidget(
           text: "Country name: $cityName",
-          style: Theme.of(context).textTheme.bodySmall!,
+          style: Theme.of(context).textTheme.bodySmall ?? TextStyle(),
           isCenter: false,
         )
       ],

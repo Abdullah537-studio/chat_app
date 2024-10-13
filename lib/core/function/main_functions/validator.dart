@@ -74,13 +74,17 @@ class validationAll {
 
 //? ------------------- password
   String? validatePassword(String? val) {
+    bool isValidString(String input) {
+      final RegExp regex = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$');
+      return regex.hasMatch(input);
+    }
+
     if (val!.isEmpty) {
       return translating(
         context,
         AppKeyTranslateManger.field_empty_validate,
       );
-    } else if (!(val.contains(RegExp(r'[A-Z]')) &&
-        val.contains(RegExp(r'[a-z]')))) {
+    } else if (isValidString(val) == false) {
       return translating(
         context,
         AppKeyTranslateManger.passwod_not_word_currect,
@@ -96,10 +100,20 @@ class validationAll {
 
 //? ------------------- reenter password
   String? validateReenterPassword(String? val) {
+    bool isValidString(String input) {
+      final RegExp regex = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$');
+      return regex.hasMatch(input);
+    }
+
     if (val!.isEmpty) {
       return translating(
         context,
         AppKeyTranslateManger.field_empty_validate,
+      );
+    } else if (isValidString(val) == false) {
+      return translating(
+        context,
+        AppKeyTranslateManger.passwod_not_word_currect,
       );
     } else if (val != passwordValidate) {
       return translating(

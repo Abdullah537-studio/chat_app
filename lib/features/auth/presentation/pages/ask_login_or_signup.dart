@@ -13,45 +13,44 @@ class LoginOrSignupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
         decoration: BoxDecoration(
           color: AppColor.kSecondaryColor,
           image: DecorationImage(
             image: AssetImage(AppImageStringPng.backgroundLoginOrSignIn),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
-        child: Align(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                translating(context, AppKeyTranslateManger.login_to_containue),
-                style: TextStyle(fontSize: 20.sp, color: AppColor.kColorBlack),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 12.h),
-                child: MainButton(
-                  backgroundColor: AppColor.kColorWhite,
-                  borderColor: AppColor.kPrimaryColor,
-                  text: translating(context, AppKeyTranslateManger.login),
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(
-                        context, RouteNamedScreens.loginScreenNameRoute);
-                  },
-                ),
-              ),
-              //? Main Button For
-              MainButton(
-                backgroundColor: AppColor.kPrimaryColor,
-                borderColor: AppColor.kSecondaryColor,
-                text: translating(context, AppKeyTranslateManger.singup),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              translating(context, AppKeyTranslateManger.login_to_containue),
+              style: TextStyle(fontSize: 20.sp, color: AppColor.kColorBlack),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 12.h),
+              child: MainButton(
+                backgroundColor: AppColor.kColorWhite,
+                borderColor: AppColor.kPrimaryColor,
+                text: translating(context, AppKeyTranslateManger.login),
                 onPressed: () {
                   Navigator.pushReplacementNamed(
-                      context, RouteNamedScreens.signinScreenNameRoute);
+                      context, RouteNamedScreens.loginScreenNameRoute);
                 },
               ),
-            ],
-          ),
+            ),
+            //? Main Button For
+            MainButton(
+              backgroundColor: AppColor.kPrimaryColor,
+              borderColor: AppColor.kSecondaryColor,
+              text: translating(context, AppKeyTranslateManger.singup),
+              onPressed: () {
+                Navigator.pushReplacementNamed(
+                    context, RouteNamedScreens.signinScreenNameRoute);
+              },
+            ),
+          ],
         ),
       ),
     );

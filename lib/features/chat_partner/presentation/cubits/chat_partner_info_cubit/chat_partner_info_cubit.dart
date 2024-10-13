@@ -2,9 +2,7 @@ import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/features/chat_partner/data/models/chat_info_model/chat_partner_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:chat_2/core/enum/cubit_enum.dart';
-
 import '../../../domain/usecases/get_chat_info_usecase.dart';
-
 part 'chat_partner_info_state.dart';
 
 class ChatPartnerInfoCubit extends Cubit<ChatPartnerState> {

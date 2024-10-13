@@ -1,10 +1,9 @@
-// ignore_for_file: file_names
-
 import 'package:chat_2/core/enum/cubit_enum.dart';
 import 'package:chat_2/core/function/main_functions/convert_base64_to_image_partner_from_api.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/features/auth/presentation/cubit/image_cubit/image_partner_cubit.dart';
+import 'package:chat_2/features/chat_partner/data/models/chat_info_model/chat_partner_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,17 +12,25 @@ import 'package:flutter_svg/svg.dart';
 class CustomPartnerInfoMessiging extends StatelessWidget {
   const CustomPartnerInfoMessiging({
     super.key,
-    required this.datelastMessage,
-    required this.lastMessage,
-    required this.userName,
+    required this.chatPartnerModel,
     required this.ontap,
   });
+  final ChatPartnerModel chatPartnerModel;
   final Function()? ontap;
-  final String datelastMessage;
-  final String lastMessage;
-  final String userName;
+
   @override
   Widget build(BuildContext context) {
+    String dateFormate = "";
+    String fullNameFormate = "";
+    if (chatPartnerModel.lastMessageTime.toString().isNotEmpty) {
+      dateFormate = chatPartnerModel.lastMessageTime
+          .toString()
+          .substring(0, 10)
+          .replaceAll("-", "/");
+    }
+    if (chatPartnerModel.fullName.length > 14) {
+      fullNameFormate = "${chatPartnerModel.fullName.substring(0, 15)} ...";
+    }
     return GestureDetector(
       onTap: ontap,
       child: Container(
@@ -59,14 +66,14 @@ class CustomPartnerInfoMessiging extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 MainTextWidget(
-                  text: userName,
+                  text: fullNameFormate,
                   style: Theme.of(context).textTheme.bodyMedium!,
                   isCenter: false,
                 ),
                 Padding(
                   padding: EdgeInsets.only(bottom: 2.h),
                   child: MainTextWidget(
-                    text: lastMessage,
+                    text: chatPartnerModel.lastMessage,
                     style: Theme.of(context).textTheme.bodyMedium!,
                     isCenter: false,
                   ),
@@ -74,10 +81,7 @@ class CustomPartnerInfoMessiging extends StatelessWidget {
               ],
             ),
             MainTextWidget(
-              text: datelastMessage
-                  .toString()
-                  .substring(0, 10)
-                  .replaceAll("-", "/"),
+              text: dateFormate,
               style: Theme.of(context).textTheme.bodySmall!,
               isCenter: false,
             ),

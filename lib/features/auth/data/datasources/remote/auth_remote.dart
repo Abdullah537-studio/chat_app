@@ -36,6 +36,7 @@ class AuthRemoteImp implements AuhtRemote {
   }
   //!--------------------------SignUp-------------------------------------------
 
+  //? Sign In Remote:
   @override
   Future<SigninResponse> signin({required SigninRequest signinEntity}) async {
     var response = await ApiMethods().post(
@@ -51,8 +52,9 @@ class AuthRemoteImp implements AuhtRemote {
       throw ServerException(response: response);
     }
   }
-  //!--------------------------image--------------------------------------------
 
+  //!--------------------------image--------------------------------------------
+  //? Sign In Remote Impl:
   @override
   Future<ImagePartnerResponse> imagePartner() async {
     var response = await ApiMethods().get(

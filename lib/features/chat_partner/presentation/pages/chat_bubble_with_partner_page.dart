@@ -9,30 +9,26 @@ import 'package:chat_2/features/chat_partner/presentation/cubits/chat_partner_cu
 import 'package:chat_2/features/chat_partner/presentation/widgets/custom_box_send_message.dart';
 import 'package:chat_2/features/chat_partner/presentation/widgets/custom_chat_bubble_partner.dart';
 import 'package:chat_2/features/chat_partner/presentation/widgets/custom_chat_bubble_user.dart';
+import 'package:chat_2/features/chat_partner/presentation/widgets/save_user_partner_id.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatBubblePartnerPage extends StatelessWidget {
-  static int partnerId = 0;
-  static String userName = '';
-  static int userId = 0;
-
-  const ChatBubblePartnerPage({
-    super.key,
-  });
+  const ChatBubblePartnerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ChatBubbleRequiest chatBubbleRequiest = ChatBubbleRequiest();
-    chatBubbleRequiest.who = userId;
-    chatBubbleRequiest.recipientId = partnerId;
-    chatBubbleRequiest.time = DateTime.now();
+    ChatBubbleRequiest chatBubbleRequiest = ChatBubbleRequiest(
+      who: UserPartnerInfo.userId,
+      recipientId: UserPartnerInfo.partnerId,
+      time: DateTime.now(),
+    );
 
     return BlocConsumer<ChatDialogCubit, ChatDialogState>(
       listener: (context, state) {
         if (state.status == CubitStatus.faild) {
-          return showSnackBar(
+          return showSnackBarMain(
             context,
             translating(
               context,
@@ -44,7 +40,7 @@ class ChatBubblePartnerPage extends StatelessWidget {
       builder: (context, state) {
         if (state.status == CubitStatus.loading) {
           return const loadingIndicator();
-        } else {
+        } else if (state.status == CubitStatus.done) {
           return RefreshIndicator(
             color: AppColor.kPrimaryColor,
             onRefresh: () {
@@ -58,7 +54,8 @@ class ChatBubblePartnerPage extends StatelessWidget {
                   Expanded(
                     child: ListView.builder(
                       itemBuilder: (context, index) {
-                        if (state.chatDialog!.dialogs[index].who == userId) {
+                        if (state.chatDialog?.dialogs[index].who ==
+                            UserPartnerInfo.userId) {
                           return CustomChatBubleUser(
                             text: state.chatDialog!.dialogs[index].message,
                           );
@@ -76,20 +73,26 @@ class ChatBubblePartnerPage extends StatelessWidget {
                     onChangeTextFormField: (val) {
                       chatBubbleRequiest.message = val;
                     },
-                    onPressedIconSendMessage: () {
+                    onPressedIconSendMessage: () async {
                       chatBubbleRequiest.time = DateTime.now();
 
-                      context
+                      await context
                           .read<ChatPartnerBubbleCubit>()
                           .chatBubble(chatBubbleRequiest);
 
-                      context.read<ChatDialogCubit>().getChatDialog();
+                      try {
+                        context.read<ChatDialogCubit>().getChatDialog();
+                      } catch (e) {
+                        print(e.toString());
+                      }
                     },
                   ),
                 ],
               ),
             ),
           );
+        } else {
+          return SizedBox();
         }
       },
     );

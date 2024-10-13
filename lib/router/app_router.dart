@@ -103,11 +103,6 @@ class AppRouter {
 
 //?-------------chat bubble screen ---------------------------------------------
       case RouteNamedScreens.chatBubbleScreenNameRoute:
-        // arg as Map<String, int>;
-        // String chatDialogId =
-        //     AppSharedPreferences.dialogChatBubblePartnerById();
-        // DialogChatRequiest dialogChatRequiest =
-        //     DialogChatRequiest(id: chatDialogId);
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
             providers: [

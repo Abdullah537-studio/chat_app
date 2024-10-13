@@ -1,3 +1,4 @@
+import 'package:chat_2/core/enum/gender_enum.dart';
 import 'package:chat_2/generate/app_localizations/app_localizations.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -6,8 +7,10 @@ translating(BuildContext context, String word) {
 }
 
 class AppKeyTranslateManger {
-  static String female = "female_drop_down";
-  static String male = "male_drop_down";
+  static const Map<Gender, String> genderKeys = {
+    Gender.male: "male_drop_down",
+    Gender.female: "female_drop_down",
+  };
 
   static String welcome = "welcome_mes";
   static String home = "Home_mes";

@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:chat_2/core/function/main_functions/date_picker_image_function.dart';
 import 'package:chat_2/core/function/main_functions/validator.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
@@ -40,7 +38,8 @@ class CustomFormDate extends StatelessWidget {
             suffixIcon: Tab(
               child: SvgPicture.asset(
                 calenderIcondate,
-                color: AppColor.kColorBlack,
+                colorFilter:
+                    ColorFilter.mode(AppColor.kColorBlack, BlendMode.srcIn),
                 height: 25.h,
                 width: 25.w,
               ),

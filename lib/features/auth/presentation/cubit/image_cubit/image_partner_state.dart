@@ -9,11 +9,9 @@ class ImagePartnerState {
     required this.status,
     this.image,
   });
-
   factory ImagePartnerState.initial() {
     return const ImagePartnerState(message: '', status: CubitStatus.initial);
   }
-
   ImagePartnerState copyWith(
       {final String? message, final CubitStatus? status, final String? image}) {
     return ImagePartnerState(

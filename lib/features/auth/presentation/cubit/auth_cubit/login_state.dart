@@ -1,7 +1,5 @@
-// ignore_for_file: non_constant_identifier_names
 
 part of 'login_cubit.dart';
-
 class LoginState extends Equatable {
   final String message;
   final CubitStatus status;

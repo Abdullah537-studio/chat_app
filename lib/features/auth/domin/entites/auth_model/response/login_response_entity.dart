@@ -8,7 +8,7 @@ LoginResponse loginResponseFromJson(String str) =>
 class LoginResponse extends Equatable {
   const LoginResponse({required this.result});
 
-  final Result? result;
+  final Result result;
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) {
     return LoginResponse(

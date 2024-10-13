@@ -8,23 +8,22 @@ class CustomPartnerNoMessageYet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Align(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            MainTextWidget(
-              text: translating(context, AppKeyTranslateManger.noMessageTop),
-              style: Theme.of(context).textTheme.bodyLarge!,
-              isCenter: false,
-            ),
-            MainTextWidget(
-              text: translating(context, AppKeyTranslateManger.noMessagebottom),
-              style: Theme.of(context).textTheme.bodyLarge!,
-              isCenter: false,
-            ),
-          ],
-        ),
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          MainTextWidget(
+            text: translating(context, AppKeyTranslateManger.noMessageTop),
+            style: Theme.of(context).textTheme.bodyLarge!,
+            isCenter: true,
+          ),
+          MainTextWidget(
+            text: translating(context, AppKeyTranslateManger.noMessagebottom),
+            style: Theme.of(context).textTheme.bodyLarge!,
+            isCenter: true,
+          ),
+        ],
       ),
     );
   }

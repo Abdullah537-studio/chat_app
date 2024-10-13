@@ -90,16 +90,14 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
             child: BlocConsumer<SearchPartnerCubit, SearchPartnerState>(
               listener: (context, state) {
                 if (state.status == CubitStatus.done) {
-                  SuggestionPartner.partnerInfo = state.partner!;
-                  // * to get image partner info : have part of image  cutting must get it from method
+                  SuggestionPartner.partnerInfo = state.partner;
                   context.read<ImagePartnerCubit>().getImagePartner();
-                  // * change enum to change body to suggestionPartner
 
                   context
                       .read<BootomTabBarCubit>()
                       .getIndexTabBar(TabBarStatus.suggetionPartner);
                 } else if (state.status == CubitStatus.faild) {
-                  return showSnackBar(
+                  return showSnackBarMain(
                     context,
                     errorInformationSignInLogInString,
                   );
