@@ -8,7 +8,7 @@ import 'package:chat_2/core/widget/show_snack_bar.dart';
 import 'package:chat_2/features/chat_partner/presentation/cubits/chat_partner_info_cubit/chat_partner_info_cubit.dart';
 import 'package:chat_2/features/chat_partner/presentation/widgets/custom_partnerInfo_messiging.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
-import 'package:chat_2/features/chat_partner/presentation/widgets/save_user_partner_id.dart';
+import 'package:chat_2/features/chat_partner/presentation/classes/user_and_partner_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -9,7 +9,7 @@ import 'package:chat_2/core/feature_button_nav_bar/presentation/widget/custom_na
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/widget/custom_appbar.dart';
-import 'package:chat_2/features/chat_partner/presentation/widgets/save_user_partner_id.dart';
+import 'package:chat_2/features/chat_partner/presentation/classes/user_and_partner_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

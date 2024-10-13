@@ -1,6 +1,6 @@
 import 'package:chat_2/core/strings/image_png.dart';
 import 'package:chat_2/features/chat_partner/presentation/widgets/custom_suggestion_partner_info.dart';
-import 'package:chat_2/features/chat_partner/presentation/widgets/save_user_partner_id.dart';
+import 'package:chat_2/features/chat_partner/presentation/classes/user_and_partner_info.dart';
 import 'package:chat_2/features/search_partner/data/models/response/search_partner_response_model.dart';
 import 'package:flutter/material.dart';
 

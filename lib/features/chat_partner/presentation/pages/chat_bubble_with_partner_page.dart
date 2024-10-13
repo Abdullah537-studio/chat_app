@@ -9,7 +9,7 @@ import 'package:chat_2/features/chat_partner/presentation/cubits/chat_partner_cu
 import 'package:chat_2/features/chat_partner/presentation/widgets/custom_box_send_message.dart';
 import 'package:chat_2/features/chat_partner/presentation/widgets/custom_chat_bubble_partner.dart';
 import 'package:chat_2/features/chat_partner/presentation/widgets/custom_chat_bubble_user.dart';
-import 'package:chat_2/features/chat_partner/presentation/widgets/save_user_partner_id.dart';
+import 'package:chat_2/features/chat_partner/presentation/classes/user_and_partner_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
