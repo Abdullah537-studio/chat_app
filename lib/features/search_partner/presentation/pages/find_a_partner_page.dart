@@ -8,7 +8,7 @@ import 'package:chat_2/core/widget/loading_indicator.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/core/widget/show_snack_bar.dart';
 import 'package:chat_2/features/auth/presentation/cubit/image_cubit/image_partner_cubit.dart';
-import 'package:chat_2/features/search_partner/presentation/pages/suggestions_partner_page.dart';
+import 'package:chat_2/features/chat_partner/presentation/widgets/save_user_partner_id.dart';
 import 'package:chat_2/features/search_partner/presentation/widgets/custom_age_form.dart';
 
 import 'package:chat_2/core/strings/image_svg.dart';
@@ -90,7 +90,10 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
             child: BlocConsumer<SearchPartnerCubit, SearchPartnerState>(
               listener: (context, state) {
                 if (state.status == CubitStatus.done) {
-                  SuggestionPartner.partnerInfo = state.partner;
+                  UserPartnerInfo.partnerInfo = state.partner;
+                  UserPartnerInfo.userName = state.partner.first.userName ?? '';
+                  UserPartnerInfo.userId = state.partner.first.prtnerId ?? 0;
+                  UserPartnerInfo.partnerId = state.partner.first.id ?? 0;
                   context.read<ImagePartnerCubit>().getImagePartner();
 
                   context

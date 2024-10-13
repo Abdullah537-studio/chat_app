@@ -23,8 +23,8 @@ class LoginCubit extends Cubit<LoginState> {
       }
     }, (data) {
       AppSharedPreferences.cacheAuthUserInfoTest(
-        accessToken: data.result.accessToken ?? '',
-        userId: data.result?.userId ?? 0,
+        accessToken: data.result.accessToken,
+        userId: data.result.userId,
       );
       emit(state.copyWith(status: CubitStatus.done));
     });

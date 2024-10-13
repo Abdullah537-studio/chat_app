@@ -4,23 +4,17 @@ import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:chat_2/core/widget/custom_buttons_icon.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
+import 'package:chat_2/features/search_partner/data/models/response/search_partner_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CutomSuggestionPartnerInfo extends StatelessWidget {
-  final String name;
-  final String age;
-  final String cityName;
-  final int id;
   final Widget child;
-
+  final PartnerResponse partnerResponse;
   const CutomSuggestionPartnerInfo({
     super.key,
-    required this.id,
-    required this.name,
-    required this.age,
-    required this.cityName,
+    required this.partnerResponse,
     required this.child,
   });
 
@@ -58,7 +52,7 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     MainTextWidget(
-                      text: name,
+                      text: partnerResponse.userName ?? "",
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium!
@@ -68,13 +62,13 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 10.h),
                       child: MainTextWidget(
-                        text: "Age: $age",
+                        text: "Age: ${partnerResponse.age}",
                         style: Theme.of(context).textTheme.bodyMedium!,
                         isCenter: false,
                       ),
                     ),
                     MainTextWidget(
-                      text: "Country Name: $cityName",
+                      text: "Country Name: ${partnerResponse.cityName}",
                       style: Theme.of(context).textTheme.bodyMedium!,
                       isCenter: false,
                     ),
