@@ -79,4 +79,8 @@ class AppKeyTranslateManger {
   static String confirm_logout_bottom_cancle = "confirm_logout_bottom_cancle";
   static String confirm_logout_bottom_continue =
       "confirm_logout_bottom_continue";
+//!-----------custom information partner
+  static String partner_age_info_card = "partner_age_info_card";
+  static String partner_country_name_info_card =
+      "partner_country_name_info_card";
 }

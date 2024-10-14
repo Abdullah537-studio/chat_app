@@ -170,7 +170,7 @@ class SignUpPage extends StatelessWidget {
                         borderColor: AppColor.kColorWhite,
                         onPressed: () {
                           ModalValidate.passwordToValidate =
-                              signinEntite.password;
+                              signinEntite.password ?? "";
                           if (formState.currentState?.validate() ?? false) {
                             context
                                 .read<SignUpCubit>()

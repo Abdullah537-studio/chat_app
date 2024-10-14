@@ -58,6 +58,8 @@
     "confirm_logout_body":"هل أنت متأكد من تسجيل خروج من هذا الحساب",
     "confirm_logout_bottom_cancle":"إلغاء",
     "confirm_logout_bottom_continue":"استكمال",
-    "phone_lenght_validator":"يجب أن يكون رقم الهاتف من 9 ارقام بدون رمز البلد"
+    "phone_lenght_validator":"يجب أن يكون رقم الهاتف من 9 ارقام بدون رمز البلد",
+    "partner_country_name_info_card":"اسم البلد",
+    "partner_age_info_card": "العمر"
 
 }

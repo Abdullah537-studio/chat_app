@@ -58,5 +58,7 @@
 "confirm_logout_body":"Are you sure you want to logout from your account?",
 "confirm_logout_bottom_cancle":"Cancle",
 "confirm_logout_bottom_continue":"Continue",
-"phone_lenght_validator":"must lenght be 9 number without +963"
+"phone_lenght_validator":"must lenght be 9 number without +963",
+"partner_country_name_info_card":"Country name",
+"partner_age_info_card": "Age"
 }
