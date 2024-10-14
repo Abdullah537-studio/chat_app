@@ -25,9 +25,6 @@ ThemeData lightTheme = ThemeData(
         backgroundColor: MaterialStatePropertyAll(AppColor.kPrimaryColor),
       ),
     ),
-    //! drop down
-    // dropdownMenuTheme: DropdownMenuThemeData(
-    //     inputDecorationTheme: custominputDecorationDropDownTheme),
     fontFamily: 'Poppins',
     appBarTheme: AppBarTheme(
       backgroundColor: AppColor.kPrimaryColor,

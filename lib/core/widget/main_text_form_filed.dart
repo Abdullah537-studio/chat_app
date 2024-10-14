@@ -44,8 +44,7 @@ class MainTextFormField extends StatelessWidget {
           hintText: hintText,
           focusedBorder: outlineInputBorder(AppColor.kPrimaryColor),
           errorBorder: outlineInputBorder(AppColor.kErroreBorderColor),
-          focusedErrorBorder:
-              outlineInputBorder(AppColor.kErroreFoucaseBorderColor),
+          focusedErrorBorder: outlineInputBorder(AppColor.kErroreBorderColor),
           enabledBorder: outlineInputBorder(AppColor.kColorBlack),
         ),
         onEditingComplete: onEdithingComplete,

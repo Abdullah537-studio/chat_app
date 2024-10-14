@@ -6,7 +6,6 @@ class AppColor {
   static Color kPrimaryDarkColor = Color.fromARGB(255, 68, 72, 112);
   static Color kSecondaryDarkColor = Colors.blueGrey;
   static Color kErroreBorderColor = Colors.red;
-  static Color kErroreFoucaseBorderColor = Color.fromARGB(255, 94, 17, 11);
   static Color kColorBlack = Colors.black;
   static Color kColorWhite = Colors.white;
   static Color kColorTransparent = Colors.transparent;

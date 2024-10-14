@@ -8,7 +8,7 @@ InputDecorationTheme? custominputDecorationTheme = InputDecorationTheme(
   errorBorder: outlineInputBorder(AppColor.kErroreBorderColor),
   enabledBorder: outlineInputBorder(AppColor.kColorBlack),
   focusedBorder: outlineInputBorder(AppColor.kPrimaryColor),
-  focusedErrorBorder: outlineInputBorder(AppColor.kErroreFoucaseBorderColor),
+  focusedErrorBorder: outlineInputBorder(AppColor.kErroreBorderColor),
   suffixIconColor: AppColor.iconColorGrey,
   contentPadding: EdgeInsets.only(
     top: 25.h,

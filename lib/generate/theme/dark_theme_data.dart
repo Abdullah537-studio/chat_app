@@ -10,7 +10,6 @@ ThemeData darkTheme = ThemeData(
     primaryColor: AppColor.kPrimaryDarkColor,
     iconTheme: IconThemeData(color: AppColor.kColorWhite),
     textTheme: darktextTheme,
-    // primaryIconTheme:IconThemeData(color: ) ,
     datePickerTheme: DatePickerThemeData(
       dayStyle: TextStyle(fontSize: 16.sp, color: AppColor.kColorBlack),
       dividerColor: AppColor.kPrimaryColor,
@@ -26,9 +25,6 @@ ThemeData darkTheme = ThemeData(
         backgroundColor: MaterialStatePropertyAll(AppColor.kPrimaryColor),
       ),
     ),
-    //! drop down menu
-    // dropdownMenuTheme: DropdownMenuThemeData(
-    //     inputDecorationTheme: custominputDecorationDropDownTheme),
     fontFamily: 'Poppins',
     appBarTheme: AppBarTheme(
       backgroundColor: AppColor.kPrimaryColor,
