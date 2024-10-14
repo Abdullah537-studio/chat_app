@@ -3,11 +3,14 @@
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/generate/theme/custom_outline_input_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainTextFormField extends StatelessWidget {
   MainTextFormField({
     super.key,
+    this.maxLength,
+    required this.textInputFormatter,
     required this.validate,
     required this.onChange,
     required this.hintText,
@@ -18,6 +21,7 @@ class MainTextFormField extends StatelessWidget {
     this.onEdithingComplete,
   });
   final String? Function(String?)? validate;
+  int? maxLength;
   final Function(String?)? onChange;
   final String hintText;
   Icon? icon;
@@ -25,12 +29,14 @@ class MainTextFormField extends StatelessWidget {
   final TextInputType? keyboardTybe;
   final bool showPassword;
   Function()? onEdithingComplete;
-
+  final List<TextInputFormatter>? textInputFormatter;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(bottom: 10.h),
       child: TextFormField(
+        maxLength: maxLength,
+        inputFormatters: textInputFormatter,
         decoration: InputDecoration(
           suffixIconColor: AppColor.iconColorGrey,
           suffixIcon: icon,

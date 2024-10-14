@@ -1,6 +1,7 @@
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/widget/main_text_form_filed.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAge extends StatelessWidget {
@@ -27,6 +28,11 @@ class CustomAge extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width - 200.w,
           child: MainTextFormField(
+            maxLength: 3,
+            textInputFormatter: [
+              FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+              FilteringTextInputFormatter.digitsOnly
+            ],
             validate: validate,
             keyboardTybe: TextInputType.number,
             showPassword: false,

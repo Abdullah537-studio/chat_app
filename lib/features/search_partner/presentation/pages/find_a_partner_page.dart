@@ -75,7 +75,7 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
               text: translating(context, AppKeyTranslateManger.maxPartnerAge),
               getAge: (age) {
                 partner.maxAge = age;
-                ModalValidate.minAge = age ?? 0;
+                ModalValidate.minAge = age != null ? age : 0;
               },
             ),
           ),
@@ -85,7 +85,8 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
               text: translating(context, AppKeyTranslateManger.minPartnerAge),
               getAge: (age) {
                 partner.minAge = age;
-                ModalValidate.maxAge = age ?? 0;
+
+                ModalValidate.maxAge = age != null ? age : 0;
               }),
           const CustomFormDate(),
           Padding(
@@ -117,7 +118,6 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
                     image: searchIcon,
                     text: translating(context, AppKeyTranslateManger.search),
                     onPressed: () {
-                      print(partner);
                       if (formState.currentState?.validate() ?? false) {
                         context.read<SearchPartnerCubit>().getPartner(partner);
                       }

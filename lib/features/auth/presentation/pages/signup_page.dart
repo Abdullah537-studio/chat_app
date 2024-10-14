@@ -20,6 +20,7 @@ import 'package:chat_2/features/chat_partner/presentation/classes/modal_validate
 import 'package:chat_2/features/ragone/presentation/widgets/custom_country_city_get.dart';
 import 'package:chat_2/features/search_partner/presentation/widgets/custom_gender_dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -57,8 +58,9 @@ class SignUpPage extends StatelessWidget {
                     signinEntite.avatar = image;
                   },
                 ),
-                //?-------- name && age --------------------------------------------------------
+                //?-------- name  ---------------------------------------------
                 MainTextFormField(
+                  textInputFormatter: [],
                   hintText: translating(context, AppKeyTranslateManger.name),
                   keyboardTybe: TextInputType.name,
                   showPassword: false,
@@ -67,16 +69,21 @@ class SignUpPage extends StatelessWidget {
                     signinEntite.name = value;
                   },
                 ),
+                //?-------- age  ---------------------------------------------
                 MainTextFormField(
+                  maxLength: 3,
+                  textInputFormatter: [
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                    FilteringTextInputFormatter.digitsOnly,
+                  ],
                   showPassword: false,
                   hintText: translating(context, AppKeyTranslateManger.age),
                   keyboardTybe: TextInputType.number,
                   validate: (va) =>
                       validationAll(context: context).validateAgeNumber(va),
                   onChange: (value) {
-                    value = value!.isEmpty ? "0" : value;
-                    if (!value.contains(',') && !value.contains('.')) {
-                      int age = int.parse(value);
+                    if (value?.isNotEmpty ?? false) {
+                      int age = int.parse(value ?? "0");
                       signinEntite.age = age;
                     }
                   },
@@ -96,6 +103,8 @@ class SignUpPage extends StatelessWidget {
                 ),
                 //?-----------phone && email----------------------------------------------------
                 MainTextFormField(
+                  maxLength: 13,
+                  textInputFormatter: [],
                   hintText: translating(context, AppKeyTranslateManger.phone),
                   keyboardTybe: TextInputType.phone,
                   showPassword: false,
@@ -105,6 +114,7 @@ class SignUpPage extends StatelessWidget {
                   },
                 ),
                 MainTextFormField(
+                  textInputFormatter: [],
                   hintText: translating(context, AppKeyTranslateManger.email),
                   keyboardTybe: TextInputType.emailAddress,
                   showPassword: false,
@@ -119,6 +129,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 //?---------- password && reenter password -------------------------------------
                 MainTextFormField(
+                  textInputFormatter: [],
                   hintText:
                       translating(context, AppKeyTranslateManger.password),
                   keyboardTybe: TextInputType.visiblePassword,
@@ -134,6 +145,7 @@ class SignUpPage extends StatelessWidget {
                   },
                 ),
                 MainTextFormField(
+                  textInputFormatter: [],
                   hintText: translating(
                       context, AppKeyTranslateManger.reenterPassword),
                   keyboardTybe: TextInputType.visiblePassword,

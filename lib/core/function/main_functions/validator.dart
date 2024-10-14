@@ -19,7 +19,7 @@ class validationAll {
     return null;
   }
 
-//? ------------------- validate generall
+//? ------------------- validate age
 
   String? validateAgeNumber(String? val) {
     if (val?.isEmpty ?? false) {
@@ -56,12 +56,15 @@ class validationAll {
 //? ------------------- email
 
   String? validateEmail(String? val) {
+    bool checkEmailExpretion = RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(val ?? "");
     if (val?.isEmpty ?? true) {
       return translating(
         context,
         AppKeyTranslateManger.field_empty_validate,
       );
-    } else if (val?.contains(".com") == false) {
+    } else if (!checkEmailExpretion) {
       return translating(
         context,
         AppKeyTranslateManger.email_not_currect,
@@ -129,7 +132,7 @@ class validationAll {
         context,
         AppKeyTranslateManger.field_empty_validate,
       );
-    } else if (val != null && val.startsWith("+963") == true) {
+    } else if (val != null && val.startsWith("+963") == false) {
       return translating(
         context,
         AppKeyTranslateManger.phone_number_not_currect,
@@ -143,54 +146,58 @@ class validationAll {
 //?-------------- min age - find partner
 
   String? validateNumberMinAgeFindPartner(String? val) {
-    if (val?.isEmpty ?? true) {
+    if (val != null) {
+      int? num = int.tryParse(val);
+      if (val.isEmpty) {
+        return translating(
+          context,
+          AppKeyTranslateManger.field_empty_validate,
+        );
+      } else if (num != null && (num < 12 || num > 100)) {
+        return translating(
+          context,
+          AppKeyTranslateManger.age_under_12_above_100_not_currect,
+        );
+      } else if (num == ModalValidate.maxAge ||
+          num != null && num > ModalValidate.maxAge) {
+        return translating(
+          context,
+          AppKeyTranslateManger.min_age_not_currect,
+        );
+      }
+      return null;
+    } else
       return translating(
         context,
         AppKeyTranslateManger.field_empty_validate,
       );
-    } else if (val?.contains(",") ?? false || val!.contains(".")) {
-      return translating(
-        context,
-        AppKeyTranslateManger.validate_only_number,
-      );
-    } else if (int.parse(val ?? "0") < 12 || int.parse(val ?? "0") > 100) {
-      return translating(
-        context,
-        AppKeyTranslateManger.age_under_12_above_100_not_currect,
-      );
-    } else if (int.parse(val ?? "0") == ModalValidate.maxAge ||
-        int.parse(val ?? "0") > ModalValidate.maxAge) {
-      return translating(
-        context,
-        AppKeyTranslateManger.min_age_not_currect,
-      );
-    }
-    return null;
   }
 
 //?-------------- max age - find partner
   String? validateNumberMaxAgeFindPartner(String? val) {
-    if (val?.isEmpty ?? false) {
+    if (val != null) {
+      int? number = int.tryParse(val);
+      if (val.isEmpty) {
+        return translating(
+          context,
+          AppKeyTranslateManger.field_empty_validate,
+        );
+      } else if (number != null && (number > 99 || number < 12)) {
+        return translating(
+          context,
+          AppKeyTranslateManger.age_under_12_above_100_not_currect,
+        );
+      } else if (number != null && number < ModalValidate.minAge) {
+        return translating(
+          context,
+          AppKeyTranslateManger.max_age_not_currect,
+        );
+      }
+      return null;
+    } else
       return translating(
         context,
         AppKeyTranslateManger.field_empty_validate,
       );
-    } else if (int.parse(val ?? "0") > 99 || int.parse(val ?? "0") < 12) {
-      return translating(
-        context,
-        AppKeyTranslateManger.age_under_12_above_100_not_currect,
-      );
-    } else if (val?.contains(",") ?? false || val!.contains(".")) {
-      return translating(
-        context,
-        AppKeyTranslateManger.validate_only_number,
-      );
-    } else if (int.parse(val ?? "0") < ModalValidate.minAge) {
-      return translating(
-        context,
-        AppKeyTranslateManger.max_age_not_currect,
-      );
-    }
-    return null;
   }
 }

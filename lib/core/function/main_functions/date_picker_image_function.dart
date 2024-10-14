@@ -13,6 +13,29 @@ Future<void> selectDate(
     firstDate: DateTime(2000),
     lastDate: DateTime(2100),
     builder: (BuildContext context, Widget? child) {
+      if (AppSharedPreferences.getThemeStatusString() ==
+          AppStateThemeString.darkTheme) {
+        return Theme(
+          data: ThemeData.dark().copyWith(
+            primaryColor: Colors.black,
+            hintColor: Colors.red,
+            colorScheme: ColorScheme.light(primary: Colors.black),
+            buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child ?? SizedBox(),
+        );
+      } else {
+        Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: AppColor.kPrimaryColor,
+            hintColor: AppColor.kErroreBorderColor,
+            colorScheme: ColorScheme.light(primary: AppColor.kPrimaryColor),
+            buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child ?? SizedBox(),
+        );
+      }
+
       return Theme(
         data: AppSharedPreferences.getThemeStatusString() ==
                 AppStateThemeString.darkTheme
@@ -25,7 +48,7 @@ Future<void> selectDate(
               )
             : ThemeData.light().copyWith(
                 primaryColor: AppColor.kPrimaryColor,
-                hintColor: Colors.red,
+                hintColor: AppColor.kErroreBorderColor,
                 colorScheme: ColorScheme.light(primary: AppColor.kPrimaryColor),
                 buttonTheme:
                     ButtonThemeData(textTheme: ButtonTextTheme.primary),

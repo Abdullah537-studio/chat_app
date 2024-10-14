@@ -55,6 +55,9 @@ class LoginPage extends StatelessWidget {
                 //?--------------------------Email----------------------------------------------
                 MainTextFormField(
                   keyboardTybe: TextInputType.emailAddress,
+                  onPressedIcon: null,
+                  textInputFormatter: null,
+                  onEdithingComplete: null,
                   showPassword: false,
                   validate: validationAll(context: context).validateEmail,
                   icon: Icon(
@@ -68,6 +71,9 @@ class LoginPage extends StatelessWidget {
                 ),
                 //?--------------------------Passwrod-------------------------------------------
                 MainTextFormField(
+                  onPressedIcon: null,
+                  textInputFormatter: null,
+                  onEdithingComplete: null,
                   keyboardTybe: TextInputType.visiblePassword,
                   showPassword: true,
                   validate: validationAll(context: context).validatePassword,
