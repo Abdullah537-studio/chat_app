@@ -1,10 +1,10 @@
 import 'package:chat_2/core/strings/key_translate_manger.dart';
-import 'package:chat_2/features/auth/presentation/pages/signup_page.dart';
+import 'package:chat_2/features/chat_partner/presentation/classes/modal_validate_generated.dart';
 import 'package:flutter/material.dart';
 
 class validationAll {
-  BuildContext context;
-  validationAll({required this.context});
+  final BuildContext context;
+  const validationAll({required this.context});
 
 //!--------- function validate
 //? ------------------- validate generall
@@ -140,7 +140,7 @@ class validationAll {
     return null;
   }
 
-//? -------------------to do validate for age
+//?-------------- min age - find partner
 
   String? validateNumberMinAgeFindPartner(String? val) {
     if (val?.isEmpty ?? true) {
@@ -159,7 +159,7 @@ class validationAll {
         AppKeyTranslateManger.age_under_12_above_100_not_currect,
       );
     } else if (int.parse(val ?? "0") == ModalValidate.maxAge ||
-        int.parse(val ?? "0") < ModalValidate.maxAge) {
+        int.parse(val ?? "0") > ModalValidate.maxAge) {
       return translating(
         context,
         AppKeyTranslateManger.min_age_not_currect,
@@ -168,6 +168,7 @@ class validationAll {
     return null;
   }
 
+//?-------------- max age - find partner
   String? validateNumberMaxAgeFindPartner(String? val) {
     if (val?.isEmpty ?? false) {
       return translating(

@@ -8,7 +8,7 @@ import 'package:chat_2/core/widget/loading_indicator.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/core/widget/show_snack_bar.dart';
 import 'package:chat_2/features/auth/presentation/cubit/image_cubit/image_partner_cubit.dart';
-import 'package:chat_2/features/auth/presentation/pages/signup_page.dart';
+import 'package:chat_2/features/chat_partner/presentation/classes/modal_validate_generated.dart';
 import 'package:chat_2/features/chat_partner/presentation/classes/user_and_partner_info.dart';
 import 'package:chat_2/features/search_partner/presentation/widgets/custom_age_form.dart';
 

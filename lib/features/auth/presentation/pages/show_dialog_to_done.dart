@@ -1,4 +1,3 @@
-import '../../../../../generate/app_localizations/app_localizations.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/strings/route_named_screens_string.dart';

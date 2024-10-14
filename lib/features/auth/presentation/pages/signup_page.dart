@@ -16,19 +16,12 @@ import 'package:chat_2/features/auth/presentation/pages/show_dialog_to_done.dart
 import 'package:chat_2/features/auth/presentation/widgets/accept_the_Terms_and_Services.dart';
 import 'package:chat_2/features/auth/presentation/widgets/custom_container_image.dart';
 import 'package:chat_2/features/auth/presentation/widgets/custom_have_or_not_have_account.dart';
+import 'package:chat_2/features/chat_partner/presentation/classes/modal_validate_generated.dart';
 import 'package:chat_2/features/ragone/presentation/widgets/custom_country_city_get.dart';
 import 'package:chat_2/features/search_partner/presentation/widgets/custom_gender_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-class ModalValidate {
-  //!--------- variable to compare and give validate
-  static int minAge = 0;
-  static int maxAge = 0;
-  static String? passwordToValidate;
-  static String? userNameForImage;
-}
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
