@@ -30,7 +30,7 @@ Future<void> selectDate(
                 buttonTheme:
                     ButtonThemeData(textTheme: ButtonTextTheme.primary),
               ),
-        child: child!,
+        child: child ?? SizedBox(),
       );
     },
   );

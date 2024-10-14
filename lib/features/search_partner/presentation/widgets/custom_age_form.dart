@@ -32,7 +32,10 @@ class CustomAge extends StatelessWidget {
             showPassword: false,
             hintText: translating(context, AppKeyTranslateManger.age),
             onChange: (value) {
-              if (value != null && value.length > 1) {
+              if (value != null &&
+                  value.length > 1 &&
+                  value != "." &&
+                  value != ",") {
                 int age = int.parse(value);
                 getAge!(age);
               }

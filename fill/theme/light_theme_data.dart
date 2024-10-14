@@ -1,5 +1,5 @@
 import 'package:chat_2/core/strings/color_manager.dart';
-import 'package:chat_2/fill/theme/input_decoration_theme.dart';
+import 'input_decoration_theme.dart';
 import 'package:chat_2/generate/theme/text_light_theme.dart';
 import 'package:flutter/material.dart';
 

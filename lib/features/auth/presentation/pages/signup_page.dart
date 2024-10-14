@@ -5,6 +5,7 @@ import 'package:chat_2/core/strings/image_png.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/strings/route_named_screens_string.dart';
 import 'package:chat_2/core/widget/custom_button.dart';
+import 'package:chat_2/core/widget/main_show_dialog.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/core/widget/main_text_form_filed.dart';
 import 'package:chat_2/core/widget/loading_indicator.dart';
@@ -21,9 +22,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignUpPage extends StatelessWidget {
+class ModalValidate {
+  //!--------- variable to compare and give validate
+  static int minAge = 0;
+  static int maxAge = 0;
   static String? passwordToValidate;
   static String? userNameForImage;
+}
+
+class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
   @override
   Widget build(BuildContext context) {
@@ -72,7 +79,7 @@ class SignUpPage extends StatelessWidget {
                   hintText: translating(context, AppKeyTranslateManger.age),
                   keyboardTybe: TextInputType.number,
                   validate: (va) =>
-                      validationAll(context: context).validateGenerall(va),
+                      validationAll(context: context).validateAgeNumber(va),
                   onChange: (value) {
                     value = value!.isEmpty ? "0" : value;
                     if (!value.contains(',') && !value.contains('.')) {
@@ -130,7 +137,7 @@ class SignUpPage extends StatelessWidget {
                   validate: validationAll(context: context).validatePassword,
                   onChange: (value) {
                     signinEntite.password = value!;
-                    passwordToValidate = value;
+                    ModalValidate.passwordToValidate = value;
                   },
                 ),
                 MainTextFormField(
@@ -158,9 +165,7 @@ class SignUpPage extends StatelessWidget {
                       );
                     }
                     if (state.status == CubitStatus.done) {
-                      showDialog(
-                          context: context,
-                          builder: (context) => const LoginToContainue());
+                      mainShowDialog(context, LoginToContainue());
                     }
                   },
                   builder: (context, state) {
@@ -171,7 +176,7 @@ class SignUpPage extends StatelessWidget {
                         backgroundColor: AppColor.kPrimaryColor,
                         borderColor: AppColor.kColorWhite,
                         onPressed: () {
-                          validationAll.passwordValidate =
+                          ModalValidate.passwordToValidate =
                               signinEntite.password;
                           if (formState.currentState?.validate() ?? false) {
                             context

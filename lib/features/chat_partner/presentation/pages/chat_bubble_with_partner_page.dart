@@ -73,18 +73,13 @@ class ChatBubblePartnerPage extends StatelessWidget {
                     onChangeTextFormField: (val) {
                       chatBubbleRequiest.message = val;
                     },
-                    onPressedIconSendMessage: () async {
+                    onPressedIconSendMessage: () {
                       chatBubbleRequiest.time = DateTime.now();
 
-                      await context
+                      context
                           .read<ChatPartnerBubbleCubit>()
                           .chatBubble(chatBubbleRequiest);
-
-                      try {
-                        context.read<ChatDialogCubit>().getChatDialog();
-                      } catch (e) {
-                        print(e.toString());
-                      }
+                      context.read<ChatDialogCubit>().getChatDialog();
                     },
                   ),
                 ],

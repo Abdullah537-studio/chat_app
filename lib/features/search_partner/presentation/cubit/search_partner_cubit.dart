@@ -17,7 +17,7 @@ class SearchPartnerCubit extends Cubit<SearchPartnerState> {
     partnerData.fold((failure) {
       try {
         emit(state.copyWith(
-            status: CubitStatus.faild, message: failure.response!.body));
+            status: CubitStatus.faild, message: failure.response?.body));
       } catch (e) {
         emit(state.copyWith(status: CubitStatus.faild, message: e.toString()));
       }

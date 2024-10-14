@@ -20,22 +20,24 @@ class LoginToContainue extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              AppLocalization.of(context)!.translate(
+            MainTextWidget(
+              text: translating(
+                context,
                 AppKeyTranslateManger.singup,
               ),
-              style: TextStyle(fontSize: 24),
+              style: Theme.of(context).textTheme.bodyMedium,
+              isCenter: true,
             ),
             MainTextWidget(
               text: translating(context,
                   AppKeyTranslateManger.please_login_to_continue_1_dialog),
-              style: Theme.of(context).textTheme.bodyMedium!,
+              style: Theme.of(context).textTheme.bodyMedium,
               isCenter: true,
             ),
             MainTextWidget(
               text: translating(context,
                   AppKeyTranslateManger.please_login_to_continue_2_dialog),
-              style: Theme.of(context).textTheme.bodyMedium!,
+              style: Theme.of(context).textTheme.bodyMedium,
               isCenter: true,
             ),
             Padding(

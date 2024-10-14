@@ -7,7 +7,7 @@ class MainTextWidget extends StatelessWidget {
       required this.style,
       required this.isCenter});
   final String text;
-  final TextStyle style;
+  final TextStyle? style;
   final bool isCenter;
   @override
   Widget build(BuildContext context) {

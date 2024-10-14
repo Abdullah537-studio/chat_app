@@ -148,7 +148,7 @@ class LoginPage extends StatelessWidget {
                       borderColor: AppColor.kColorWhite,
                       text: translating(context, AppKeyTranslateManger.login),
                       onPressed: () {
-                        if (formKeyLogin.currentState!.validate()) {
+                        if (formKeyLogin.currentState?.validate() ?? false) {
                           context
                               .read<LoginCubit>()
                               .login(loginEntity: loginEntite);

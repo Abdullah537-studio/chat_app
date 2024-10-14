@@ -24,7 +24,7 @@ class CustomGenderDropDown extends StatelessWidget {
       items: items,
       label: translating(context, AppKeyTranslateManger.gender),
       onChanged: (val) {
-        int gender = int.parse(val!);
+        int gender = int.parse(val ?? "0");
         genderFunction!(gender);
       },
     );

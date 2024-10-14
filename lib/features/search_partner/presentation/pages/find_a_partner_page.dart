@@ -8,6 +8,7 @@ import 'package:chat_2/core/widget/loading_indicator.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/core/widget/show_snack_bar.dart';
 import 'package:chat_2/features/auth/presentation/cubit/image_cubit/image_partner_cubit.dart';
+import 'package:chat_2/features/auth/presentation/pages/signup_page.dart';
 import 'package:chat_2/features/chat_partner/presentation/classes/user_and_partner_info.dart';
 import 'package:chat_2/features/search_partner/presentation/widgets/custom_age_form.dart';
 
@@ -61,7 +62,7 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
             children: [
               MainTextWidget(
                 text: translating(context, AppKeyTranslateManger.partnerAge),
-                style: Theme.of(context).textTheme.bodyMedium!,
+                style: Theme.of(context).textTheme.bodyMedium,
                 isCenter: true,
               ),
             ],
@@ -69,20 +70,22 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
           Padding(
             padding: EdgeInsets.symmetric(vertical: 14.h),
             child: CustomAge(
-              validate: validationAll(context: context).validateGenerall,
+              validate: validationAll(context: context)
+                  .validateNumberMinAgeFindPartner,
               text: translating(context, AppKeyTranslateManger.maxPartnerAge),
               getAge: (age) {
                 partner.maxAge = age;
-                validationAll.minAge = age!;
+                ModalValidate.minAge = age ?? 0;
               },
             ),
           ),
           CustomAge(
-              validate: validationAll(context: context).validateGenerall,
+              validate: validationAll(context: context)
+                  .validateNumberMaxAgeFindPartner,
               text: translating(context, AppKeyTranslateManger.minPartnerAge),
               getAge: (age) {
                 partner.minAge = age;
-                validationAll.maxAge = age!;
+                ModalValidate.maxAge = age ?? 0;
               }),
           const CustomFormDate(),
           Padding(
@@ -115,7 +118,7 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
                     text: translating(context, AppKeyTranslateManger.search),
                     onPressed: () {
                       print(partner);
-                      if (formState.currentState!.validate()) {
+                      if (formState.currentState?.validate() ?? false) {
                         context.read<SearchPartnerCubit>().getPartner(partner);
                       }
                     },

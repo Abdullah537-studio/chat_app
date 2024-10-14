@@ -16,7 +16,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     signinData.fold((failure) {
       try {
         emit(state.copyWith(
-            message: failure.response!.body, status: CubitStatus.faild));
+            message: failure.response?.body, status: CubitStatus.faild));
       } catch (e) {
         emit(state.copyWith(message: e.toString(), status: CubitStatus.faild));
       }

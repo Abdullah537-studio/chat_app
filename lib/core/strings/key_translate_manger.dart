@@ -3,7 +3,7 @@ import 'package:chat_2/generate/app_localizations/app_localizations.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 translating(BuildContext context, String word) {
-  return AppLocalization.of(context)!.translate(word);
+  return AppLocalization.of(context)?.translate(word);
 }
 
 class AppKeyTranslateManger {
@@ -11,7 +11,7 @@ class AppKeyTranslateManger {
     Gender.male: "male_drop_down",
     Gender.female: "female_drop_down",
   };
-
+  static String phone_lenght_validator = "phone_lenght_validator";
   static String welcome = "welcome_mes";
   static String home = "Home_mes";
   static String message = "Message_mes";
@@ -59,7 +59,7 @@ class AppKeyTranslateManger {
 //!-------------validate
   static String field_empty_validate = "field_empty_validate";
   static String email_not_currect = "email_not_currect";
-  static String passwod_not_word_currect = "passwod_not_currect";
+  static String passwod_not_word_currect = "passwod_not_word_currect";
   static String passwod_not_length_currect = "passwod_not_currect";
   static String reenter_password_not_currrect = "reenter_password_not_currrect";
   static String phone_number_not_currect = "phone_number_not_currect";

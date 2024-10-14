@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
                 builder: (context, state) {
                   if (state.status == CubitStatus.done) {
                     AppSharedPreferences.cacheLanguageCode(
-                        languageCode: state.locale!.languageCode);
+                        languageCode: state.locale?.languageCode ?? 'en');
                     return MaterialApp(
                       debugShowCheckedModeBanner: false,
                       locale: state.locale,
