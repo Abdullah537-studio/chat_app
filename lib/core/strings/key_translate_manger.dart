@@ -83,4 +83,5 @@ class AppKeyTranslateManger {
   static String partner_age_info_card = "partner_age_info_card";
   static String partner_country_name_info_card =
       "partner_country_name_info_card";
+  static String text_send_message_from_sugg = "text_send_message_from_sugg";
 }

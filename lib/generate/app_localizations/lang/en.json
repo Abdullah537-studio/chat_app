@@ -60,5 +60,6 @@
 "confirm_logout_bottom_continue":"Continue",
 "phone_lenght_validator":"must lenght be 9 number without +963",
 "partner_country_name_info_card":"Country name",
-"partner_age_info_card": "Age"
+"partner_age_info_card": "Age",
+"text_send_message_from_sugg": "Send message"
 }

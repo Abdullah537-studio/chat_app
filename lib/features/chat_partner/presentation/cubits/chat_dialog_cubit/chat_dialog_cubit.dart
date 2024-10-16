@@ -1,4 +1,5 @@
 import 'package:chat_2/core/error/exception.dart';
+import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/error_strings.dart';
 import 'package:chat_2/features/chat_partner/data/models/dialog_chat_model/dialog_chat_response.dart';
 import 'package:chat_2/features/chat_partner/domain/usecases/get_chat_dialog_usecase.dart';
@@ -31,8 +32,16 @@ class ChatDialogCubit extends Cubit<ChatDialogState> {
         }
       },
       (data) {
+        if (data.dialogs.isNotEmpty) {
+          AppSharedPreferences.cachIdDialogChatBubblePartner(
+            id: data.dialogs.first.chatid.toString(),
+          );
+        }
         emit(
-          state.copyWith(status: CubitStatus.done, chatDialog: data),
+          state.copyWith(
+            chatDialog: data,
+            status: CubitStatus.done,
+          ),
         );
       },
     );

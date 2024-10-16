@@ -20,16 +20,21 @@ class CustomPartnerInfoMessiging extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String dateFormate = "";
-    String fullNameFormate = "";
-    if (chatPartnerModel.lastMessageTime.toString().isNotEmpty) {
+    String dateFormate = '';
+    String fullNameFormate = chatPartnerModel.fullName;
+    String lastMessage = chatPartnerModel.lastMessage;
+    if (chatPartnerModel.lastMessageTime.toString().isNotEmpty &&
+        chatPartnerModel.lastMessageTime.toString().length > 10) {
       dateFormate = chatPartnerModel.lastMessageTime
           .toString()
           .substring(0, 10)
           .replaceAll("-", "/");
     }
-    if (chatPartnerModel.fullName.length > 14) {
+    if (fullNameFormate.isNotEmpty && fullNameFormate.length > 14) {
       fullNameFormate = "${chatPartnerModel.fullName.substring(0, 15)} ...";
+    }
+    if (lastMessage.isNotEmpty && lastMessage.length > 15) {
+      lastMessage = "${chatPartnerModel.lastMessage.substring(0, 15)} ...";
     }
     return GestureDetector(
       onTap: ontap,
@@ -73,7 +78,7 @@ class CustomPartnerInfoMessiging extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 2.h),
                   child: MainTextWidget(
-                    text: chatPartnerModel.lastMessage,
+                    text: lastMessage,
                     style: Theme.of(context).textTheme.bodyMedium!,
                     isCenter: false,
                   ),

@@ -1,21 +1,21 @@
-import 'package:chat_2/core/enum/tab_bar_state.dart';
-import 'package:chat_2/core/feature_button_nav_bar/presentation/bootom_navigation_tab_bar_cubit/bootom_tab_bar_cubit.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/image_svg.dart';
-import 'package:chat_2/core/widget/custom_buttons_icon.dart';
+import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/features/search_partner/data/models/response/search_partner_response_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CutomSuggestionPartnerInfo extends StatelessWidget {
+  final Function()? ontap;
   final Widget child;
   final PartnerResponse partnerResponse;
   const CutomSuggestionPartnerInfo({
     super.key,
     required this.partnerResponse,
     required this.child,
+    required this.ontap,
   });
 
   @override
@@ -43,10 +43,11 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
                     height: 120.h,
                     width: 120.w,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18.r),
-                        border:
-                            Border.all(color: AppColor.kColorBlack, width: 2.w),
-                        color: AppColor.kColorTransparent),
+                      borderRadius: BorderRadius.circular(18.r),
+                      border:
+                          Border.all(color: AppColor.kColorBlack, width: 2.w),
+                      color: AppColor.kColorTransparent,
+                    ),
                     child: child),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -83,18 +84,40 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
             right: 10.w,
             left: 10.w,
             child: Container(
-              height: 50.h,
-              margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
-              child: CustomButtonIcon(
-                image: chatIcon,
-                text: "Send a message",
-                onPressed: () {
-                  context
-                      .read<BootomTabBarCubit>()
-                      .getIndexTabBar(TabBarStatus.chatBubble);
-                },
-              ),
-            ),
+                height: 50.h,
+                margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
+                child: GestureDetector(
+                  onTap: ontap,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColor.kPrimaryColor,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: AppColor.kColorTransparent),
+                    ),
+                    height: 60.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.search,
+                          color: AppColor.kColorWhite,
+                          size: 33,
+                        ),
+                        MainTextWidget(
+                          text: translating(
+                              context,
+                              AppKeyTranslateManger
+                                  .text_send_message_from_sugg),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(color: AppColor.kColorWhite),
+                          isCenter: true,
+                        ),
+                      ],
+                    ),
+                  ),
+                )),
           ),
         ],
       ),

@@ -27,6 +27,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     bool rememberMe = false;
     return Scaffold(
+      backgroundColor: AppColor.kColorTransparent,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 40.h, vertical: 50.h),
         decoration: BoxDecoration(

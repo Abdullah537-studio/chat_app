@@ -23,7 +23,6 @@ import '../injection/injection_container.dart' as di;
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
-    // var arg = settings.arguments;
     switch (settings.name) {
 //?-----show splach view -------------------------------------------------------
       case RouteNamedScreens.splashScreenNameRoute:
@@ -94,7 +93,7 @@ class AppRouter {
                 create: (_) => di.sl<ChatPartnerBubbleCubit>(),
               ),
               BlocProvider(
-                create: (_) => di.sl<ChatDialogCubit>()..getChatDialog(),
+                create: (_) => di.sl<ChatDialogCubit>(),
               ),
             ],
             child: BootomNabigationAllPages(),
@@ -113,9 +112,7 @@ class AppRouter {
                 create: (context) => di.sl<ChatDialogCubit>()..getChatDialog(),
               )
             ],
-            child: const ChatBubblePartnerPage(
-                // data: arg,
-                ),
+            child: ChatBubblePartnerPage(),
           ),
         );
 

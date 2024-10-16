@@ -54,11 +54,11 @@ class validationAll {
   }
 
 //? ------------------- email
-
   String? validateEmail(String? val) {
-    bool checkEmailExpretion = RegExp(
-            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-        .hasMatch(val ?? "");
+    bool checkEmailExpretion =
+        RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+(.[a-zA-Z]{2,})*$")
+            .hasMatch(val ?? "");
+
     if (val?.isEmpty ?? true) {
       return translating(
         context,

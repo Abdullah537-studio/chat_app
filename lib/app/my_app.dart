@@ -20,10 +20,13 @@ class MyApp extends StatelessWidget {
   final AppRouter appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    ThemesStatus themesStatus = AppSharedPreferences.getThemeStatusString() ==
-            AppStateThemeString.lightTheme
-        ? ThemesStatus.light
-        : ThemesStatus.dark;
+    ThemesStatus themesStatus = ThemesStatus.dark;
+
+    if (AppSharedPreferences.getThemeStatusString() ==
+        AppStateThemeString.lightTheme) {
+      themesStatus = ThemesStatus.light;
+    }
+
     return ScreenUtilInit(
       designSize: const Size(412, 870),
       minTextAdapt: true,
