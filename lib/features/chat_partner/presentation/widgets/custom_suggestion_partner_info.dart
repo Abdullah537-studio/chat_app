@@ -1,11 +1,9 @@
 import 'package:chat_2/core/strings/color_manager.dart';
-import 'package:chat_2/core/strings/image_svg.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/widget/main_text_widget.dart';
 import 'package:chat_2/features/search_partner/data/models/response/search_partner_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CutomSuggestionPartnerInfo extends StatelessWidget {
   final Function()? ontap;
