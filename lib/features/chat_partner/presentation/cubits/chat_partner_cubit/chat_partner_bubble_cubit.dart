@@ -28,8 +28,7 @@ class ChatPartnerBubbleCubit extends Cubit<ChatPartnerBubbleState> {
         ));
       }
     }, (data) {
-      emit(state.copyWith(
-          chatBubbleResponse: data, status: CubitStatus.done, message: "done"));
+      emit(state.copyWith(chatBubbleResponse: data, status: CubitStatus.done));
     });
   }
 }

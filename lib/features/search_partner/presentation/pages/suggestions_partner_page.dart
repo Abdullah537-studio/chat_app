@@ -23,7 +23,6 @@ class SuggestionPartner extends StatelessWidget {
               UserPartnerInfo.partnerInfo?[index] ?? partnerResponse,
           child: Image.asset(AppImageStringPng.imageNotFoundPng),
           ontap: () {
-            context.read<ChatDialogCubit>().getChatDialog();
             context
                 .read<BootomTabBarCubit>()
                 .getIndexTabBar(TabBarStatus.chatBubble);

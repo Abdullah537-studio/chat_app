@@ -38,10 +38,12 @@ class ChatPage extends StatelessWidget {
           if (state.status == CubitStatus.loading) {
             return const loadingIndicator();
           } else if (state.status == CubitStatus.done) {
-            UserPartnerInfo.userName = state.chatPartner?.last.fullName ?? "";
-            UserPartnerInfo.partnerId = state.chatPartner?.last.contactId ?? 0;
-            UserPartnerInfo.userId = state.chatPartner?.last.accountId ?? 0;
             if (state.chatPartner?.isNotEmpty ?? false) {
+              UserPartnerInfo.userName =
+                  state.chatPartner?.first.fullName ?? "";
+              UserPartnerInfo.partnerId =
+                  state.chatPartner?.first.contactId ?? 0;
+              UserPartnerInfo.userId = state.chatPartner?.first.accountId ?? 0;
               return ListView.builder(
                 itemCount: state.chatPartner?.length ?? 0,
                 itemBuilder: (context, index) {

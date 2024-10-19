@@ -20,9 +20,10 @@ class ChatPartnerInfoCubit extends Cubit<ChatPartnerState> {
       }
     }, (data) {
       //! cache id to get dialog messages
-
-      AppSharedPreferences.cachIdDialogChatBubblePartner(
-          id: data.first.dialogs.first.chatid);
+      if (data.isNotEmpty) {
+        AppSharedPreferences.cachIdDialogChatBubblePartner(
+            id: data.first.dialogs.first.chatid);
+      }
       emit(state.copyWith(status: CubitStatus.done, chatPartner: data));
     });
   }

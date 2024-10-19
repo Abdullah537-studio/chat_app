@@ -2,6 +2,7 @@ import 'package:chat_2/core/enum/tab_bar_state.dart';
 import 'package:chat_2/core/feature_button_nav_bar/presentation/bootom_navigation_tab_bar_cubit/bootom_tab_bar_cubit.dart';
 import 'package:chat_2/core/enum/cubit_enum.dart';
 import 'package:chat_2/core/function/main_functions/validator.dart';
+import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/error_strings.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/widget/loading_indicator.dart';
@@ -93,28 +94,26 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
           Padding(
             padding: EdgeInsets.only(bottom: 100.h),
             child: BlocConsumer<SearchPartnerCubit, SearchPartnerState>(
-              listener: (context, state) {
+              listener: (context, state) async {
                 if (state.status == CubitStatus.done) {
                   final int userId = state.partner.first.id ?? 0;
                   final int partnerId = state.partner.first.prtnerId ?? 0;
+                  String dialog =
+                      AppSharedPreferences.dialogChatBubblePartnerById();
+                  if (dialog.isEmpty) {
+                    final ChatBubbleRequiest chatBubbleRequiest =
+                        ChatBubbleRequiest(
+                      message: "hello start chatting with me",
+                      who: partnerId,
+                      recipientId: userId,
+                      time: DateTime.now(),
+                    );
 
-                  BlocListener<ChatPartnerInfoCubit, ChatPartnerState>(
-                    listener: (context, state) {
-                      if (state.chatPartner?.isEmpty ?? false) {
-                        final ChatBubbleRequiest chatBubbleRequiest =
-                            ChatBubbleRequiest(
-                          message: "hello start chatting with me",
-                          who: partnerId,
-                          recipientId: userId,
-                          time: DateTime.now(),
-                        );
-
-                        context
-                            .read<ChatPartnerBubbleCubit>()
-                            .chatBubble(chatBubbleRequiest);
-                      }
-                    },
-                  );
+                    await context
+                        .read<ChatPartnerBubbleCubit>()
+                        .chatBubble(chatBubbleRequiest);
+                  }
+                  context.read<ChatPartnerInfoCubit>().getAllChatPartner();
 
                   context
                       .read<BootomTabBarCubit>()

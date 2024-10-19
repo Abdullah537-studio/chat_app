@@ -78,21 +78,21 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
           ),
 //! -----------------align button between card and out card --------------------
           Positioned(
-            bottom: -40.h,
-            right: 10.w,
-            left: 10.w,
-            child: Container(
+              bottom: -40.h,
+              right: 10.w,
+              left: 10.w,
+              child: Container(
                 height: 50.h,
                 margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
-                child: GestureDetector(
-                  onTap: ontap,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColor.kPrimaryColor,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: AppColor.kColorTransparent),
-                    ),
-                    height: 60.h,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColor.kPrimaryColor,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: AppColor.kColorTransparent),
+                  ),
+                  height: 60.h,
+                  child: GestureDetector(
+                    onTap: ontap,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -115,8 +115,8 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
                       ],
                     ),
                   ),
-                )),
-          ),
+                ),
+              )),
         ],
       ),
     );

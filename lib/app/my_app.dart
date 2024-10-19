@@ -16,10 +16,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  final AppRouter appRouter = AppRouter();
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
+    AppRouter appRouter = AppRouter();
     ThemesStatus themesStatus = ThemesStatus.dark;
 
     if (AppSharedPreferences.getThemeStatusString() ==

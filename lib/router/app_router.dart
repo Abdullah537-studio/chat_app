@@ -93,7 +93,7 @@ class AppRouter {
                 create: (_) => di.sl<ChatPartnerBubbleCubit>(),
               ),
               BlocProvider(
-                create: (_) => di.sl<ChatDialogCubit>(),
+                create: (_) => di.sl<ChatDialogCubit>()..getChatDialog(),
               ),
             ],
             child: BootomNabigationAllPages(),

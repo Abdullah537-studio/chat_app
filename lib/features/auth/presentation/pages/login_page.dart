@@ -18,18 +18,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
-  final GlobalKey<FormState> formKeyLogin = GlobalKey();
-
-  final LoginRequest loginEntite = LoginRequest();
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<FormState> formKeyLogin = GlobalKey();
+    LoginRequest loginEntite = LoginRequest();
+
     bool rememberMe = false;
     return Scaffold(
       backgroundColor: AppColor.kColorTransparent,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 40.h, vertical: 50.h),
+        height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AppImageStringPng.backgroundLogin),
@@ -43,16 +44,14 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 75.h),
-                  child: Text(
-                    translating(context, AppKeyTranslateManger.login),
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(color: AppColor.kColorBlack),
-                  ),
-                ),
+                    padding: EdgeInsets.symmetric(vertical: 75.h),
+                    child: MainTextWidget(
+                        text: translating(context, AppKeyTranslateManger.login),
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium!
+                            .copyWith(color: AppColor.kColorBlack),
+                        isCenter: true)),
                 //?--------------------------Email----------------------------------------------
                 MainTextFormField(
                   keyboardTybe: TextInputType.emailAddress,
@@ -140,6 +139,8 @@ class LoginPage extends StatelessWidget {
                     }
                     if (state.status == CubitStatus.done) {
                       AppSharedPreferences.cacheRememberMeValue(rememberMe);
+                      AppSharedPreferences.cachIdDialogChatBubblePartner(
+                          id: "");
                       Navigator.pushReplacementNamed(
                         context,
                         RouteNamedScreens.boottomTabBarScreenNameRoute,
