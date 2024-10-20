@@ -68,7 +68,7 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
                     ),
                     MainTextWidget(
                       text: "Country Name: ${partnerResponse.cityName}",
-                      style: Theme.of(context).textTheme.bodyMedium!,
+                      style: Theme.of(context).textTheme.bodyMedium,
                       isCenter: false,
                     ),
                   ],
@@ -78,45 +78,44 @@ class CutomSuggestionPartnerInfo extends StatelessWidget {
           ),
 //! -----------------align button between card and out card --------------------
           Positioned(
-              bottom: -40.h,
-              right: 10.w,
-              left: 10.w,
+            bottom: -40.h,
+            right: 10.w,
+            left: 10.w,
+            child: Container(
+              height: 50.h,
+              margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
               child: Container(
-                height: 50.h,
-                margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.w),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColor.kPrimaryColor,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: AppColor.kColorTransparent),
-                  ),
-                  height: 60.h,
-                  child: GestureDetector(
-                    onTap: ontap,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.search,
-                          color: AppColor.kColorWhite,
-                          size: 33,
-                        ),
-                        MainTextWidget(
-                          text: translating(
-                              context,
-                              AppKeyTranslateManger
-                                  .text_send_message_from_sugg),
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium
-                              ?.copyWith(color: AppColor.kColorWhite),
-                          isCenter: true,
-                        ),
-                      ],
-                    ),
+                decoration: BoxDecoration(
+                  color: AppColor.kPrimaryColor,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: AppColor.kColorTransparent),
+                ),
+                height: 60.h,
+                child: GestureDetector(
+                  onTap: ontap,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.search,
+                        color: AppColor.kColorWhite,
+                        size: 33,
+                      ),
+                      MainTextWidget(
+                        text: translating(context,
+                            AppKeyTranslateManger.text_send_message_from_sugg),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: AppColor.kColorWhite),
+                        isCenter: true,
+                      ),
+                    ],
                   ),
                 ),
-              )),
+              ),
+            ),
+          ),
         ],
       ),
     );

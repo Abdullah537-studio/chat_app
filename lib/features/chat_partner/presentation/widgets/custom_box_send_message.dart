@@ -9,10 +9,11 @@ class CustomBoxSendMessage extends StatelessWidget {
     super.key,
     this.onChangeTextFormField,
     this.onPressedIconSendMessage,
+    this.controller,
   });
   final Function(String)? onChangeTextFormField;
   final Function()? onPressedIconSendMessage;
-
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,6 +22,7 @@ class CustomBoxSendMessage extends StatelessWidget {
 //----------try it
           data: Theme.of(context).copyWith(primaryColor: AppColor.kColorWhite),
           child: TextField(
+            controller: controller,
             onEditingComplete: onPressedIconSendMessage,
             onChanged: onChangeTextFormField,
             style: Theme.of(context).textTheme.bodyMedium,

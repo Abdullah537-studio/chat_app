@@ -1,4 +1,5 @@
 import 'package:chat_2/core/enum/cubit_enum.dart';
+import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
 import 'package:chat_2/core/strings/key_translate_manger.dart';
 import 'package:chat_2/core/widget/loading_indicator.dart';
@@ -19,11 +20,24 @@ class ChatBubblePartnerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController controller = TextEditingController();
     ChatBubbleRequiest chatBubbleRequiest = ChatBubbleRequiest(
       who: UserPartnerInfo.userId,
       recipientId: UserPartnerInfo.partnerId,
       time: DateTime.now(),
     );
+
+    void _sendMessage() {
+      chatBubbleRequiest.time = DateTime.now();
+
+      context.read<ChatPartnerBubbleCubit>().chatBubble(chatBubbleRequiest);
+
+      String dialog = AppSharedPreferences.dialogChatBubblePartnerById();
+      if (dialog.isNotEmpty) {
+        context.read<ChatDialogCubit>().getChatDialog();
+      }
+      controller.clear();
+    }
 
     return BlocConsumer<ChatDialogCubit, ChatDialogState>(
       listener: (context, state) {
@@ -73,21 +87,44 @@ class ChatBubblePartnerPage extends StatelessWidget {
                     onChangeTextFormField: (val) {
                       chatBubbleRequiest.message = val;
                     },
-                    onPressedIconSendMessage: () {
-                      chatBubbleRequiest.time = DateTime.now();
-
-                      context
-                          .read<ChatPartnerBubbleCubit>()
-                          .chatBubble(chatBubbleRequiest);
-                      context.read<ChatDialogCubit>().getChatDialog();
-                    },
+                    onPressedIconSendMessage: _sendMessage,
                   ),
                 ],
               ),
             ),
           );
         } else {
-          return SizedBox();
+          return Align(
+            alignment: Alignment.bottomCenter,
+            child: RefreshIndicator(
+              color: AppColor.kPrimaryColor,
+              onRefresh: () {
+                String dialog =
+                    AppSharedPreferences.dialogChatBubblePartnerById();
+                if (dialog.isNotEmpty) {
+                  return context.read<ChatDialogCubit>().getChatDialog();
+                } else {
+                  Future empty = Future(() => null);
+                  return empty;
+                }
+              },
+              child: ListView(
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                children: [
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height / 2,
+                  ),
+                  CustomBoxSendMessage(
+                    controller: controller,
+                    onChangeTextFormField: (val) {
+                      chatBubbleRequiest.message = val;
+                    },
+                    onPressedIconSendMessage: _sendMessage,
+                  ),
+                ],
+              ),
+            ),
+          );
         }
       },
     );

@@ -129,6 +129,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 //?---------- password && reenter password -------------------------------------
                 MainTextFormField(
+                  thisIsPassword: true,
                   textInputFormatter: [],
                   hintText:
                       translating(context, AppKeyTranslateManger.password),
@@ -144,7 +145,9 @@ class SignUpPage extends StatelessWidget {
                     ModalValidate.passwordToValidate = value;
                   },
                 ),
+//?------------------ reenter passowrd ----------------------------------------
                 MainTextFormField(
+                  thisIsPassword: true,
                   textInputFormatter: [],
                   hintText: translating(
                       context, AppKeyTranslateManger.reenterPassword),

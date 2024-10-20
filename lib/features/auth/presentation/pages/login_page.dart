@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     GlobalKey<FormState> formKeyLogin = GlobalKey();
     LoginRequest loginEntite = LoginRequest();
-
+    bool iconPasswordKeyChange = true;
     bool rememberMe = false;
     return Scaffold(
       backgroundColor: AppColor.kColorTransparent,
@@ -71,6 +71,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 //?--------------------------Passwrod-------------------------------------------
                 MainTextFormField(
+                  thisIsPassword: iconPasswordKeyChange,
                   onPressedIcon: null,
                   textInputFormatter: null,
                   onEdithingComplete: null,
