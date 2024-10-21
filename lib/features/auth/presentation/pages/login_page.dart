@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
     bool iconPasswordKeyChange = true;
     bool rememberMe = false;
     return Scaffold(
-      backgroundColor: AppColor.kColorTransparent,
+      backgroundColor: AppColor.kColorWhite,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 40.h, vertical: 50.h),
         height: double.infinity,

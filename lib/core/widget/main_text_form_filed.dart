@@ -77,6 +77,7 @@ class MainTextFormField extends StatelessWidget {
             onEditingComplete: onEdithingComplete,
             textInputAction: TextInputAction.next,
             cursorColor: AppColor.kPrimaryColor,
+
             obscureText: showPassword,
             obscuringCharacter: "⋆",
             style: Theme.of(context)

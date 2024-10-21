@@ -71,7 +71,7 @@ class SignUpPage extends StatelessWidget {
                 ),
                 //?-------- age  ---------------------------------------------
                 MainTextFormField(
-                  maxLength: 3,
+                  maxLength: 2,
                   textInputFormatter: [
                     FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                     FilteringTextInputFormatter.digitsOnly,

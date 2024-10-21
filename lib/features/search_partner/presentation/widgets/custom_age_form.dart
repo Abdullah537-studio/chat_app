@@ -28,7 +28,7 @@ class CustomAge extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width - 200.w,
           child: MainTextFormField(
-            maxLength: 3,
+            maxLength: 2,
             textInputFormatter: [
               FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
               FilteringTextInputFormatter.digitsOnly

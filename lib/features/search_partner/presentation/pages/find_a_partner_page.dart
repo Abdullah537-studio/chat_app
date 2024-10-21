@@ -81,14 +81,15 @@ class _FindAPartnerPageState extends State<FindAPartnerPage> {
             ),
           ),
           CustomAge(
-              validate: validationAll(context: context)
-                  .validateNumberMaxAgeFindPartner,
-              text: translating(context, AppKeyTranslateManger.minPartnerAge),
-              getAge: (age) {
-                partner.minAge = age;
+            validate:
+                validationAll(context: context).validateNumberMaxAgeFindPartner,
+            text: translating(context, AppKeyTranslateManger.minPartnerAge),
+            getAge: (age) {
+              partner.minAge = age;
 
-                ModalValidate.maxAge = age != null ? age : 0;
-              }),
+              ModalValidate.maxAge = age != null ? age : 0;
+            },
+          ),
           const CustomFormDate(),
           Padding(
             padding: EdgeInsets.only(bottom: 100.h),
