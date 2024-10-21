@@ -142,6 +142,7 @@ class LoginPage extends StatelessWidget {
                       AppSharedPreferences.cacheRememberMeValue(rememberMe);
                       AppSharedPreferences.cachIdDialogChatBubblePartner(
                           id: "");
+
                       Navigator.pushReplacementNamed(
                         context,
                         RouteNamedScreens.boottomTabBarScreenNameRoute,

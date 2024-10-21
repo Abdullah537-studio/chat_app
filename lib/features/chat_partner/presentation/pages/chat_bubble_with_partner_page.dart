@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:chat_2/core/enum/cubit_enum.dart';
 import 'package:chat_2/core/shared/shared_pref.dart';
 import 'package:chat_2/core/strings/color_manager.dart';
@@ -36,6 +38,7 @@ class ChatBubblePartnerPage extends StatelessWidget {
       if (dialog.isNotEmpty) {
         context.read<ChatDialogCubit>().getChatDialog();
       }
+
       controller.clear();
     }
 
